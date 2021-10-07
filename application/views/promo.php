@@ -1,0 +1,451 @@
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<script type='text/javascript' src='<?php echo base_url('asset/js/jquery.js');?>'></script>
+<script type='text/javascript' src='<?php echo base_url('asset/js/jquery.min.js');?>'></script>
+<script type='text/javascript' src='<?php echo base_url('asset/js/bootstrap.min.js');?>'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#persendiskon').attr("disabled", "disabled");  
+       $('#kodepromo').removeAttr("disabled");
+       $('#update').hide();
+      $('#jenispromo').change(function(){
+          var temp = $(this).val();
+          if(temp==1)
+          {
+              $('#persendiskon').removeAttr("disabled")
+              $('#persendiskon').val("");
+          }
+          else
+          {
+            $('#persendiskon').attr('disabled','disabled');
+          }
+      });
+        var id='';  
+      $('input[type=button]').click(function(){
+          id = $(this).attr('id');
+          var nama = $(this).attr('name');
+              if(nama=='update') {
+                 var tampung = $(this).attr('id').split('-');
+                 $('#id').val(tampung[0]);
+                  $('#namapromo').val(tampung[1]);
+                  $('#jenispromo').val(tampung[3]);
+                  if(tampung[4]=="")
+                  {
+                    $('#persendiskon').attr('disabled','disabled');
+                      $('#persendiskon').val("");
+                  }
+                  else
+                  {          
+                      $('#persendiskon').removeAttr("disabled")
+                      $('#persendiskon').val(tampung[4]);
+                  }
+                  var tanggalmulai = tampung[6].concat("-",tampung[7],"-",tampung[8]);
+                  var tanggalberakhir = tampung[9].concat("-",tampung[10],"-",tampung[11]);
+                $('#kodepromo').val(tampung[5]);
+                $('#tanggalmulai').val(tanggalmulai);
+                $('#tanggalberakhir').val(tanggalberakhir);
+                  $('#update').show();
+                 $('#insertpromo').hide();
+                 $('#kodepromo').attr('disabled','disabled');
+            }
+            else if(nama=='delete')
+            {
+
+                 $.post("<?php echo base_url(); ?>"+'index.php/Admin/getdeletepromo',{id:id},function(value){
+                    window.location = "<?php echo site_url("Admin/deletepromo"); ?>";
+                 });
+            }
+      });
+
+      $('#logout').click(function(){
+    
+             window.location= "<?php echo site_url('Admin/logout');?>";
+      });
+  });
+
+</script>
+<style type="text/css">
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v14/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v14/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v14/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  background: #f5f5f5;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+i.fa {
+  font-size: 16px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.42857143;
+}
+.header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: #3498DB;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+}
+.header .logo {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.header #menu-action {
+  display: block;
+  float: left;
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 15px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.header #menu-action i {
+  display: inline-block;
+  margin: 0 5px;
+}
+.header #menu-action span {
+  width: 0px;
+  display: none;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.header #menu-action:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.header #menu-action.active {
+  width: 250px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.header #menu-action.active span {
+  display: inline;
+  width: auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 50px;
+  height: 100%;
+  width: 60px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar:hover,
+.sidebar.active,
+.sidebar.hovered {
+  width: 250px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar ul li {
+  display: block;
+}
+.sidebar ul li a {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+  text-align: left;
+}
+.sidebar ul li a i {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  -webkit-animation-duration: 0.7s;
+  -moz-animation-duration: 0.7s;
+  -o-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.sidebar ul li a span {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+}
+.sidebar ul li a:hover {
+  background-color: #eee;
+}
+.sidebar ul li a:hover i {
+  -webkit-animation-name: swing;
+  -moz-animation-name: swing;
+  -o-animation-name: swing;
+  animation-name: swing;
+}
+.main {
+  position: relative;
+  display: block;
+  top: 50px;
+  left: 0;
+  padding: 15px;
+  padding-left: 75px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.main.active {
+  padding-left: 275px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.main .jumbotron {
+  background-color: #fff;
+  padding: 30px !important;
+  border: 1px solid #dfe8f1;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.main .jumbotron h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 12px;
+}
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    -ms-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    -ms-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    -ms-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    -ms-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    -ms-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+
+</style>
+
+<meta charset="UTF-8">
+<div class="header">
+  <a href="#" id="menu-action">
+    <i class="fa fa-bars"></i>
+    <span>Close</span>
+  </a>
+  <div class="logo">
+    Admin Page
+	<input type='submit' name='logout' id='logout' class='btn btn-default' value='Log Out'>
+  </div>
+</div>
+<div class="sidebar">
+  <ul>
+    <li id='master'><a href="<?php echo site_url('Admin/user'); ?>"><i class="fa fa-desktop"></i><span> Master User</span></a></li>
+    <li id='order'><a href="<?php echo site_url('Admin/slider'); ?>"><i class="fa fa-desktop"></i><span>Slider</span></a></li>
+    <li id='order'><a href="<?php echo site_url('Admin/masteradmin'); ?>"><i class="fa fa-desktop"></i><span>Master Admin</span></a></li>
+    <li><a href="<?php echo site_url('Admin/halamanpromo'); ?>"><i class="fa fa-money"></i><span>Promo</span></a></li>
+    <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
+    <li><a href="<?php echo site_url('Admin/ke_master_blog'); ?>"><i class="fa fa-bar-chart"></i><span>List Blog</span></a></li>
+    <li><a href="<?php echo site_url('Admin/ke_buat_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Buat Blog</span></a></li>
+  </ul>
+</div>
+
+<!-- Content -->
+<div class="main">
+  <div class="hipsum">
+    <div class="jumbotron">
+      <table class="table table-bordered">
+            <tr>
+              <th>Nama Promo</th>
+              <th>Jenis Promo</th>
+              <th>Persen Diskon</th>
+              <th>Kode Promo</th>
+              <th>Tanggal Mulai</th>
+              <th>Tanggal Berakhir</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+              <?php
+                foreach($promo as $row)
+                {
+                  echo "<tr>";
+        				  echo "<td>".$row->Nama_promo."</td>";
+                  if($row->Jenis_promo==1)
+                  {
+                      echo "<td>Diskon</td>";
+                  }
+                  else
+                  {
+                     echo "<td>Buy 2 Get 1</td>";
+                  }
+                
+                  if($row->Persen_diskon==null)
+                  {
+                     echo "<td>".$row->Persen_diskon."-</td>";
+                  }
+                  else
+                  {
+                    echo "<td>".$row->Persen_diskon."%</td>";
+                  }
+                  echo "<td>".$row->Kode_promo."</td>";
+                  echo "<td>".$row->Tanggal_mulai."</td>";
+                  echo "<td>".$row->Tanggal_berakhir."</td>";
+                  if($row->Status==0)
+                  {
+                    echo "<td>Belum Berlangsung</td>";
+                  }
+                  else if($row->Status==1)
+                  {
+                    echo "<td>Sedang Berlangsung</td>";
+                  }
+                  else if($row->Status==2)
+                  {
+                    echo "<td>Selesai</td>";
+                  }
+                  echo "<td>";
+                  echo "<a href='#formedit'><input type='button' name='update' id='$row->Id_promo-$row->Nama_promo->-$row->Jenis_promo-$row->Persen_diskon-$row->Kode_promo-$row->Tanggal_mulai-$row->Tanggal_berakhir-$row->Status' class='btn btn-primary' value='Edit'></a>&nbsp&nbsp&nbsp";
+                  echo "<input type='button' name='delete' id='$row->Id_promo' class='btn btn-primary' value='Delete'>";
+                  echo "</td>";
+        				  echo "</tr>";
+                }
+              ?>
+            
+        </table>
+
+		<div class="form-group">
+         <?php echo form_open('Admin/promo'); ?>
+      <label for="namabrg">Nama Promo:</label>
+      <input type="text" class="form-control" id="namapromo" name="namapromo">
+      </div><br>
+   
+      <div class="form-group">
+      <label for="jnspromo">Jenis Promo:</label>
+       <select class="form-control" id="jenispromo" name='jenispromo'>
+        <option name='1' value='1'>Diskon</option>
+        <option name='2' value='2'>Buy 2 Get 1</option>
+        <option name='3' value='3' selected>None</option>
+        </select>
+      </div><br>
+
+       <div class="form-group" id='persen'>
+      <label for="persen">Persen Diskon:</label>
+         <input type="text" class="form-control" id="persendiskon" name="persendiskon">
+      </div><br>
+
+       <div class="form-group">
+      <label for="kode">Kode Promo:</label>
+        <input type="text" class="form-control" id="kodepromo" name="kodepromo">
+      </div><br>
+
+       <div class="form-group">
+      <label for="tglmulai">Tanggal Mulai:</label>
+        <input type="date" class="form-control" id="tanggalmulai" name="tanggalmulai">
+      </div><br>
+
+       <div class="form-group">
+      <label for="tglberakhir">Tanggal Berakhir:</label>
+        <input type="date" class="form-control" id="tanggalberakhir" name="tanggalberakhir">
+      </div><br>
+          <input type='hidden' name='id' id='id'>
+      <input type='submit' name='insertpromo' id='insertpromo' class='btn btn-primary' value='Insert'>
+      <input type='submit' name='update' id='update' class='btn btn-primary' value='Update'>
+       <?php echo form_close(); ?>
+	</div>
+  </div>
+</div>
+
+
+
+</html>
