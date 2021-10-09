@@ -15,6 +15,7 @@ class Midtrans_model extends CI_Model {
             'channel' => $data['channel'],
             'midtrans_id' => $data['midtrans_id'],
             'order_id' => $data['order_id'],
+            'va' => $data['va']?$data['va']:null,
         );
         $this->db->insert('midtrans_transactions',$insert_data);
         return $insert_data;

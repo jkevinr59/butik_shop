@@ -64,6 +64,7 @@ class Midtrans {
                 $dataInsert['midtrans_id'] = $transactionBca->transaction_id;
                 $dataInsert['channel'] = 'bca';
                 $dataInsert['order_id'] = $order_id_bca;
+                $dataInsert['va'] = $transactionBca->va_numbers[0]->va_number;
                 $this->CI->midtrans_model->insert($dataInsert);
             }
             $order_id_bni = "Bni_".$trans_id;
@@ -73,6 +74,7 @@ class Midtrans {
                 $dataInsert['midtrans_id'] = $transactionBni->transaction_id;
                 $dataInsert['channel'] = 'bni';
                 $dataInsert['order_id'] = $order_id_bni;
+                $dataInsert['va'] = $transactionBni->va_numbers[0]->va_number;
                 $this->CI->midtrans_model->insert($dataInsert);
             }
             return array("bca"=>$transactionBca,"bni"=>$transactionBni);
