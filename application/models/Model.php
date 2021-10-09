@@ -1056,7 +1056,10 @@ public function __construct(){
 
 		$this->db->where('Id_user',$id);
 		$this->db->delete('cart');
-
+		return array(
+			"dtrans" => $data,
+			'htrans' => $data2,
+		);
 	}
 
 	public function insertdtrans_htranspromo($id,$nota,$kode,$totalpromo) {

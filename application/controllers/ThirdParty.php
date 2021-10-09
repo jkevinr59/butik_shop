@@ -72,14 +72,23 @@ class ThirdParty extends CI_Controller
 	}
 
 
-	public function midtrans_create()
+	public function midtrans_create_bca()
 	{
 		$id="1102345-".rand(1,100);
 		$amount="20000";
-		$this->midtrans->createTransaction($id,$amount);
-		die;
+		$result = $this->midtrans->createTransactionBca($id,$amount);
+		
+		echo(json_encode($result,JSON_PRETTY_PRINT));
 	}
 
+	public function midtrans_create_bni()
+	{
+		$id="1102345-".rand(1,100);
+		$amount="20000";
+		$result = $this->midtrans->createTransactionBni($id,$amount);
+		
+		echo(json_encode($result,JSON_PRETTY_PRINT));
+	}
 	public function midtrans_callback()
 	{
 		$input = $this->input->post();

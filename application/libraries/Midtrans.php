@@ -11,6 +11,7 @@ class Midtrans {
             Config::$isProduction = false;
             Config::$isSanitized = true;
             Config::$is3ds = true;
+            $this->load->model('midtrans_model');
             // $test = new FPDF();
         }
         
@@ -29,7 +30,7 @@ class Midtrans {
                 ) 
             );
             $response_bni = Midtrans\CoreApi::charge($transaction_data_bni);
-            var_dump($response_bni);
+            return $response_bni;
         }
 
         public function createTransactionBca($order_id,$amount)
@@ -47,8 +48,32 @@ class Midtrans {
             );
             $response_bca = Midtrans\CoreApi::charge($transaction_data_bca);
             
-            var_dump($response_bca);
-            die;
+            return $response_bca;
+        }
+
+        public function createMidtransTransaction($dataCart)
+        {
+            $trans_id = $dataCart['dtrans']['Notajual'];
+            $amount = $dataCart['dtrans']['Notajual'];
+            $order_id_bca = "Bca_".$trans_id;
+            $transactionBca = $this->createTransactionBca($order_id_bca,$amount);
+            if(substr($transactionBca->status_code,0,1)=='2'){
+                $dataInsert['trans_id'] = $trans_id;
+                $dataInsert['midtrans_id'] = $transactionBca->transaction_id;
+                $dataInsert['channel'] = 'bca';
+                $dataInsert['order_id'] = $order_id_bca;
+                $this->midtrans_model->insert($dataInsert);
+            }
+            $order_id_bni = "Bni_".$trans_id;
+            $transactionBni = $this->createTransactionBni($order_id_bni,$amount);
+            if(substr($transactionBni->status_code,0,1)=='2'){
+                $dataInsert['trans_id'] = $trans_id;
+                $dataInsert['midtrans_id'] = $transactionBni->transaction_id;
+                $dataInsert['channel'] = 'bni';
+                $dataInsert['order_id'] = $order_id_bni;
+                $this->midtrans_model->insert($dataInsert);
+            }
+            return array("bca"=>$transactionBca,"bni"=>$transactionBni);
         }
 
 }
