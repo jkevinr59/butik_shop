@@ -11,7 +11,7 @@ class Midtrans {
             Config::$isProduction = false;
             Config::$isSanitized = true;
             Config::$is3ds = true;
-            $this->load->model('midtrans_model');
+            $this->CI->load->model('midtrans_model');
             // $test = new FPDF();
         }
         
