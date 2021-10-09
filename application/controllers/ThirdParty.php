@@ -89,6 +89,22 @@ class ThirdParty extends CI_Controller
 		
 		echo(json_encode($result,JSON_PRETTY_PRINT));
 	}
+
+	public function midtrans_create()
+	{
+		$data = array(
+			"dtrans" => array(
+				'Notajual' => "N".date('dmYHis'),
+				'Jumlah' => "50000",
+			)
+		);
+		$result = $this->midtrans->createMidtransTransaction($data);
+		
+		echo("<pre>");
+		var_dump($result) ;
+		echo("</pre>");
+		die;
+	}
 	public function midtrans_callback()
 	{
 		$input = $this->input->post();
