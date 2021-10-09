@@ -14,6 +14,7 @@ class ThirdParty extends CI_Controller
 		$this->load->library('rajaongkir');
 		$this->load->library('pagination');
 		$this->load->model('Model');
+		$this->load->model('midtrans_model');
 	}
 
 	public function rajaongkir_province()
@@ -107,7 +108,20 @@ class ThirdParty extends CI_Controller
 	}
 	public function midtrans_callback()
 	{
-		$input = $this->input->post();
+		try {
+			//code...
+			$input = $this->input->post();
+			file_put_contents('midtrans'.date('Ymd').'.log','notification at '.date('Y-m-d H:i:s').' /n',FILE_APPEND);
+			file_put_contents('midtrans'.date('Ymd').'.log',json_encode($input).'/n',FILE_APPEND);
+			$transaction_id = $input['transaction_id'];
+			if(substr($input['status_code'],0,1)=="2"){
+				$this->midtrans_model->approving_transaction($input['transaction_id']);
+			}
+		} catch (\Throwable $th) {
+			//throw $th;
+			log_message('error',$th->getMessage());
+		}
+
 	}
 }
 ?>
