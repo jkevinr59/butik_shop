@@ -4,6 +4,7 @@ use Midtrans\Config;
 
 class Midtrans {
 
+        private $CI;
         private $key="SB-Mid-server-lM_LK52n12o7ey7l7jZaIc-Z";
         public function __construct()
         {
@@ -11,6 +12,7 @@ class Midtrans {
             Config::$isProduction = false;
             Config::$isSanitized = true;
             Config::$is3ds = true;
+            $this->CI =& get_instance();
             $this->CI->load->model('midtrans_model');
             // $test = new FPDF();
         }
@@ -62,7 +64,7 @@ class Midtrans {
                 $dataInsert['midtrans_id'] = $transactionBca->transaction_id;
                 $dataInsert['channel'] = 'bca';
                 $dataInsert['order_id'] = $order_id_bca;
-                $this->midtrans_model->insert($dataInsert);
+                $this->CI->midtrans_model->insert($dataInsert);
             }
             $order_id_bni = "Bni_".$trans_id;
             $transactionBni = $this->createTransactionBni($order_id_bni,$amount);
@@ -71,7 +73,7 @@ class Midtrans {
                 $dataInsert['midtrans_id'] = $transactionBni->transaction_id;
                 $dataInsert['channel'] = 'bni';
                 $dataInsert['order_id'] = $order_id_bni;
-                $this->midtrans_model->insert($dataInsert);
+                $this->CI->midtrans_model->insert($dataInsert);
             }
             return array("bca"=>$transactionBca,"bni"=>$transactionBni);
         }
