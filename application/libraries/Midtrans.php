@@ -56,7 +56,7 @@ class Midtrans {
         public function createMidtransTransaction($dataCart)
         {
             $trans_id = $dataCart['dtrans']['Notajual'];
-            $amount = $dataCart['dtrans']['Notajual'];
+            $amount = $dataCart['dtrans']['Jumlah'];
             $order_id_bca = "Bca_".$trans_id;
             $transactionBca = $this->createTransactionBca($order_id_bca,$amount);
             if(substr($transactionBca->status_code,0,1)=='2'){
