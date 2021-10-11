@@ -136,7 +136,7 @@ class ThirdParty extends CI_Controller
 
 		return $this->output
 				->set_content_type('application/json')
-				->set_output($respond);
+				->set_output(json_encode($respond));
 	}
 }
 ?>
