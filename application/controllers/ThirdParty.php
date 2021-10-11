@@ -119,15 +119,18 @@ class ThirdParty extends CI_Controller
 			// var_dump($input);
 			if(substr($input->status_code,0,1)=="2"){
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
+				$user = $this->Model->getIdUser($this->session->userdata('login'));
+				
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
 			log_message('error',$th->getMessage());
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',"error:".json_encode($th).PHP_EOL,FILE_APPEND);
 		}
-		echo json_encode(array(
+		return $this->respond(array(
 			"code" => "201",
 			'message' => "sukses"
+			"data" => isset($result)?$result::null,
 		));
 	}
 }
