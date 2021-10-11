@@ -27,6 +27,7 @@ class Midtrans_model extends CI_Model {
             'approved_at' => date('Y-m-d H:i:s'),
         );
         $this->db->where('midtrans_id',$midtrans_id)->update('midtrans_transactions',$update_data);
+        return array('midtrans_id'=>$midtrans_id,"data"=>$update_data);
     }
 
     public function canceling_transaction($midtrans_id)
