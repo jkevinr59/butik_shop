@@ -48,6 +48,7 @@ class Midtrans_model extends CI_Model {
     {
         $data = $this->db->where('trans_id',$trans_id)
                 ->where('approved_at IS NULL')
+                ->where('canceled_at IS NULL')
                 ->get('midtrans_transactions')->result();
         return $data;
     }

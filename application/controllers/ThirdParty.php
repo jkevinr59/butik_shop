@@ -135,7 +135,7 @@ class ThirdParty extends CI_Controller
 		$respond = (array(
 			"code" => "201",
 			'message' => "sukses",
-			"data" => isset($result)?["new_data"=>$updated_data,"unpaid_data"=>$canceled_transaction]:null
+			"data" => isset($result)?["new_data"=>$updated_data,"unpaid_data"=>$canceled_transactions]:null
 		));
 
 		return $this->output
