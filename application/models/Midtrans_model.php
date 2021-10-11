@@ -41,12 +41,19 @@ class Midtrans_model extends CI_Model {
     public function getTransactionsByTransId($trans_id)
     {
         $data = $this->db->where('trans_id',$trans_id)
-                ->get('midtrans_transactions');
+                ->get('midtrans_transactions')->result();
+        return $data;
+    }
+    public function getUnpaidTransactionsByTransId($trans_id)
+    {
+        $data = $this->db->where('trans_id',$trans_id)
+                ->where('approved_at IS',null)
+                ->get('midtrans_transactions')->result();
         return $data;
     }
     public function getTransactionByMidtransId($transaction_id)
     {
-        $data = $this->db->where('midtrans_id',$transaction_id)->get('midtrans_transactions',1);
+        $data = $this->db->where('midtrans_id',$transaction_id)->get('midtrans_transactions',1)->row();
         return $data;
     }
 }

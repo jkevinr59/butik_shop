@@ -120,7 +120,8 @@ class ThirdParty extends CI_Controller
 			if(substr($input->status_code,0,1)=="2"){
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
 				$user = $this->Model->getIdUser($this->session->userdata('login'));
-				$updated_data = $this->midtrans_model->getTransactionByMidtransId($transaction_id)->row();
+				$updated_data = $this->midtrans_model->getTransactionByMidtransId($transaction_id);
+				$canceled_transaction = $this->midtrans_model->getUnpaidTransactionsByTransId($updated_data->trans_id);
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
@@ -130,10 +131,12 @@ class ThirdParty extends CI_Controller
 		$respond = (array(
 			"code" => "201",
 			'message' => "sukses",
-			"data" => isset($result)?$updated_data:null
+			"data" => isset($result)?["new_data"=>$updated_data,"unpaid_data"=>$canceled_transaction]:null
 		));
 
-		echo json_encode($respond);
+		return $this->output
+				->set_content_type('application/json')
+				->set_output($respond);
 	}
 }
 ?>
