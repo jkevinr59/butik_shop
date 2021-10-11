@@ -1039,6 +1039,7 @@ public function __construct(){
 		$select_cart = $this->db->where("Id_user",$id)->get("cart")->result();
 		$total = 0;
 		foreach ($select_cart as $r) {
+			$is_exist = $this->db->where('Notajual',$nota)->get('dtrans')->row();
 			$data['Notajual'] = $nota;
 			$data['Id_user'] = $id;
 			$data['Id_barang'] = $r->id_barang;
@@ -1046,13 +1047,25 @@ public function __construct(){
 			$data['Subtotal'] = $r->subtotal;
 			$data['status_order'] = 0;
 			$total += $r->jumlah * $r->subtotal;
-			$this->db->insert('dtrans',$data);
+			if(!$is_exist){
+				$this->db->insert('dtrans',$data);
+			}
+			else{
+				$this->db->where('Notajual',$nota)->update('dtrans',$data);
+			}
 		}
+		$is_exist = $this->db->where('Notajual',$nota)->get('htrans')->row();
 		$data2['Notajual'] = $nota;
 		$data2['Tanggal'] = date("Y-m-d");
 		$data2['Id_user'] = $id;
 		$data2['Total'] = $total;
-		$this->db->insert('htrans',$data2);
+		// $this->db->insert('htrans',$data2);
+		if(!$is_exist){
+			$this->db->insert('htrans',$data);
+		}
+		else{
+			$this->db->where('Notajual',$nota)->update('htrans',$data);
+		}
 
 		$this->db->where('Id_user',$id);
 		$this->db->delete('cart');
