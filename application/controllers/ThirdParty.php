@@ -120,7 +120,7 @@ class ThirdParty extends CI_Controller
 			if(substr($input->status_code,0,1)=="2"){
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
 				$user = $this->Model->getIdUser($this->session->userdata('login'));
-				
+				$updated_data = $this->midtrans_model->getTransactionByMidtransId($transaction_id);
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
@@ -130,7 +130,7 @@ class ThirdParty extends CI_Controller
 		$respond = (array(
 			"code" => "201",
 			'message' => "sukses",
-			"data" => isset($result)?$result:null
+			"data" => isset($result)?$updated_data:null
 		));
 
 		echo json_encode($respond);
