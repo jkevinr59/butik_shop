@@ -127,11 +127,13 @@ class ThirdParty extends CI_Controller
 			log_message('error',$th->getMessage());
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',"error:".json_encode($th).PHP_EOL,FILE_APPEND);
 		}
-		return $this->respond(array(
+		$respond = (array(
 			"code" => "201",
 			'message' => "sukses",
 			"data" => isset($result)?$result:null
 		));
+
+		echo json_encode($respond);
 	}
 }
 ?>
