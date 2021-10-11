@@ -30,7 +30,7 @@ class Midtrans {
             'payment_type' =>'bank_transfer',
             'transaction_details' => $transaction_detail_bni,
             'bank_transfer' => array(
-                "bank" => "bca"
+                "bank" => "bni"
                 ) 
             );
             $response_bni = CoreApi::charge($transaction_data_bni);
