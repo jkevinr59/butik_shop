@@ -13,7 +13,7 @@ class ThirdParty extends CI_Controller
 		$this->load->library('midtrans');
 		$this->load->library('rajaongkir');
 		$this->load->library('pagination');
-		$this->load->model('Model');
+		$this->load->model('model');
 		$this->load->model('midtrans_model');
 	}
 
