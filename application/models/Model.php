@@ -1119,7 +1119,7 @@ public function __construct(){
 		return $this->db->select('*')->from('dtrans')->where('Id_User',$id_user)->where('Notajual',$nota)->get()->result();
 	}
 
-	public function uploadpembayaran($nota,$id,$foto)
+	public function uploadpembayaran($nota,$id,$foto=null)
 	{
 		$data = array(
 			'Notajual' => $nota,

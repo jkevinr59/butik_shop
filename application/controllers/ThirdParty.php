@@ -121,7 +121,11 @@ class ThirdParty extends CI_Controller
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
 				$user = $this->Model->getIdUser($this->session->userdata('login'));
 				$updated_data = $this->midtrans_model->getTransactionByMidtransId($transaction_id);
-				$canceled_transaction = $this->midtrans_model->getUnpaidTransactionsByTransId($updated_data->trans_id);
+				$canceled_transactions = $this->midtrans_model->getUnpaidTransactionsByTransId($updated_data->trans_id);
+				foreach($canceled_transactions as $transaction){
+					$this->Model->midtrans_model->canceling_transaction($transaction->midtrans_id);
+				}
+				$this->model->uploadpembayaran($updated_data->trans_id,$user->id);
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
