@@ -123,7 +123,7 @@ class ThirdParty extends CI_Controller
 		} catch (\Throwable $th) {
 			//throw $th;
 			log_message('error',$th->getMessage());
-			echo($th->error_message);
+			echo($th->getMessage());
 		}
 		echo json_encode(array(
 			"code" => "201",
