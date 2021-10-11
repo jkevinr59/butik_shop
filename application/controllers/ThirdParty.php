@@ -117,7 +117,7 @@ class ThirdParty extends CI_Controller
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',json_encode($input).PHP_EOL,FILE_APPEND);
 			$transaction_id = $input->transaction_id;
 			// var_dump($input);
-			if(substr($input['status_code'],0,1)=="2"){
+			if(substr($input->status_code,0,1)=="2"){
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
 			}
 		// } catch (\Throwable $th) {
