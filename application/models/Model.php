@@ -1061,10 +1061,10 @@ public function __construct(){
 		$data2['Total'] = $total;
 		// $this->db->insert('htrans',$data2);
 		if(!$is_exist){
-			$this->db->insert('htrans',$data);
+			$this->db->insert('htrans',$data2);
 		}
 		else{
-			$this->db->where('Notajual',$nota)->update('htrans',$data);
+			$this->db->where('Notajual',$nota)->update('htrans',$data2);
 		}
 
 		$this->db->where('Id_user',$id);
