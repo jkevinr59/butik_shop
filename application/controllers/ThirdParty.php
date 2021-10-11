@@ -129,8 +129,8 @@ class ThirdParty extends CI_Controller
 		}
 		return $this->respond(array(
 			"code" => "201",
-			'message' => "sukses"
-			"data" => isset($result)?$result::null,
+			'message' => "sukses",
+			"data" => isset($result)?$result:null
 		));
 	}
 }
