@@ -21,20 +21,20 @@ class Midtrans_model extends CI_Model {
         return $insert_data;
     }
 
-    public function approving_transaction($id)
+    public function approving_transaction($midtrans_id)
     {
         $update_data = array(
             'approved_at' => date('Y-m-d H:i:s'),
         );
-        $this->db->where('id',$id)->update('midtrans_transactions',$update_data);
+        $this->db->where('midtrans_id',$midtrans_id)->update('midtrans_transactions',$update_data);
     }
 
-    public function canceling_transaction($id)
+    public function canceling_transaction($midtrans_id)
     {
         $cancel_data = array(
             'canceled_at' => date('Y-m-d H:i:s'),
         );
-        $this->db->where('id',$id)->update('midtrans_transactions',$cancel_data);
+        $this->db->where('midtrans_id',$midtrans_id)->update('midtrans_transactions',$cancel_data);
     }
     public function getTransactionsByTransId($trans_id)
     {

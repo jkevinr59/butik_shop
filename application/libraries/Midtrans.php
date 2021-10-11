@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 use Midtrans\Config;
+use Midtrans\Transaction;
+use Midtrans\CoreApi;
 
 class Midtrans {
 
@@ -31,7 +33,7 @@ class Midtrans {
                 "bank" => "bca"
                 ) 
             );
-            $response_bni = Midtrans\CoreApi::charge($transaction_data_bni);
+            $response_bni = CoreApi::charge($transaction_data_bni);
             return $response_bni;
         }
 
@@ -48,9 +50,18 @@ class Midtrans {
                     "bank" => "bca"
                 ) 
             );
-            $response_bca = Midtrans\CoreApi::charge($transaction_data_bca);
+            $response_bca = CoreApi::charge($transaction_data_bca);
             
             return $response_bca;
+        }
+
+        public function cancelTransaction($transactionId){
+            $result = Transaction::cancel($transactionId);
+            if(substr($result,0,1)=="2")
+            {
+                $query = $this->CI->midtrans_model->canceling_transaction($transactionId);
+            }
+            return $result;
         }
 
         public function createMidtransTransaction($dataCart)
