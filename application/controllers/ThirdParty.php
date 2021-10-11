@@ -110,7 +110,7 @@ class ThirdParty extends CI_Controller
 	{
 		try {
 			//code...
-			$input = $this->input->post();
+			$input = $this->input->raw_input_stream();
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log','notification at '.date('Y-m-d H:i:s').PHP_EOL,FILE_APPEND);
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',json_encode($input).PHP_EOL,FILE_APPEND);
 			// $transaction_id = $input['transaction_id'];
