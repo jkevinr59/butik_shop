@@ -111,8 +111,8 @@ class ThirdParty extends CI_Controller
 		try {
 			//code...
 			$input = $this->input->post();
-			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log','notification at '.date('Y-m-d H:i:s').' \r\n',FILE_APPEND);
-			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',json_encode($input).'\r\n',FILE_APPEND);
+			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log','notification at '.date('Y-m-d H:i:s').PHP_EOL,FILE_APPEND);
+			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',json_encode($input).PHP_EOL,FILE_APPEND);
 			$transaction_id = $input['transaction_id'];
 			if(substr($input['status_code'],0,1)=="2"){
 				$this->midtrans_model->approving_transaction($input['transaction_id']);
