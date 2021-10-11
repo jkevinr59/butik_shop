@@ -47,7 +47,7 @@ class Midtrans_model extends CI_Model {
     public function getUnpaidTransactionsByTransId($trans_id)
     {
         $data = $this->db->where('trans_id',$trans_id)
-                ->where('approved_at IS',null)
+                ->where('approved_at IS NULL')
                 ->get('midtrans_transactions')->result();
         return $data;
     }
