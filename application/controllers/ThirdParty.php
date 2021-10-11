@@ -108,7 +108,7 @@ class ThirdParty extends CI_Controller
 	}
 	public function midtrans_callback()
 	{
-		try {
+		// try {
 			//code...
 			$input = json_decode($this->security->xss_clean($this->input->raw_input_stream));
 
@@ -120,11 +120,11 @@ class ThirdParty extends CI_Controller
 			if(substr($input['status_code'],0,1)=="2"){
 				$result = $this->midtrans_model->approving_transaction($input['transaction_id']);
 			}
-		} catch (\Throwable $th) {
-			//throw $th;
-			log_message('error',$th->getMessage());
-			echo($th->getMessage());
-		}
+		// } catch (\Throwable $th) {
+		// 	//throw $th;
+		// 	log_message('error',$th->getMessage());
+		// 	file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',"error:".json_encode($th->getMessage()).PHP_EOL,FILE_APPEND);
+		// }
 		echo json_encode(array(
 			"code" => "201",
 			'message' => "sukses"
