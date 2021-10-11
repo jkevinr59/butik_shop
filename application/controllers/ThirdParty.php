@@ -125,7 +125,10 @@ class ThirdParty extends CI_Controller
 				foreach($canceled_transactions as $transaction){
 					$this->model->midtrans_model->canceling_transaction($transaction->midtrans_id);
 				}
-				$this->model->model->uploadpembayaran($updated_data->trans_id,$user->Id_user);
+				if(isset($user->Id_user)){
+					$this->model->model->uploadpembayaran($updated_data->trans_id,$user->Id_user);
+
+				}
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
