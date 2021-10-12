@@ -117,7 +117,7 @@ class ThirdParty extends CI_Controller
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',json_encode($input).PHP_EOL,FILE_APPEND);
 			$transaction_id = $input->transaction_id;
 			// var_dump($input);
-			if(substr($input->status_code,0,1)=="2"){
+			if(substr($input->status_code,0,1)=="2"&&$input->transaction_status == "settlement"){
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
 				$user = $this->model->model->getIdUser($this->session->userdata('login'));
 				$updated_data = $this->midtrans_model->getTransactionByMidtransId($transaction_id);
@@ -129,6 +129,8 @@ class ThirdParty extends CI_Controller
 					$this->model->model->uploadpembayaran($updated_data->trans_id,$user->Id_user);
 
 				}
+				var_dump($updated_data->trans_id);
+				die;
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
