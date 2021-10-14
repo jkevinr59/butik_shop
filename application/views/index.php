@@ -369,9 +369,7 @@
 									</div>
 									<div class="red_button add_to_cart_button"><a href="#" id="<?php echo $j->barang_id;?>" name="cart">add to cart</a></div>
 								</div>
-								<?php
-							}
-						?>
+								<?php } ?>
 					</div>
 				</div>
 			</div>
