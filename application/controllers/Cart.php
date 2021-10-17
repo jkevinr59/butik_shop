@@ -238,6 +238,23 @@ class Cart extends CI_Controller
 		$this->load->view('payment',$data);
 	}
 
+	public function view_payment(){
+		$data['payment'] = $this->Model->getallpayment($this->session->userdata('login'));
+		$data['midtrans_bca'] = [];
+		$data['midtrans_bni'] = [];
+		foreach($data['payment'] as $row){
+			$midtrans =  $this->midtrans_model->getTransactionsByTransId($data['payment'][0]->Notajual);
+			foreach($midtrans as $row){
+				if($row->channel=="bca"){
+					array_push($data['midtrans_bca'],$row);
+				}
+				if($row->channel=="bni"){
+					array_push($data['midtrans_bni'],$row);
+				}
+			}
+		}
+		$this->load->view('view_payment',$data);
+	}
 	public function do_upload()
 	{
 		if($_FILES['fotobukti']['size'] == 0)
