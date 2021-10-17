@@ -227,10 +227,10 @@ class Cart extends CI_Controller
 		foreach($data['payment'] as $row){
 			$midtrans =  $this->midtrans_model->getTransactionsByTransId($row->Notajual);
 			foreach($midtrans as $row_midtrans){
-				if($row->channel=="bca"){
+				if($row_midtrans->channel=="bca"){
 					$data['midtrans_bca'][$row->Notajual]=$row_midtrans;
 				}
-				if($row->channel=="bni"){
+				if($row_midtrans->channel=="bni"){
 					$data['midtrans_bni'][$row->Notajual]=$row_midtrans;
 				}
 			}
@@ -245,10 +245,10 @@ class Cart extends CI_Controller
 		foreach($data['payment'] as $row){
 			$midtrans =  $this->midtrans_model->getTransactionsByTransId($row->Notajual);
 			foreach($midtrans as $row_midtrans){
-				if($row->channel=="bca"){
+				if($row_midtrans->channel=="bca"){
 					$data['midtrans_bca'][$row->Notajual]=$row_midtrans;
 				}
-				if($row->channel=="bni"){
+				if($row_midtrans->channel=="bni"){
 					$data['midtrans_bni'][$row->Notajual]=$row_midtrans;
 				}
 			}
