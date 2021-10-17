@@ -331,10 +331,10 @@
 															<td> <?=$row->ongkos_kirim?></td>
 															<td> <?=($row->status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
 
-															<?php if($midtrans_bca[$iteration]->approved_at):?>
+															<?php if(isset($midtrans_bca[$iteration]->approved_at)):?>
 																<td>BCA</td>
 															<?php endif;?>
-															<?php if($midtrans_bni[$iteration]->approved_at):?>
+															<?php if(isset($midtrans_bni[$iteration]->approved_at)):?>
 																<td>BNI</td>
 															<?php endif;?>
 														</tr>
