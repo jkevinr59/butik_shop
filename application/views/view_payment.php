@@ -329,7 +329,7 @@
 															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
 															<td> <?=$row->Total?></td>
 															<td> <?=$row->ongkos_kirim?></td>
-															<td> <?=($row->status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
+															<td> <?=($row->Status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
 
 															<?php if(isset($midtrans_bca[$iteration]->approved_at)):?>
 																<td>BCA</td>
