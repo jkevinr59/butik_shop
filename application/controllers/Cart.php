@@ -253,8 +253,6 @@ class Cart extends CI_Controller
 				}
 			}
 		}
-		var_dump($data);
-		die;
 		$this->load->view('view_payment',$data);
 	}
 	public function do_upload()
