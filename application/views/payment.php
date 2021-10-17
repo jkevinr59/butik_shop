@@ -309,25 +309,12 @@
 					<div class="col-lg-12 cart_extra_col">
 						<div class="cart_extra cart_extra_2">
 							<div class="cart_extra_content cart_extra_total">
-								<div class="cart_extra_title">Cart Total</div>
+								<div class="cart_extra_title">Pembayaran</div>
 								<ul class="cart_extra_total_list">
-									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="cart_extra_total_title">Tanggal Transaksi</div>
-										<div class="cart_extra_total_value ml-auto">
-											<!--subtotal-->
-											<?php
-											
-												foreach($payment as $row)
-												{
-													echo date("d-m-Y",strtotime($row->Tanggal));
-												}
-											?>
-										</div>
-									</li>
+									
+									<h5>Silahkan bayar melalui VA BCA atau BNI</h5>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										
-											<h5>Silahkan bayar melalui VA BCA atau BNI</h5>
-											<br>
 											<table class="table ">
 												<thead>
 													<th>Tanggal pengiriman</th>
@@ -349,25 +336,9 @@
 												</tbody>
 											</table>
 									</li>
-									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="card-body">
-											<?php
-												echo form_open_multipart('Cart/do_upload'); 
-												// echo "<font size='4'>Foto Bukti Transfer : </font>";
-												// echo "<input type='file' name='fotobukti'>";
-												// echo "<input type='submit' name='upload' value='Upload'>";
-					                            echo form_upload('fotobukti','',"class='form-control'")."<br>";
-					                            echo form_submit('upload', 'Upload',"class='button-login'")."<br>";
-												foreach($payment as $row)
-												{
-													echo "<input type='hidden' name='notajual' value='$row->Notajual'><br>"; 
-												}
-												echo form_close();
-											?>				
-										</div>
-									</li>
 									<li class="d-flex flex-row align-items-center">
-										<div class="cart_extra_total_title" style="text-align: center;">Terima kasih</div></li>
+										<div class="cart_extra_total_title" style="text-align: center;">Pengiriman akan dilakukan setelah va selesai dibayarkan</div>
+									</li>
 								</ul>
 								<!-- <div class="checkout_button trans_200"><a href="<?php echo site_url('Cart/checkout');?>">proceed to checkout</a></div> -->
 							</div>
