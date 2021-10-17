@@ -313,7 +313,7 @@
 								<ul class="cart_extra_total_list">
 									
 									<li class="d-flex flex-row align-items-center justify-content-start">
-											
+
 											<table class="table ">
 												<thead>
 													<th>Tanggal</th>
@@ -321,6 +321,7 @@
 													<th>Ongkos kirim</th>
 													<th>Status</th>
 													<th>Channel Pembayaran</th>
+													<th>Keterangan</th>
 												</thead>
 												<tbody>
 
@@ -336,6 +337,11 @@
 																<td>BNI</td>
 															<?php else:?>
 																<td></td>
+															<?php endif;?>
+															<?php if($row->Status_pembayaran==0):?>
+																<td>Pembayaran Melalui <br> VA BCA:<?=$midtrans_bca->va?> <br> VA BNI:<?=$midtrans_bni->va?></td>	
+															<?php else:?>
+																	<td></td>
 															<?php endif;?>
 														</tr>
 													<?php $iteration++; endforeach; ?>
