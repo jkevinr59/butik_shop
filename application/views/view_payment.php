@@ -297,7 +297,7 @@
 			<div class="row">
 					<div class="col text-center">
 						<div class="section_title">
-							<h2>Shopping Cart </h2>
+							<h2>Transaksi Saya </h2>
 						</div>
 					</div>
 			</div>	
@@ -309,7 +309,6 @@
 					<div class="col-lg-12 cart_extra_col">
 						<div class="cart_extra cart_extra_2">
 							<div class="cart_extra_content cart_extra_total">
-								<div class="cart_extra_title">Transaksi Saya</div>
 								<ul class="cart_extra_total_list">
 									
 									<li class="d-flex flex-row align-items-center justify-content-start">
