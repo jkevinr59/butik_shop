@@ -460,11 +460,11 @@
 									</li>
 								</ul>
 								<!-- <div class="checkout_button trans_200"><a href="<?php echo site_url('Cart/checkout');?>">proceed to checkout</a></div> -->
-								<form action="Cart/checkout" method="post">
+								<form action="<?php echo site_url('Cart/checkout');?>" method="post">
 										<input type="hidden" name="ongkos_kirim" id="ongkos_kirim" value="0">
-										<div class="checkout_button trans_200">
-											<input type="submit" value="Checkout">
-										</div>
+										<!-- <div class=""> -->
+											<input class="checkout_button trans_200" type="submit" value="Checkout">
+										<!-- </div> -->
 								</form>
 							</div>
 						</div>
