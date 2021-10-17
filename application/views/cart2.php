@@ -459,7 +459,13 @@
 										?></div>
 									</li>
 								</ul>
-								<div class="checkout_button trans_200"><a href="<?php echo site_url('Cart/checkout');?>">proceed to checkout</a></div>
+								<!-- <div class="checkout_button trans_200"><a href="<?php echo site_url('Cart/checkout');?>">proceed to checkout</a></div> -->
+								<form action="Cart/checkout" method="post">
+										<input type="hidden" name="ongkos_kirim" id="ongkos_kirim" value="0">
+										<div class="checkout_button trans_200">
+											<input type="submit" value="Checkout">
+										</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -744,6 +750,7 @@
 		$(".cart_extra_total_value_shipping").html("Rp. "+Intl.NumberFormat(['ban', 'id']).format(harga_antar)+",00");
 		var Subtotal = $(".cart_extra_total_value").attr("harga");
 		var grandtotal = parseInt(Subtotal)+parseInt(harga_antar);
+		$('#ongkos_kirim').val(harga);
 		$(".cart_extra_total_value_gt").html("Rp. "+Intl.NumberFormat(['ban', 'id']).format(grandtotal)+",00");
 	}
 	function formal_number(x) {
