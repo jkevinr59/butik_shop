@@ -1043,8 +1043,7 @@ public function __construct(){
 			$data['Notajual'] = $nota;
 			$data['Id_user'] = $id;
 			$data['Id_barang'] = $r->id_barang;
-			$data['Jumlah'] = $r->jumlah+$ongkir;
-			$data['ongkos_kirim'] = $ongkir;
+			$data['Jumlah'] = $r->jumlah;
 			$data['Subtotal'] = $r->subtotal;
 			$data['status_order'] = 0;
 			$total += $r->jumlah * $r->subtotal;
@@ -1059,7 +1058,8 @@ public function __construct(){
 		$data2['Notajual'] = $nota;
 		$data2['Tanggal'] = date("Y-m-d");
 		$data2['Id_user'] = $id;
-		$data2['Total'] = $total;
+		$data2['Total'] = $total+$ongkir;
+		$data2['ongkos_kirim'] = $ongkir;
 		// $this->db->insert('htrans',$data2);
 		if(!$is_exist){
 			$this->db->insert('htrans',$data2);
