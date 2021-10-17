@@ -326,7 +326,8 @@
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										
-											<h4>Silahkan bayar melalui VA BCA atau BNI</h4>
+											<h5>Silahkan bayar melalui VA BCA atau BNI</h5>
+											<br>
 											<table class="table ">
 												<thead>
 													<th>Tanggal pengiriman</th>
