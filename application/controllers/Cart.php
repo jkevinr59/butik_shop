@@ -228,10 +228,10 @@ class Cart extends CI_Controller
 			$midtrans =  $this->midtrans_model->getTransactionsByTransId($data['payment'][0]->Notajual);
 			foreach($midtrans as $row){
 				if($row->channel=="bca"){
-					array_push($data['midtrans_bca'],$payment);
+					array_push($data['midtrans_bca'],$row);
 				}
 				if($row->channel=="bni"){
-					array_push($data['midtrans_bni'],$payment);
+					array_push($data['midtrans_bni'],$row);
 				}
 			}
 		}
