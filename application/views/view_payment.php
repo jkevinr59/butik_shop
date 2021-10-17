@@ -313,7 +313,7 @@
 								<ul class="cart_extra_total_list">
 									
 									<li class="d-flex flex-row align-items-center justify-content-start">
-										
+											
 											<table class="table ">
 												<thead>
 													<th>Tanggal</th>
