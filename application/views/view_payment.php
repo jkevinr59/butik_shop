@@ -330,12 +330,12 @@
 															<td> <?=$row->Total?></td>
 															<td> <?=$row->ongkos_kirim?></td>
 															<td> <?=($row->Status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
-															<td> <?= $midtrans_bca->approved_at?></td>
 															<?php if(isset($midtrans_bca[$iteration]->approved_at)):?>
 																<td>BCA</td>
-															<?php endif;?>
-															<?php if(isset($midtrans_bni[$iteration]->approved_at)):?>
+															<?php elseif(isset($midtrans_bni[$iteration]->approved_at)):?>
 																<td>BNI</td>
+															<?php else:?>
+																<td></td>
 															<?php endif;?>
 														</tr>
 													<?php $iteration++; endforeach; ?>
