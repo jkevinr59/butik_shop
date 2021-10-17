@@ -1141,10 +1141,13 @@ public function __construct(){
 			'Tanggal_upload' => date("Y-m-d"),
 			'Foto' =>$foto
 		);
-		$this->db->insert('buktipembayaran',$data);
-		$data = array(
-			'Status_pembayaran' => 1 
-		);
+		$is_exist = $this->db->where('Notajual',$nota)->get('buktipembayaran')->row();
+		if(!$is_exist){
+			$this->db->insert('buktipembayaran',$data);
+			$data = array(
+				'Status_pembayaran' => 1 
+			);
+		}
 		$this->db->where('Notajual',$nota);
 		$this->db->update('htrans',$data);
 	}

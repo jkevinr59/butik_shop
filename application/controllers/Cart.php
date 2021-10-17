@@ -222,6 +222,19 @@ class Cart extends CI_Controller
 		echo "<script>alert('Silahkan melakukan pembayaran dan upload bukti pembayaran);</script>";
 		$this->session->unset_userdata('kodepromo');
 		$data['payment'] = $this->Model->getpayment($this->session->userdata('login'));
+		$data['midtrans_bca'] = [];
+		$data['midtrans_bni'] = [];
+		foreach($data['payment'] as $row){
+			$midtrans =  $this->getTransactionsByTransId($data['payment'][0]->Notajual);
+			foreach($midtrans as $row){
+				if($midtrans->channel=="bca"){
+					array_push($data['midtrans_bca'],$payment);
+				}
+				if($midtrans->channel=="bni"){
+					array_push($data['midtrans_bni'],$payment);
+				}
+			}
+		}
 		$this->load->view('payment',$data);
 	}
 

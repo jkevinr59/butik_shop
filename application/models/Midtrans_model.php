@@ -52,6 +52,7 @@ class Midtrans_model extends CI_Model {
                 ->get('midtrans_transactions')->result();
         return $data;
     }
+
     public function getTransactionByMidtransId($transaction_id)
     {
         $data = $this->db->where('midtrans_id',$transaction_id)->get('midtrans_transactions',1)->row();

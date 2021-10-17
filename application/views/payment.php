@@ -328,11 +328,27 @@
 										<div class="cart_extra_total_title">Total</div>
 										<div class="cart_extra_total_value ml-auto">
 											<!--subtotal-->
-											<?php												foreach($payment as $row)
-												{
-													echo "Rp ".number_format($row->Total);
-												}
-											?>
+											<h4>Silahkan bayar melalui VA BCA atau BNI</h4>
+											<table class="table ">
+												<thead>
+													<th>Tanggal pengiriman</th>
+													<th>Total</th>
+													<th>Ongkos kirim</th>
+													<th>Va BCA</th>
+													<th>Va BNI</th>
+												</thead>
+												<tbody>
+
+													<?php $iteration = 0; foreach($payment as $row):?>
+														<tr><?= date('d M Y',strtotime($row->Tanggal))?></tr>
+														<tr> <?=$row->Total?></tr>
+														<tr> <?=$row->ongkos_kirim?></tr>
+														<tr> <?=$data['midtrans_bca'][$iteration]->va?></tr>
+														<tr> <?=$data['midtrans_bni'][$iteration]->va?></tr>
+													<?php $iteration++; endforeach; ?>
+													
+												</tbody>
+											</table>
 										</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
