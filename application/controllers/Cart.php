@@ -228,10 +228,10 @@ class Cart extends CI_Controller
 			$midtrans =  $this->midtrans_model->getTransactionsByTransId($row->Notajual);
 			foreach($midtrans as $row){
 				if($row->channel=="bca"){
-					array_push($data['midtrans_bca'],$row);
+					$data['midtrans_bca'][$row->Notajual]=$row;
 				}
 				if($row->channel=="bni"){
-					array_push($data['midtrans_bni'],$row);
+					$data['midtrans_bni'][$row->Notajual]=$row;
 				}
 			}
 		}
@@ -244,21 +244,14 @@ class Cart extends CI_Controller
 		$data['midtrans_bni'] = [];
 		foreach($data['payment'] as $row){
 			$midtrans =  $this->midtrans_model->getTransactionsByTransId($row->Notajual);
-			if(!empty($midtrans)){
-				foreach($midtrans as $row){
-					if($row->channel=="bca"){
-						array_push($data['midtrans_bca'],$row);
-					}
-					if($row->channel=="bni"){
-						array_push($data['midtrans_bni'],$row);
-					}
+			foreach($midtrans as $row){
+				if($row->channel=="bca"){
+					$data['midtrans_bca'][$row->Notajual]=$row;
+				}
+				if($row->channel=="bni"){
+					$data['midtrans_bni'][$row->Notajual]=$row;
 				}
 			}
-			else{
-				array_push($data['midtrans_bca'],[]);
-				array_push($data['midtrans_bni'],[]);
-			}
-			
 		}
 		$this->load->view('view_payment',$data);
 	}

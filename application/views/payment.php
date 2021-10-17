@@ -325,15 +325,15 @@
 												</thead>
 												<tbody>
 
-													<?php $iteration = 0; foreach($payment as $row):?>
+													<?php foreach($payment as $row):?>
 														<tr>
 															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
 															<td> <?=$row->Total?></td>
 															<td> <?=$row->ongkos_kirim?></td>
-															<td> <?=$midtrans_bca[$iteration]->va?></td>
-															<td> <?=$midtrans_bni[$iteration]->va?></td>
+															<td> <?=$midtrans_bca[$row->Notajual]->va?></td>
+															<td> <?=$midtrans_bni[$row->Notajual]->va?></td>
 														</tr>
-													<?php $iteration++; endforeach; ?>
+													<?php endforeach; ?>
 													
 												</tbody>
 											</table>

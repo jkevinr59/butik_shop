@@ -325,26 +325,26 @@
 												</thead>
 												<tbody>
 
-													<?php $iteration = 0; foreach($payment as $row):?>
+													<?php foreach($payment as $row):?>
 														<tr>
 															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
 															<td> <?=$row->Total?></td>
 															<td> <?=$row->ongkos_kirim?></td>
 															<td> <?=($row->Status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
-															<?php if(isset($midtrans_bca[$iteration]->approved_at)):?>
+															<?php if(isset($midtrans_bca[$row->Notajual]->approved_at)):?>
 																<td>BCA</td>
-															<?php elseif(isset($midtrans_bni[$iteration]->approved_at)):?>
+															<?php elseif(isset($midtrans_bni[$row->Notajual]->approved_at)):?>
 																<td>BNI</td>
 															<?php else:?>
 																<td></td>
 															<?php endif;?>
 															<?php if($row->Status_pembayaran==0):?>
-																<td>Pembayaran Melalui <br> VA BCA:<?=$midtrans_bca->va?> <br> VA BNI:<?=$midtrans_bni->va?></td>	
+																<td>Pembayaran Melalui <br> VA BCA:<?=$midtrans_bca[$row->Notajual]->va?> <br> VA BNI:<?=$midtrans_bni[$row->Notajual]->va?></td>	
 															<?php else:?>
 																	<td></td>
 															<?php endif;?>
 														</tr>
-													<?php $iteration++; endforeach; ?>
+													<?php  endforeach; ?>
 													
 												</tbody>
 											</table>
