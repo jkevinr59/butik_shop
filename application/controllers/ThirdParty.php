@@ -129,12 +129,9 @@ class ThirdParty extends CI_Controller
 					$this->model->model->uploadpembayaran($updated_data->trans_id,$user->Id_user);
 				}
 				else{
-					$this->model->model->uploadpembayaran($updated_data->trans_id,2);
-					echo('sampai di sini');
+					$this->model->model->uploadpembayaran($updated_data->trans_id,null);
 				}
-				
-				var_dump($updated_data->trans_id);
-				die;
+					
 			}
 		} catch (\Throwable $th) {
 			//throw $th;
