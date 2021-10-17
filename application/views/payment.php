@@ -326,11 +326,13 @@
 												<tbody>
 
 													<?php $iteration = 0; foreach($payment as $row):?>
-														<tr><?= date('d M Y',strtotime($row->Tanggal))?></tr>
-														<tr> <?=$row->Total?></tr>
-														<tr> <?=$row->ongkos_kirim?></tr>
-														<tr> <?=$midtrans_bca[$iteration]->va?></tr>
-														<tr> <?=$midtrans_bni[$iteration]->va?></tr>
+														<tr>
+															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
+															<td> <?=$row->Total?></td>
+															<td> <?=$row->ongkos_kirim?></td>
+															<td> <?=$midtrans_bca[$iteration]->va?></td>
+															<td> <?=$midtrans_bni[$iteration]->va?></td>
+														</tr>
 													<?php $iteration++; endforeach; ?>
 													
 												</tbody>
