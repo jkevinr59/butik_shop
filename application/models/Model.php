@@ -1035,7 +1035,7 @@ public function __construct(){
 		return $kode;
 	}
 
-	public function insertdtrans_htrans($id,$nota) {
+	public function insertdtrans_htrans($id,$nota,$ongkir = "0") {
 		$select_cart = $this->db->where("Id_user",$id)->get("cart")->result();
 		$total = 0;
 		foreach ($select_cart as $r) {
@@ -1043,7 +1043,8 @@ public function __construct(){
 			$data['Notajual'] = $nota;
 			$data['Id_user'] = $id;
 			$data['Id_barang'] = $r->id_barang;
-			$data['Jumlah'] = $r->jumlah;
+			$data['Jumlah'] = $r->jumlah+$ongkir;
+			$data['ongkos_kirim'] = $ongkir;
 			$data['Subtotal'] = $r->subtotal;
 			$data['status_order'] = 0;
 			$total += $r->jumlah * $r->subtotal;
