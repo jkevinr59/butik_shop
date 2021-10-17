@@ -147,7 +147,7 @@
 												<span><i class="fa fa-shopping-cart"></i></span>
 											</div>
 											<div class="text_div">
-												<span><a href="<?php echo site_url('Cont/view_payment');?>">Transaksi Saya</a></span>
+												<span><a href="<?php echo site_url('Cart/view_payment');?>">Transaksi</a></span>
 											</div>
 											<div class="widgets_div"><div class="icon_div">
 												<span><i class="fa fa-shopping-bag"></i></span>
