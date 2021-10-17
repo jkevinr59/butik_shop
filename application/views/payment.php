@@ -325,9 +325,7 @@
 										</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="cart_extra_total_title">Total</div>
-										<div class="cart_extra_total_value ml-auto">
-											<!--subtotal-->
+										
 											<h4>Silahkan bayar melalui VA BCA atau BNI</h4>
 											<table class="table ">
 												<thead>
@@ -349,7 +347,6 @@
 													
 												</tbody>
 											</table>
-										</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="card-body">
