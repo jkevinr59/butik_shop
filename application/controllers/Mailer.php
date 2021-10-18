@@ -134,9 +134,9 @@ class Mailer extends CI_Controller
 		// var_dump($email);
 		// die;
 		$this->Model->verifyEmail($email);
-		echo "<script>alert('Berhasil verify email: ".$email."');</script>";
+		echo "<script>alert('Berhasil verify email: ".$email."');window.location.href = '".site_url('Cont/index')."';</script>";
 		die;
-		redirect('/Cont/index');
+		// redirect('/Cont/index');
 	}
 }
 ?>
