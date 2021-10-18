@@ -13,7 +13,7 @@ class Mailer extends CI_Controller
 	}
 
 	//Kirim Email
-	public function sendemail()
+	public function sendemail_backup()
 	{
 		$email = $this->session->userdata('email');
 		//echo "<script>alert('".$email."');</script>";
@@ -23,9 +23,11 @@ class Mailer extends CI_Controller
 			// 'protocol' => 'mail',
 			'smtp_host' => 'ssl://smtp.googlemail.com',
 			// 'smtp_host' => 'ssl://mail.legendabatik.com',
-			'smtp_user' => 'verfikasilegendabatik@gmail.com',
+			// 'smtp_user' => 'verfikasilegendabatik@gmail.com',
+			'smtp_user' => 'butikbatiklegend@gmail.com',
 			// 'smtp_user' => 'verifikasiemail@legendabatik.com',
-			'smtp_pass' => 'marcell18-11',
+			// 'smtp_pass' => 'marcell18-11',
+			'smtp_pass' => 'TugasAkhir11',
 			'smtp_port' => 465,
 			'mailtype' => 'html',
 			'charset'   => 'iso-8859-1'
@@ -58,10 +60,10 @@ class Mailer extends CI_Controller
 		$this->email->subject($subject);
 		$this->email->message($body);
 		 if($this->email->send()){
-                // echo "<script>alert('Silahkan verify email anda');</script>";
+                echo "<script>alert('Silahkan verify email anda');</script>";
                 redirect('/Cont/index');
          }else {
-                //  echo "<script>alert('".show_error($this->email->print_debugger())."');</script>";
+                 echo "<script>alert('".show_error($this->email->print_debugger())."');</script>";
          } 
 
 		//Pengecekan Terkirim (saat mengirim harus menambahkan paramenter false saat memanggil send)
@@ -126,9 +128,9 @@ class Mailer extends CI_Controller
 		//echo $this->email->print_debugger();
 	}
 
-	public function acceptverify()
+	public function acceptverify($email)
 	{
-		$email = $this->session->userdata('email');
+		
 		$this->Model->verifyEmail($email);
 		$this->session->unset_userdata('email');
 // 		echo "<script>alert('Berhasil verify email');</script>";
