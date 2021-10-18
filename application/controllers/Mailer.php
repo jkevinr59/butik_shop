@@ -131,8 +131,8 @@ class Mailer extends CI_Controller
 	public function acceptverify($email)
 	{
 		$email = urldecode($email);
-		var_dump($email);
-		die;
+		// var_dump($email);
+		// die;
 		$this->Model->verifyEmail($email);
 		echo "<script>alert('Berhasil verify email: ".$email."');</script>";
 		redirect('/Cont/index');
