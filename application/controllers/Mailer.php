@@ -132,8 +132,7 @@ class Mailer extends CI_Controller
 	{
 		
 		$this->Model->verifyEmail($email);
-		$this->session->unset_userdata('email');
-// 		echo "<script>alert('Berhasil verify email');</script>";
+		echo "<script>alert('Berhasil verify email: ".$email."');</script>";
 		redirect('/Cont/index');
 	}
 }
