@@ -1052,7 +1052,7 @@ public function __construct()
 		$alamat = "";
 		$telp = "";
 		$this->form_validation->set_rules('email','Email','required|is_unique[user.email]|valid_email');
-		$this->form_validation->set_rules('nama','Nama','required|alpha|is_unique[user.Nama_user]|min_length[4]');
+		$this->form_validation->set_rules('nama','Nama','required|alpha|min_length[4]');
 		$this->form_validation->set_rules('password','Password','required|min_length[4]');
 		$this->form_validation->set_rules('conpass','Confirm Password','required|matches[password]');
 		$this->form_validation->set_message('required', "%s tidak boleh kosong");
