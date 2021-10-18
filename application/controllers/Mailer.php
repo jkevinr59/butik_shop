@@ -135,6 +135,7 @@ class Mailer extends CI_Controller
 		// die;
 		$this->Model->verifyEmail($email);
 		echo "<script>alert('Berhasil verify email: ".$email."');</script>";
+		die;
 		redirect('/Cont/index');
 	}
 }
