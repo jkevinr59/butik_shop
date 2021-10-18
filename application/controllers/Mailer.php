@@ -60,8 +60,8 @@ class Mailer extends CI_Controller
 		$this->email->subject($subject);
 		$this->email->message($body);
 		 if($this->email->send()){
-                echo "<script>alert('Silahkan verify email anda');</script>";
-                redirect('/Cont/index');
+                echo "<script>alert('Silahkan verify email anda');window.location.href = '".site_url('Cont/index')."';</script>";
+                // redirect('/Cont/index');
          }else {
                  echo "<script>alert('".show_error($this->email->print_debugger())."');</script>";
          } 
