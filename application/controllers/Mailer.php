@@ -60,7 +60,7 @@ class Mailer extends CI_Controller
 		$this->email->subject($subject);
 		$this->email->message($body);
 		 if($this->email->send()){
-                echo "<script>alert('Kami telah mengirimkan email ke : ".$email."Silahkan verify email anda');window.location.href = '".site_url('Cont/index')."';</script>";
+                echo "<script>alert('Kami telah mengirimkan email ke : ".$email.". Silahkan verify email anda');window.location.href = '".site_url('Cont/index')."';</script>";
                 // redirect('/Cont/index');
          }else {
                  echo "<script>alert('".show_error($this->email->print_debugger())."');</script>";
