@@ -13,7 +13,7 @@ class Mailer extends CI_Controller
 	}
 
 	//Kirim Email
-	public function sendemail_backup()
+	public function sendemail()
 	{
 		$email = $this->session->userdata('email');
 		//echo "<script>alert('".$email."');</script>";
@@ -35,7 +35,7 @@ class Mailer extends CI_Controller
 		$this->load->library('email',$config);
 		$this->email->set_newline("\r\n");   
 		$subject = 'Legenda Batik Verification Email';
-		$message = "We want to Verify your email click on the link down below to verify your email for login into your account<br>".'<a href='.site_url('Mailer/acceptverify').'>Click Here To Verify</a>';
+		$message = "We want to Verify your email click on the link down below to verify your email for login into your account<br>".'<a href='.site_url('Mailer/acceptverify/'.urlencode($email)).'>Click Here To Verify</a>';
 
 		// Get full html:
 		$body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -135,7 +135,7 @@ class Mailer extends CI_Controller
 		// die;
 		$this->Model->verifyEmail($email);
 		echo "<script>alert('Berhasil verify email: ".$email."');window.location.href = '".site_url('Cont/index')."';</script>";
-		die;
+		return;
 		// redirect('/Cont/index');
 	}
 }
