@@ -20,7 +20,7 @@ public function __construct()
 		redirect('Admin/user');
 	}
 
-	public function view_toko()
+	public function test_toko()
 	{
 		$data = $this->toko_model->getTokoWithUser();
 		echo(json_encode($data,JSON_PRETTY_PRINT));
@@ -29,6 +29,11 @@ public function __construct()
 		echo(json_encode($dataDetail,JSON_PRETTY_PRINT));
 		echo("\r\n");
 		die;
+	}
+	public function view_toko()
+	{
+		$toko = $this->toko_model->getTokoWithUser();
+		$this->load->view('admin_toko',compact('toko'));
 	}
 
 //BLOG SECTION
