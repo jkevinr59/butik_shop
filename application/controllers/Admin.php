@@ -22,7 +22,7 @@ public function __construct()
 
 	public function view_toko()
 	{
-		$data = $this->toko_model->getTokoWithUser;
+		$data = $this->toko_model->getTokoWithUser();
 		echo(json_encode($data,JSON_PRETTY_PRINT));
 		die;
 	}
