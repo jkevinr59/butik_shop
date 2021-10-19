@@ -12,6 +12,7 @@ public function __construct()
 	$this->load->library('session');
 	$this->load->library('pagination');
 	$this->load->model('Model');
+	$this->load->model('toko_model');
   }
 	 
 	public function index()
@@ -19,6 +20,12 @@ public function __construct()
 		redirect('Admin/user');
 	}
 
+	public function view_toko()
+	{
+		$data = $this->toko_model->getTokoWithUser;
+		echo(json_encode($data,JSON_PRETTY_PRINT));
+		die;
+	}
 
 //BLOG SECTION
 
