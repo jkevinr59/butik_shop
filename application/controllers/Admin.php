@@ -26,7 +26,7 @@ public function __construct()
 		echo(json_encode($data,JSON_PRETTY_PRINT));
 		echo("\r\n");
 		$dataDetail = $this->toko_model->getTokoDetail($data[0]->id_toko);
-		echo(json_encode($data,JSON_PRETTY_PRINT));
+		echo(json_encode($dataDetail,JSON_PRETTY_PRINT));
 		echo("\r\n");
 		die;
 	}
