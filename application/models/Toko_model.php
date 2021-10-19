@@ -10,7 +10,7 @@ class Toko_model extends CI_Model {
 
     public function getTokoWithUser(){
         $data = $this->db->select('toko.*,user.Nama_user,user.Id_user')->join('user','user.Id_user = toko.Id_pemilik')->get('toko');
-        return $data->result;
+        return $data->result();
     }
 
     public function getTokoDetail($id_toko){
