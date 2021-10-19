@@ -24,6 +24,10 @@ public function __construct()
 	{
 		$data = $this->toko_model->getTokoWithUser();
 		echo(json_encode($data,JSON_PRETTY_PRINT));
+		echo("\r\n");
+		$dataDetail = $this->toko_model->getTokoDetail($data[0]->id_toko);
+		echo(json_encode($data,JSON_PRETTY_PRINT));
+		echo("\r\n");
 		die;
 	}
 
