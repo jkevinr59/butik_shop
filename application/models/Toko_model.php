@@ -29,6 +29,6 @@ class Toko_model extends CI_Model {
             $dtrans = $dtrans->having('barang.id_toko',$id_toko);
         }
 
-        $dtrans = $dtrans->get('barang');
+        $dtrans = $dtrans->get('dtrans');
     }
 }
