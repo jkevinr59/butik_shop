@@ -36,6 +36,15 @@ public function __construct()
 		$this->load->view('admin_toko',compact('toko'));
 	}
 
+	public function toko_detail($id_toko)
+	{
+		$toko = $this->toko_model->getTokoDetail($id_toko);
+		$transaksi = $this->toko_model->getTransaction($id_toko);
+		echo(json_encode($toko,JSON_PRETTY_PRINT));
+		echo(json_encode($transaksi,JSON_PRETTY_PRINT));
+		echo("\r\n");
+	}
+
 //BLOG SECTION
 
 	public function ke_master_blog()
