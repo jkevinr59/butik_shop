@@ -40,9 +40,10 @@ public function __construct()
 	{
 		$toko = $this->toko_model->getTokoDetail($id_toko);
 		$transaksi = $this->toko_model->getTransaction($id_toko);
-		echo(json_encode($toko,JSON_PRETTY_PRINT));
-		echo(json_encode($transaksi,JSON_PRETTY_PRINT));
-		echo("\r\n");
+		// echo(json_encode($toko,JSON_PRETTY_PRINT));
+		// echo(json_encode($transaksi,JSON_PRETTY_PRINT));
+		// echo("\r\n");
+		return $this->load->view('admin_toko_detail',compact('toko','transaksi'));
 	}
 
 //BLOG SECTION
