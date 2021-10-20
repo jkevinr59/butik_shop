@@ -30,5 +30,6 @@ class Toko_model extends CI_Model {
         }
 
         $dtrans = $dtrans->get('dtrans');
+        return $dtrans->result();
     }
 }
