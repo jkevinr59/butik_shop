@@ -339,7 +339,7 @@ p {
                   <td><?= $row->alamat_toko?></td>
                   <td><?= $row->telp_toko?></td>
                   <td>
-                    <a class="btn btn-primary" href="<?= site_url('Admin/show_toko/'.$row->id_toko)?>">Detail</a>
+                    <a class="btn btn-primary" href="<?= site_url('Admin/toko_detail/'.$row->id_toko)?>">Detail</a>
                   </td>
                 </tr>
               <?php endforeach;?>
