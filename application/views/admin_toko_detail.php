@@ -355,7 +355,7 @@ p {
               <th>Harga</th>
             </thead>
             <tbody>
-                <?php foreach($toko->barang as $barang):?>
+                <?php foreach($toko->barang as $item):?>
                 <tr>
                   <td><?= $item->barang_nama?></td>
                   <td><?= $item->barang_stok?></td>
