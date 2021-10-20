@@ -325,29 +325,31 @@ p {
     <div class="jumbotron">
       <div class="row">
         <div class="col-12">
-          <table class="table table-bordered">
-              <thead>
-                <th>Nama Toko</th>
-                <th>Pemilik</th>
-                <th>Alamat</th>
-                <th>No Telepon</th>
-                <th>Aksi</th>
-              </thead>
-              <tbody>
-                <?php foreach($toko as $row): ?>
-                  <tr>
-                    <td><?= $row->nama_toko?></td>
-                    <td><?= $row->Nama_user?></td>
-                    <td><?= $row->alamat_toko?></td>
-                    <td><?= $row->telp_toko?></td>
-                    <td>
-                      <a class="btn btn-primary" href="<?= site_url('Admin/toko_detail/'.$row->id_toko)?>">Detail</a>
-                    </td>
-                  </tr>
-                <?php endforeach;?>
-              </tbody>
-              
-          </table>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                  <th>Nama Toko</th>
+                  <th>Pemilik</th>
+                  <th>Alamat</th>
+                  <th>No Telepon</th>
+                  <th>Aksi</th>
+                </thead>
+                <tbody>
+                  <?php foreach($toko as $row): ?>
+                    <tr>
+                      <td><?= $row->nama_toko?></td>
+                      <td><?= $row->Nama_user?></td>
+                      <td><?= $row->alamat_toko?></td>
+                      <td><?= $row->telp_toko?></td>
+                      <td>
+                        <a class="btn btn-primary" href="<?= site_url('Admin/toko_detail/'.$row->id_toko)?>">Detail</a>
+                      </td>
+                    </tr>
+                  <?php endforeach;?>
+                </tbody>
+                
+            </table>
+          </div>
         </div>
       </div>
       

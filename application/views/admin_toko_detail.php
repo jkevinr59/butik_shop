@@ -348,7 +348,8 @@ p {
   <div class="hipsum">
     <div class="jumbotron">
       <h3>Daftar Barang</h3>
-      <table class="table table-bordered">
+      <div class="table-responsive">
+        <table class="table table-bordered">
             <thead>
               <th>Barang</th>
               <th>Stok</th>
@@ -365,6 +366,7 @@ p {
             </tbody>
             
         </table>
+      </div>
   </div>
   
   <div class="hipsum">
