@@ -342,7 +342,7 @@ p {
                   echo "<td>".$row->Email."</td>";
                   echo "<td>".$row->Alamat."</td>";
                   echo "<td>".$row->NoTelp."</td>";
-                  echo "<td>".$row->Status_verify."</td>";
+                  echo "<td>".($row->Status_verify==1)?"Aktif":"Non Aktif"."</td>";
                   echo "<td><input type='button' name='ganti' id='$row->Id_user' class='btn btn-primary' value='Ganti'></td>";
         				  echo "</tr>";
                 }
