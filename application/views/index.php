@@ -1,5 +1,4 @@
-<!-- <?=validation_errors()?> -->
-				<!-- <?php die;?> -->
+<?=validation_errors()?>
 
 <!DOCTYPE html>
 <html lang="en">
