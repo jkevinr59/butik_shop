@@ -262,18 +262,14 @@
 
 	<!-- Slider -->
 	<div class="main_slider">
-		<div class="card text-danger bg-light">
-			<div class="card-body">
-				<?=form_error("nama", '', '',"");?>
-				<?=form_error("email");?>
-				<?=form_error("password", '', '',"");?>
-				<?=form_error("conpass", '', '',"");?>
-				<?php if(isset($error)): ?>
-					<p class="text-danger">
-						<?= $error ?>
-					</p>
-				<?php endif;?>
+		<div class="row">
+			<?php if(isset($error)): ?>
+			<div class="card text-white bg-danger">
+				<div class="card-body">
+							<?= $error ?>
+				</div>
 			</div>
+			<?php endif;?>
 		</div>
 		<div class="main_slider_banner" style="background-image:url(<?php echo base_url();?>images/gambar1-fade.jpg);">
 			<div class="container fill_height">
