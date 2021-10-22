@@ -264,11 +264,16 @@
 	<div class="main_slider">
 		<div class="row">
 			<?php if(isset($error)): ?>
-			<div class="card text-white bg-danger">
-				<div class="card-body">
-							<?= $error ?>
+				<div class="col"></div>
+				<div class="col">
+					<div class="card text-white bg-danger">
+						<div class="card-body">
+									<?= $error ?>
+						</div>
+					</div>
 				</div>
-			</div>
+				<div class="col"></div>
+
 			<?php endif;?>
 		</div>
 		<div class="main_slider_banner" style="background-image:url(<?php echo base_url();?>images/gambar1-fade.jpg);">
