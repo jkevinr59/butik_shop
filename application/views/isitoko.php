@@ -268,8 +268,8 @@
 							<div class="col-lg-6 order-xl-1" style="border-style: solid;text-align: center;" style="padding: 0">
 								<div class="section_title" style=" margin: auto; margin-top: 15%">
 		        					<h2><?php echo $toko->nama_toko;?></h2>
-									<a class="btn btn-lg btn-success" href="http://wa.me/<?=$toko->telp_toko?>">Hubungi Penjual</a>
 		        				</div>
+								<a class="btn btn-lg btn-ßsuccess" href="http://wa.me/<?=$toko->telp_toko?>"><i class="fa fa-phone fa-white"></i> Whatsapp</a>
 							</div>]
 		            	</div>
 	            	</div>
