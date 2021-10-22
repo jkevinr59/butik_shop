@@ -268,7 +268,7 @@
 				<?=form_error("email");?>
 				<?=form_error("password", '', '',"");?>
 				<?=form_error("conpass", '', '',"");?>
-				<?php if(isset($error):?>
+				<?php if(isset($error)): ?>
 					<?= $error ?>
 				<?php endif;?>
 			</div>
