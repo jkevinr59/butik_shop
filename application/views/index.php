@@ -1,4 +1,5 @@
-
+<?=validation_errors()?>
+				<?php die;?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -266,7 +267,6 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<?=validation_errors()?>
-				<?php die;?>
 			</div>
 		</div>
 		<div class="main_slider_banner" style="background-image:url(<?php echo base_url();?>images/gambar1-fade.jpg);">
