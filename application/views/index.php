@@ -1,4 +1,4 @@
-<?=validation_errors()?>
+<?php echo validation_errors(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
