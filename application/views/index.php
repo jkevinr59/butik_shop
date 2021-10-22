@@ -1,4 +1,3 @@
-<?php echo validation_errors(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -265,7 +264,13 @@
 	<div class="main_slider">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<?=validation_errors()?>
+				<?=form_error("nama", '', '',"");?>
+				<?=form_error("email");?>
+				<?=form_error("password", '', '',"");?>
+				<?=form_error("conpass", '', '',"");?>
+				<?php if(isset($error):?>
+					<?= $error ?>
+				<?php endif;?>
 			</div>
 		</div>
 		<div class="main_slider_banner" style="background-image:url(<?php echo base_url();?>images/gambar1-fade.jpg);">

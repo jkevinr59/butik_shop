@@ -977,7 +977,7 @@ public function __construct()
 		$getAdmin = $this->Model->getAdmin();
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
-		if ($this->form_validation->run()) {
+		if ($this->form_validation->run()==TRUE) {
 
 			if($email == $getAdmin->user_admin && $pass == $getAdmin->pass_admin)
 			{
@@ -1015,20 +1015,21 @@ public function __construct()
 					$error="";
 					if($adaemail==false){
 						$data['email_error']="Email tidak ditemukan";
-						$error = "Email belum register!\n";
+						$error = $error."Email belum register!\n";
 					}
 					if($passBenar==false){
 						$data['pass_salah']="Password tidak sesuai";
-						$error = "Password salah!\n";
+						$error = $error."Password salah!\n";
 					}
 					if($adaemail && $passBenar && $cek==false){
 						$data['email_error']="Email belum di verifikasi";
-						$error = "Email belum di verifikasi!\n";
+						$error = $error."Email belum di verifikasi!\n";
 					}
 					echo "<script>alert('Gagal Login:".$error."')</script>";
 					$data['jualan']=$this->Model->selectAllbarang();	
 	    			$data['kategori'] = $this->Model->getKategori();
 	    			$data['merk'] = $this->Model->getJumlahMerk();
+					$data['error'] = $error;
 	    			$data['slider']= $this->Model->selectSlider();
 	    			$jumlah = $this->Model->cekStatusPromo();
 	    			$this->load->view("index",$data);
@@ -1036,8 +1037,6 @@ public function __construct()
 			}
 		} 
 		else {
-			echo "<script>alert('Field Tidak boleh kosong! Error:".validation_errors()."')</script>";
-			die;
 			$data['jualan']=$this->Model->selectAllbarang();	
 			$data['kategori'] = $this->Model->getKategori();
 			$data['merk'] = $this->Model->getJumlahMerk();
