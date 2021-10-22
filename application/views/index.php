@@ -262,7 +262,11 @@
 	</div>
 
 	<!-- Slider -->
-
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<?=validation_errors()?>
+		</div>
+	</div>
 	<div class="main_slider">
 		<div class="main_slider_banner" style="background-image:url(<?php echo base_url();?>images/gambar1-fade.jpg);">
 			<div class="container fill_height">
