@@ -262,7 +262,7 @@
 
 	<!-- Slider -->
 	<div class="main_slider">
-		<div class="row gy-5">
+		<div class="row mb-5">
 			<?php if(isset($error)): ?>
 				<div class="col"></div>
 				<div class="col">
