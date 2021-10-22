@@ -1,4 +1,4 @@
-<?=validation_errors()?>
+<!-- <?=validation_errors()?> -->
 				<?php die;?>
 
 <!DOCTYPE html>
