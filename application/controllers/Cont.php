@@ -1036,7 +1036,7 @@ public function __construct()
 			}
 		} 
 		else {
-			echo "<script>alert('Field Tidak boleh kosong!')</script>";
+			echo "<script>alert('Field Tidak boleh kosong! Error:".validation_errors()."')</script>";
 			$data['jualan']=$this->Model->selectAllbarang();	
 			$data['kategori'] = $this->Model->getKategori();
 			$data['merk'] = $this->Model->getJumlahMerk();
