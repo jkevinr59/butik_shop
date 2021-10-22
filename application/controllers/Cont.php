@@ -977,7 +977,7 @@ public function __construct()
 		$getAdmin = $this->Model->getAdmin();
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
-		if ($this->form_validation->run() == TRUE) {
+		if ($this->form_validation->run()) {
 
 			if($email == $getAdmin->user_admin && $pass == $getAdmin->pass_admin)
 			{
@@ -1037,6 +1037,7 @@ public function __construct()
 		} 
 		else {
 			echo "<script>alert('Field Tidak boleh kosong! Error:".validation_errors()."')</script>";
+			die;
 			$data['jualan']=$this->Model->selectAllbarang();	
 			$data['kategori'] = $this->Model->getKategori();
 			$data['merk'] = $this->Model->getJumlahMerk();
