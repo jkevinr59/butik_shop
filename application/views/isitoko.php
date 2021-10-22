@@ -269,6 +269,7 @@
 								<div class="section_title" style=" margin: auto; margin-top: 15%">
 		        					<h2><?php echo $toko->nama_toko;?></h2>
 		        				</div>
+								<br>
 								<a class="btn btn-lg btn-success" href="http://wa.me/<?=$toko->telp_toko?>"><i class="fa fa-phone fa-white"></i> Whatsapp</a>
 							</div>]
 		            	</div>
