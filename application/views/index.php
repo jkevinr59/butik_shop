@@ -262,14 +262,16 @@
 
 	<!-- Slider -->
 	<div class="main_slider">
-		<div class="panel panel-default">
-			<div class="panel-body">
+		<div class="card text-danger bg-light">
+			<div class="card-body">
 				<?=form_error("nama", '', '',"");?>
 				<?=form_error("email");?>
 				<?=form_error("password", '', '',"");?>
 				<?=form_error("conpass", '', '',"");?>
 				<?php if(isset($error)): ?>
-					<?= $error ?>
+					<p class="text-danger">
+						<?= $error ?>
+					</p>
 				<?php endif;?>
 			</div>
 		</div>

@@ -1015,15 +1015,15 @@ public function __construct()
 					$error="";
 					if($adaemail==false){
 						$data['email_error']="Email tidak ditemukan";
-						$error = $error."Email belum register!\n";
+						$error = $error."Email belum register!<br>";
 					}
 					if($passBenar==false){
 						$data['pass_salah']="Password tidak sesuai";
-						$error = $error."Password salah!\n";
+						$error = $error."Password salah!<br>";
 					}
 					if($adaemail && $passBenar && $cek==false){
 						$data['email_error']="Email belum di verifikasi";
-						$error = $error."Email belum di verifikasi!\n";
+						$error = $error."Email belum di verifikasi!<br>";
 					}
 					echo "<script>alert('Gagal Login:".$error."')</script>";
 					$data['jualan']=$this->Model->selectAllbarang();	
