@@ -10,6 +10,7 @@ public function __construct()
 	$this->load->helper('url');
 	$this->load->library('form_validation');
 	$this->load->model('Model');
+	$this->load->model('toko_model');
 	$this->load->library('session');
 	$this->load->library('rajaongkir');
 	$this->load->library('pagination');
@@ -116,6 +117,14 @@ public function __construct()
 		}
 	}
 
+	public function detail_toko($id_toko)
+	{
+		$data['toko']= $this->toko_model->getTokoDetail($id_toko);
+		$data['kategori']=$this->Model->getKategori();
+		$data['jualan']=$this->Model->getJualan($data['toko']->id_toko);
+		$data['barang']=$this->Model->selectBlog();
+		$this->load->view('isitoko', $data);
+	}
 	public function ke_isi_toko()
 	{
 		$data['toko']= $this->Model->getToko($this->session->userdata('id_login'));

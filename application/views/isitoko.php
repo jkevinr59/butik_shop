@@ -40,6 +40,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>styles/login.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>styles/preloader.css">
+<script src="https://cdn.tiny.cloud/1/r4dyiyun22qsy6tpoq2wlgzr8slfzojc35viha99t998l6hs/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: '#textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name'
+    });
+  </script>
 </head>
 
 <body>
@@ -77,9 +88,6 @@
 									<a>
 										<i class="fa fa-user" aria-hidden="true"></i>
 									</a>
-									<?php
-										
-									?>
 									<ul class="account_selection">
 										<?php
 										if($this->session->userdata('login')==""){
@@ -225,20 +233,123 @@
 
 	
 
-	<!-- Blogs -->
 
-	<div class="blogs">
+			  <?php
+                    if($toko!=null){?>
+                    	<br>
+                <div class="col-xl-12 order-xl-1">
+                	<div class="container">
+		            	<div class="row">
+		                	<div class="col-lg-3 order-xl-1" style="padding: 0">
+
+										<!-- User Review -->
+											<div class="user_review_container d-flex flex-column flex-sm-row">
+											<div class="user">
+												<div class="user_pic">
+													<img src="
+									<?php
+										if($toko->foto_toko!="" && $toko->foto_toko!=null){
+											echo base_url('ikontoko/'.$toko->foto_toko);
+										}
+										else{
+									?>
+											https://www.w3schools.com/howto/img_avatar.png
+									<?php
+										}
+									?>" style="height: 100%;width: 100%;border-style: solid;">
+												</div>
+											</div>
+											<div class="review">
+											</div>
+										</div>
+										
+
+							</div>
+							<div class="col-lg-6 order-xl-1" style="border-style: solid;text-align: center;" style="padding: 0">
+								<div class="section_title" style=" margin: auto; margin-top: 15%">
+		        					<h2><?php echo $toko->nama_toko;?></h2>
+									<a class="btn btn-lg btn-success" href="http://wa.me/<?=$toko->telp_toko?>">Hubungi Penjual</a>
+		        				</div>
+							</div>]
+		            	</div>
+	            	</div>
+	            	<br>
+                <div class="container">
+                	
+                	<div class="card">
+                		<div class="card-header">
+                			<h2>Barang yang dijual</h2>
+                		</div>
+                		<div class="card-body">
+                    <?php
+                if($jualan!=null){
+                    ?>
+                </div>
+                <br>
+<div class="new_arrivals">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<br><br><br><br>
-					<img src="<?php echo base_url();?>favicon/apple-icon-180x180.png">
-					<!-- <p>Testing</p> -->
-					<button id="btn_buka_toko" type="button" class="newsletter_submit_btn trans_300" value="Buka Toko" onclick="bukaToko()">Buka Toko</button>
-					<br><br><br><br>
+					<div class="section_title new_arrivals_title">
+						<h2>Isi Jualan</h2>
+					</div>
 				</div>
 			</div>
 			<div class="row">
+				<div class="col">
+					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+						<?php
+							foreach ($jualan as $j) {
+								$kategori_brg='';
+								switch ($j->id_kategori) {
+									case '0':
+										$kategori_brg="men";
+										break;
+									case '1':
+										$kategori_brg="women";
+										break;
+									case '2':
+										$kategori_brg="kids";
+										break;
+									case '3':
+										$kategori_brg="accessories";
+										break;
+									case '4':
+										$kategori_brg="boutique";
+										break;
+
+								}
+								?>
+								<div class="product-item <?php echo $kategori_brg;?>">
+									<div class="product discount product_filter">
+										<div class="product_image" style=" height: 50%">
+											<img src="<?php echo base_url('resource/'.$j->foto.' ');?>" alt="" style="margin: 5px 5% 0px; width: 90%; height: 100%">
+										</div>
+										<div class="favorite favorite_left"></div>
+										<div class="product_info">
+											<h6 class="product_name">
+<a href="<?php echo site_url('Cont/update_barang/').$j->barang_id;?>"name='detail'><?php echo $j->barang_nama;?></a>
+												</h6>
+											<div class="product_price"><?php echo "Rp. ".number_format($j->harga_satuan,2,',','.');?></div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}}}
+						?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+                
+                </div>
+            </div>
+        </div>
+                <br>
+			  <div class="row">
 				<div class="col text-center">
 					<div class="section_title">
 						<h2>Latest Blogs</h2>
@@ -248,7 +359,7 @@
 			<div class="row blogs_container">
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(images/blog_jambi.jpg)"></div>
+						<div class="blog_background" style="background-image:url(<?php echo base_url();?>images/blog_jambi.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Batik Jambi</h4>
 							<span class="blog_meta">by Giovanno Battista | dec 10, 2019</span>
@@ -258,7 +369,7 @@
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(images/blog_madura.jpg)"></div>
+						<div class="blog_background" style="background-image:url(<?php echo base_url();?>images/blog_madura.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Batik Madura</h4>
 							<span class="blog_meta">by Giovanno Battista | dec 10, 2019</span>
@@ -268,7 +379,7 @@
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(images/blog_sumatra.jpg)"></div>
+						<div class="blog_background" style="background-image:url(<?php echo base_url();?>images/blog_sumatra.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Batik Sumatra</h4>
 							<span class="blog_meta">by Giovanno Battista | dec 10, 2019</span>
@@ -439,12 +550,25 @@
 <script>
 	const container = document.getElementById('container-login');
 
+	$(document).ready(function () {
+		$("#desain_blog").hide();
+	});
 	$('#btnToTop').fadeOut();
 
 	$( "#signUp" ).click(function() {
 		$(".sign-in-container").hide();
 		$(".sign-up-container").show();
 		container.classList.add("right-panel-active");
+	});
+
+	$("#tampilkan_blog").click(function() {
+		if($("#desain_blog").is(":visible")){
+			$("#desain_blog").hide();	
+			tinyMCE.activeEditor.setContent('');
+		}
+		else{
+			$("#desain_blog").show();	
+		}
 	});
 
 	$( "#signIn" ).click(function() {
@@ -474,9 +598,9 @@
 		$("#signUp").trigger( "click" );
 		$("#loginModal").modal("toggle");
 	}
-
-	function bukaToko(){
-		window.location = "<?php echo base_url("Cont/bukatoko");?>";
+	function myFunction() {
+ 		 var x = document.getElementById("upload");
+ 		 x.disabled = true;
 	}
 </script>
 

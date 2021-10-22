@@ -430,7 +430,7 @@
 						<p><?php echo $barang->deskripsi;?></p>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin: 0">
-						<span><a href="<?php echo base_url();?>Cont/ke_blog">More Information</a></span>
+						<span><a href="<?=site_url('Cont/detail_toko/'.$barang->id_toko)?>">Kunjungi Toko</a></span>
 					</div>
 					<div class="product_price">Rp. <?php echo number_format($barang->harga_satuan,2,'.',',')?></div>
 					<div class="product_color">
