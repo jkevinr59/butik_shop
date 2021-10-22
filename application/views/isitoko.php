@@ -266,7 +266,7 @@
 
 							</div>
 							<div class="col-lg-6 order-xl-1" style="border-style: solid;text-align: center;" style="padding: 0">
-								<div class="section_title" style=" margin: auto; margin-top: 15%">
+								<div style=" margin: auto; margin-top: 15%">
 		        					<h2><?php echo $toko->nama_toko;?></h2>
 		        				</div>
 								<br>
