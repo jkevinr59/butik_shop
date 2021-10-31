@@ -741,7 +741,7 @@ public function __construct()
 
 	public function updatingBarang()
 	{   
-		if($this->input->post('update')){
+		// if($this->input->post('update')){
 			$id_toko=$this->input->post("id_toko");
 			$id = $this->input->post("id_barang");
 			$namabarang = $this->input->post("nama");
@@ -755,10 +755,8 @@ public function __construct()
 			foreach($tempmerk as $row) {
 			  $idmerk = $row->id_merk;	
 			}
-			var_dump($_FILES['foto']['size']);
 		  	if($_FILES['foto']['size'] == 0) {
 			    
-				var_dump($id,$namabarang,$stok,$harga,$deskripsi,$kategori,$idmerk,$id_toko);
 				$this->Model->updatetanpafoto($id,$namabarang,$stok,$harga,$deskripsi,$kategori,$idmerk,$id_toko);
 				$this->ke_toko();
 		  	}
@@ -788,36 +786,36 @@ public function __construct()
 						$this->ke_toko();
 					}
 					$count_detail=count($_FILES['files']['name']);
-			for ($i=0; $i < $count_detail; $i++) { 
-				if(!empty($_FILES['files']['name'][$i])){
-					$_FILES['file']['name'] = $_FILES['files']['name'][$i];
-					$_FILES['file']['type'] = $_FILES['files']['type'][$i];
-					$_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
-					$_FILES['file']['error'] = $_FILES['files']['error'][$i];
-					$_FILES['file']['size'] = $_FILES['files']['size'][$i];
+					for ($i=0; $i < $count_detail; $i++) { 
+						if(!empty($_FILES['files']['name'][$i])){
+							$_FILES['file']['name'] = $_FILES['files']['name'][$i];
+							$_FILES['file']['type'] = $_FILES['files']['type'][$i];
+							$_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+							$_FILES['file']['error'] = $_FILES['files']['error'][$i];
+							$_FILES['file']['size'] = $_FILES['files']['size'][$i];
 
-					$konfig['upload_path'] = './detail/'; 
-					$konfig['allowed_types'] = 'jpg|jpeg|png';
-					$config['overwrite'] = TRUE;
-					$konfig['file_name'] = $namabarang.$i;
+							$konfig['upload_path'] = './detail/'; 
+							$konfig['allowed_types'] = 'jpg|jpeg|png';
+							$config['overwrite'] = TRUE;
+							$konfig['file_name'] = $namabarang.$i;
 
-					// $this->load->library('upload',$konfig);
-					$this->upload->initialize($konfig);
-					if($this->upload->do_upload('file')){
-						$uploadData = $this->upload->data();
-						$filename = $uploadData['file_name'];
+							// $this->load->library('upload',$konfig);
+							$this->upload->initialize($konfig);
+							if($this->upload->do_upload('file')){
+								$uploadData = $this->upload->data();
+								$filename = $uploadData['file_name'];
 
-						$data['filenames'][] = $filename;
-						$this->Model->updatedetailbarang($kode,$filename);
+								$data['filenames'][] = $filename;
+								$this->Model->updatedetailbarang($kode,$filename);
+							}
+						}
 					}
 				}
 			}
-				}
-			}
-		}
-		else if($this->input->post('back')){
-			$this->ke_toko();
-		}
+		// }
+		// else if($this->input->post('back')){
+		// 	$this->ke_toko();
+		// }
 	}
 
 	public function tambah_barang()
