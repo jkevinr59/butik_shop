@@ -15,6 +15,7 @@ public function __construct()
 	$this->load->library('rajaongkir');
 	$this->load->library('pagination');
 	$this->load->library('cart');
+	$this->load->library('user_agent');
   }
 	 
 	public function index($id="")
@@ -779,11 +780,25 @@ public function __construct()
 					if($this->Model->updatepfoto($id,$namabarang,$stok,$harga,$deskripsi,$idmerk,$kategori,$foto,$id_toko)>0) //insert jika berhasil return 1
 					{
 						echo "<script>alert('Berhasil Update');</script>";
-						$this->ke_toko();
+						// $this->ke_toko();
+						if ($this->agent->is_referral())
+						{
+							echo $this->agent->referrer();
+						}
+						else{
+							$this->ke_toko();
+						}
 					}
 					else{
 						echo "<script>alert('Gagal Update');</script>";
-						$this->ke_toko();
+						// $this->ke_toko();
+						if ($this->agent->is_referral())
+						{
+							echo $this->agent->referrer();
+						}
+						else{
+							$this->ke_toko();
+						}
 					}
 					$count_detail=count($_FILES['files']['name']);
 					for ($i=0; $i < $count_detail; $i++) { 
