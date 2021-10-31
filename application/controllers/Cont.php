@@ -740,7 +740,8 @@ public function __construct()
 
 
 	public function updatingBarang()
-	{      
+	{   
+		var_dump($this->input->post());
 		if($this->input->post('update')){
 			$id_toko=$this->input->post("id_toko");
 			$id = $this->input->post("id_barang");
