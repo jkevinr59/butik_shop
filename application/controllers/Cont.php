@@ -741,7 +741,6 @@ public function __construct()
 
 	public function updatingBarang()
 	{   
-		var_dump($this->input->post());
 		if($this->input->post('update')){
 			$id_toko=$this->input->post("id_toko");
 			$id = $this->input->post("id_barang");
@@ -756,8 +755,10 @@ public function __construct()
 			foreach($tempmerk as $row) {
 			  $idmerk = $row->id_merk;	
 			}
+			var_dump($_FILES['foto']['size']);
 		  	if($_FILES['foto']['size'] == 0) {
 			    
+				var_dump($id,$namabarang,$stok,$harga,$deskripsi,$kategori,$idmerk,$id_toko);
 				$this->Model->updatetanpafoto($id,$namabarang,$stok,$harga,$deskripsi,$kategori,$idmerk,$id_toko);
 				$this->ke_toko();
 		  	}
