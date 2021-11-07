@@ -438,6 +438,7 @@
 
 	<!-- Best Sellers -->
 
+	<?php if(!empty($best_seller)):?>
 	<div class="best_sellers">
 		<div class="container">
 			<div class="row">
@@ -453,7 +454,6 @@
 						<div class="owl-carousel owl-theme product_slider">
 
 							<!-- Slide 1 -->
-						<?php if(!empty($best_seller)):?>
 							<?php
 							$ctr=0;
 								foreach ($best_seller as $key) {
@@ -484,7 +484,6 @@
 									<?php
 								}
 							?>
-						<?php endif;?>
 						</div>
 						<div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
 							<i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -498,6 +497,7 @@
 		</div>
 	</div>
 
+	<?php endif;?>
 	<!-- Benefit -->
 
 	<div class="benefit">
@@ -544,7 +544,7 @@
 	</div>
 
 	<!-- Blogs -->
-
+	<?php if(!empty($barang)):?>
 	<div class="best_sellers">
 		<div class="container">
 			<div class="row">
@@ -606,6 +606,7 @@
 			</div>
 		</div>
 	</div>
+	<?php endif;?>
 
 	
 
