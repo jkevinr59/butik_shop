@@ -645,6 +645,8 @@ public function __construct()
 	public function showsearch()
 	{
 		$key = $this->session->userdata('key');
+		var_dump($key);
+		die;
 		if($this->session->userdata('login')!=null){
 			$data['toko']= $this->Model->getToko($this->session->userdata('id_login'));
 			if($data['toko']!=null){
