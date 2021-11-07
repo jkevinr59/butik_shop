@@ -702,7 +702,7 @@ public function __construct(){
     }
 	
 	public function fetchsearch($key){
-        $result = $this->db->select('*')->from('barang')->like('barang_nama',"%".$key."%")->get()->result();
+        $result = $this->db->select('*')->from('barang')->get()->result();
 		var_dump($result,$key);
 		die;
 		return $result;
