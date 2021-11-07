@@ -702,7 +702,7 @@ public function __construct(){
     }
 	
 	public function fetchsearch($key){
-        return $this->db->select('*')->from('barang')->like('barang_nama',$key)->get()->result();
+        return $this->db->select('*')->from('barang')->like('barang_nama',"%".$key."%")->get()->result();
     }
 	//lebih dari 9 barang
 	public function sortbarangbykategori($limit,$start,$id,$sort) {
