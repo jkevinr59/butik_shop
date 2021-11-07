@@ -657,7 +657,6 @@ public function __construct()
 		else{
 			$data['jualan']=$this->Model->fetchsearch($key);	
 		}
-		var_dump($data,$key);
 		die;
 		$data['kategori'] = $this->Model->getKategori();
 		$data['merk'] = $this->Model->getJumlahMerk();
