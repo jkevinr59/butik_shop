@@ -197,7 +197,7 @@ public function __construct(){
 		$this->db->select('*');
 		$this->db->from('barang');
 		$this->db->where('id_toko !=', $id_toko);
-		$this->db->like('barang_nama', '%'.$key."%");
+		$this->db->like('barang_nama', $key);
 		return $this->db->get()->result();
 	}
 
