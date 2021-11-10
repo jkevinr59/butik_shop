@@ -352,7 +352,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+					<div class=" owl-carousel owl-theme product_slider" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<?php
 							foreach ($jualan as $j) {
