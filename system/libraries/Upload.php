@@ -398,6 +398,8 @@ class CI_Upload {
 		if ( ! isset($_file))
 		{
 			$this->set_error('upload_no_file_selected', 'debug');
+			var_dump("upload no file");
+			die;
 			return FALSE;
 		}
 
