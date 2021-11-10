@@ -987,6 +987,7 @@ class CI_Upload {
 	 */
 	public function validate_upload_path()
 	{
+		var_dump($this->upload_path);
 		if ($this->upload_path === '')
 		{
 			$this->set_error('upload_no_filepath', 'error');
