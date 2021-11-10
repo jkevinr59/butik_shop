@@ -81,8 +81,6 @@ public function __construct()
 		// $this->upload->initialize($configblog);
 		$this->load->library('upload', $configblog);
 
-		var_dump($this->upload->do_upload('foto_blog'));
-		die;
 		if ($this->upload->do_upload('foto_blog')){
 			$uploadData = $this->upload->data();
 			$namafile=$uploadData['file_name'];
