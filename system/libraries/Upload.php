@@ -405,8 +405,6 @@ class CI_Upload {
 		// Is the upload path valid?
 		if ( ! $this->validate_upload_path())
 		{
-			var_dump("upload path invalid");
-			die;
 			// errors will already be set by validate_upload_path() so just return FALSE
 			return FALSE;
 		}
