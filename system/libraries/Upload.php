@@ -398,6 +398,7 @@ class CI_Upload {
 		if ( ! isset($_file))
 		{
 			$this->set_error('upload_no_file_selected', 'debug');
+			
 			return FALSE;
 		}
 
@@ -996,7 +997,7 @@ class CI_Upload {
 		{
 			$this->upload_path = str_replace('\\', '/', realpath($this->upload_path));
 		}
-
+		
 		if ( ! is_dir($this->upload_path))
 		{
 			$this->set_error('upload_no_filepath', 'error');

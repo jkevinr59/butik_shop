@@ -71,6 +71,7 @@ public function __construct()
 	{
 		$idbarang=$this->input->post('id');
 		$isi_blog=$this->input->post('isiblog');
+		
 		//nambah blog
 		//gambar tampilan blog
 		$configblog['upload_path'] = './ikonblog/';
