@@ -997,7 +997,7 @@ class CI_Upload {
 		{
 			$this->upload_path = str_replace('\\', '/', realpath($this->upload_path));
 		}
-		var_dump($this->upload_path);
+		var_dump(is_dir($this->upload_path),is_really_writable($this->upload_path));
 		die;
 		if ( ! is_dir($this->upload_path))
 		{
