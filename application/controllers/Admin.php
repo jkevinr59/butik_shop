@@ -71,7 +71,7 @@ public function __construct()
 	{
 		$idbarang=$this->input->post('id');
 		$isi_blog=$this->input->post('isiblog');
-		var_dump($this->input->post());
+		var_dump($_FILES);
 		die;
 		//nambah blog
 		//gambar tampilan blog
