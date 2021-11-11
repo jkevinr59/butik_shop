@@ -98,7 +98,7 @@ public function __construct()
 
 					$konfigg['upload_path'] = './detail_blog/'; 
 					$konfigg['allowed_types'] = 'jpg|jpeg|png';
-					$configg['overwrite'] = TRUE;
+					$konfigg['overwrite'] = TRUE;
 					$konfigg['file_name'] = $idbarang.$i;
 
 					$this->upload->initialize($konfigg);
@@ -168,8 +168,7 @@ public function __construct()
 			$configblog['file_name'] = $idbarang;
 
 			$this->load->library('upload', $configblog);
-			var_dump($this->upload->do_upload('foto_blog'),$configblog);
-			exit;
+			
 			if ($this->upload->do_upload('foto_blog')){
 				$uploadData = $this->upload->data();
 				$namafile=$uploadData['file_name'];
@@ -190,10 +189,11 @@ public function __construct()
 
 							$konfigg['upload_path'] = './detail_blog/'; 
 							$konfigg['allowed_types'] = 'jpg|jpeg|png';
-							$configg['overwrite'] = TRUE;
+							$konfigg['overwrite'] = TRUE;
 							$konfigg['file_name'] = $idbarang.$i;
 
 							$this->upload->initialize($konfigg);
+							var_dump($this->upload->do_upload('file'),$konfigg);
 							if($this->upload->do_upload('file')){
 								$uploadData = $this->upload->data();
 								$filename = $uploadData['file_name'];
