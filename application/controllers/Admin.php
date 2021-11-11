@@ -127,8 +127,7 @@ public function __construct()
 		$idbaru =$this->input->post('id_baru');
 		$isi_blog=$this->input->post('isiblog');
 		// echo $idbaru." ".$idbarang;
-		var_dump($_FILES['files_blog']);
-		exit;
+		
 		if($_FILES['foto_blog']['size']==0){
 			if($_FILES['files_blog']['size']==0){
 			$this->Model->updateblogNoFotoNoDetail($idbarang,$isi_blog,$idbaru);
@@ -168,8 +167,9 @@ public function __construct()
 			$configblog['overwrite'] = TRUE;
 			$configblog['file_name'] = $idbarang;
 
-			$this->load->library('upload', $configblog);
-
+			$result = $this->load->library('upload', $configblog);
+			var_dump($result,$configblog);
+			exit;
 			if ($this->upload->do_upload('foto_blog')){
 				$uploadData = $this->upload->data();
 				$namafile=$uploadData['file_name'];
