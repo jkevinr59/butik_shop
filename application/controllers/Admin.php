@@ -128,6 +128,8 @@ public function __construct()
 		$isi_blog=$this->input->post('isiblog');
 		// echo $idbaru." ".$idbarang;
 		if($_FILES['foto_blog']['size']==0){
+			var_dump($_FILES['files_blog']);
+			exit;
 			if($_FILES['files_blog']['size']==0){
 			$this->Model->updateblogNoFotoNoDetail($idbarang,$isi_blog,$idbaru);
 			}
