@@ -167,8 +167,8 @@ public function __construct()
 			$configblog['overwrite'] = TRUE;
 			$configblog['file_name'] = $idbarang;
 
-			$result = $this->load->library('upload', $configblog);
-			var_dump($result,$configblog);
+			$this->load->library('upload', $configblog);
+			var_dump($this->upload->do_upload('foto_blog'),$configblog);
 			exit;
 			if ($this->upload->do_upload('foto_blog')){
 				$uploadData = $this->upload->data();
