@@ -361,7 +361,7 @@
 							<div class="blog_item">
 								<div class="blog_background" style="background-image:url(<?php echo base_url();?>ikonblog/<?php echo $key->foto_blog;?>)"></div>
 								<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-									<h4 class="blog_title"><?php echo $key->barang_nama;?></h4>
+									<h4 class="blog_title"><?php echo $key->id_barang;?></h4>
 									<a class="blog_more" href="<?php echo base_url();?>Cont/ke_blog_bawah/<?php echo $key->id_barang;?>">Read more</a>
 								</div>
 							</div>
