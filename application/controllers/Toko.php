@@ -50,7 +50,8 @@ class Toko extends CI_Controller
 			$month = date('m');
 		}
 		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month);
-		var_dump($data['jualan']);
+		$data['laporan_bulanan'] = $this->toko_model->getTransactionSummary($data['toko']->id_toko,$month);
+		var_dump($data['jualan'], $data['laporan_bulanan']);
 		die;
 		if($data['toko']!=null){
 			if($data['toko']->nama_toko!=""){	
