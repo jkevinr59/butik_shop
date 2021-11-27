@@ -285,7 +285,36 @@
 	                	</ul>
 	                	<div class="card">
 	                		<div class="card-header">
-	                			<h2>Laporan bulanan</h2>
+	                			<h2>Laporan Bulanan</h2>
+	                		</div>
+	                		<div class="card-body">
+								<h3>Barang Terjual</h3>
+									<table class="table table-bordered">
+										<thead>
+											<th>Barang</th>
+											<th>Jumlah</th>
+											<th>Total</th>
+											<th>Pembeli</th>
+											<th>Email Pembeli</th>
+										</thead>
+										<tbody>
+											<?php foreach($jualan as $item):?>
+											<tr>
+												<td><?= $item->barang_nama?></td>
+												<td><?= $item->Jumlah?></td>
+												<td><?= $item->Subtotal?></td>
+												<td><?= $item->Nama_user?></td>
+												<td><?= $item->Email?></td>
+											</tr>
+											<?php endforeach;?>
+										</tbody>
+										
+									</table>
+		                	</div>
+		            	</div>
+	                	<div class="card">
+	                		<div class="card-header">
+	                			<h2>Laporan Tahunan</h2>
 	                		</div>
 	                		<div class="card-body">
 								<table class="table table-bordered">
