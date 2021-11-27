@@ -41,6 +41,25 @@ class Toko extends CI_Controller
 		// echo $barang." ".$nota;
 	}
 
+	private function monthFormat(){
+
+		return [
+		  "1"=>"Januari",
+		  "2"=>"Februari",
+		  "3"=>"Maret",
+		  "4"=>"April",
+		  "5"=>"Mei",
+		  "6"=>"Juni",
+		  "7"=>"Juli",
+		  "8"=>"Agustus",
+		  "9"=>"September",
+		  "10"=>"Oktober",
+		  "11"=>"November",
+		  "12"=>"Desember",
+		];
+  
+	}
+
 	public function laporan_toko()
 	{
 		$month = $this->input->get('month');
@@ -50,8 +69,15 @@ class Toko extends CI_Controller
 			$month = date('m');
 		}
 		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month);
-		$data['laporan_bulanan'] = $this->toko_model->getTransactionSummary($data['toko']->id_toko,$month);
-		var_dump($data['jualan'], $data['laporan_bulanan']);
+		$summary = $this->toko_model->getTransactionSummary($data['toko']->id_toko);
+		$bulan = $this->monthFormat();
+		$summary_array =[];
+		foreach($summary as $row){
+			$summary_array[$row->bulan] = $row->total;
+		}
+		$data['bulan'] = $bulan;
+		$data['summary'] = $summary_array;
+		var_dump($data['jualan']);
 		die;
 		if($data['toko']!=null){
 			if($data['toko']->nama_toko!=""){	
