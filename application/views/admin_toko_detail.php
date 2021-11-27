@@ -360,7 +360,7 @@ p {
                 <?php foreach($bulan as $item):?>
                 <tr>
                   <td><?= $item?></td>
-                  <td>Rp. <?= isset($summary_array[$item])?$summary_array[$item]->array:0?>,00</td>
+                  <td>Rp. <?= isset($summary_array[$item])?$summary_array[$item]:0?>,00</td>
                 </tr>
                 <?php endforeach;?>
             </tbody>
