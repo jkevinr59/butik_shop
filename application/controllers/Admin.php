@@ -62,7 +62,7 @@ public function __construct()
 		$bulan = $this->monthFormat();
 		$summary_array =[];
 		foreach($summary as $row){
-			$summary_array[$summary->bulan] = $summary->total;
+			$summary_array[$row->bulan] = $row->total;
 		}
 		// echo(json_encode($toko,JSON_PRETTY_PRINT));
 		// echo(json_encode($transaksi,JSON_PRETTY_PRINT));
