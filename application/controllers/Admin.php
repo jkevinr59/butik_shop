@@ -15,6 +15,24 @@ public function __construct()
 	$this->load->model('toko_model');
   }
 	 
+
+  private function monthFormat(){
+	  return [
+		"1"=>"Januari",
+		"2"=>"Februari",
+		"3"=>"Maret",
+		"4"=>"April",
+		"5"=>"Mei",
+		"6"=>"Juni",
+		"7"=>"Juli",
+		"8"=>"Agustus",
+		"9"=>"September",
+		"10"=>"Oktober",
+		"11"=>"November",
+		"12"=>"Desember",
+	  ];
+
+  }
 	public function index()
 	{
 		redirect('Admin/user');
@@ -40,10 +58,16 @@ public function __construct()
 	{
 		$toko = $this->toko_model->getTokoDetail($id_toko);
 		$transaksi = $this->toko_model->getTransaction($id_toko);
+		$summary = $this->toko_model->getTransactionSummary($id_toko);
+		$bulan = $this->monthFormat();
+		$summary_array =[];
+		foreach($summary as $row){
+			$summary_array[$summary->bulan] = $summary->total;
+		}
 		// echo(json_encode($toko,JSON_PRETTY_PRINT));
 		// echo(json_encode($transaksi,JSON_PRETTY_PRINT));
 		// echo("\r\n");
-		return $this->load->view('admin_toko_detail',compact('toko','transaksi'));
+		return $this->load->view('admin_toko_detail',compact('toko','transaksi','summary','summary_array',"bulan"));
 	}
 
 //BLOG SECTION

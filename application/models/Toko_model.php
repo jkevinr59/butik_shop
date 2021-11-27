@@ -41,7 +41,7 @@ class Toko_model extends CI_Model {
 
     public function getTransactionSummary($id_toko)
     {
-        $htrans = $this->db->select('SUM(htrans.total),MONTH(htrans.tanggal) as bulan_penjualan')
+        $htrans = $this->db->select('SUM(htrans.total) as total,MONTH(htrans.tanggal) as bulan')
         ->where('id_toko',$id_toko)
         ->where('status_pembayaran','1')
         ->group_by('MONTH(htrans.tanggal)');

@@ -349,6 +349,27 @@ p {
   </div>
   <div class="hipsum">
     <div class="jumbotron">
+      <h3>Laporan Pendapatan bulanan</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+              <th>Bulan</th>
+              <th>Pendapatan</th>
+            </thead>
+            <tbody>
+                <?php foreach($bulan as $item):?>
+                <tr>
+                  <td><?= $item?></td>
+                  <td>Rp. <?= isset($summary_array[$item])?$summary_array[$item]->array:0?>,00</td>
+                </tr>
+                <?php endforeach;?>
+            </tbody>
+            
+        </table>
+      </div>
+  </div>
+  <div class="hipsum">
+    <div class="jumbotron">
       <h3>Daftar Barang</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
