@@ -357,10 +357,10 @@ p {
               <th>Pendapatan</th>
             </thead>
             <tbody>
-                <?php foreach($bulan as $item):?>
+                <?php foreach($bulan as $key => $item):?>
                 <tr>
                   <td><?= $item?></td>
-                  <td>Rp. <?= isset($summary_array[$item])?$summary_array[$item]:0?>,00</td>
+                  <td>Rp. <?= isset($summary_array[$key])?$summary_array[$item]:0?>,00</td>
                 </tr>
                 <?php endforeach;?>
             </tbody>
