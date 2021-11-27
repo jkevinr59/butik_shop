@@ -302,7 +302,7 @@
 											<?php foreach($transaksi as $item):?>
 											<tr>
 												<td><?= date('d m Y',strtotime($item->tanggal))?></td>
-												<td><?= ($item->Status_pembayran == 1)?"Lunas":"Belum Lunas"?></td>
+												<td><?= ($item->Status_pembayaran == 1)?"Lunas":"Belum Lunas"?></td>
 												<td><?= $item->ongkos_kirim?></td>
 												<td><?= $item->Total?></td>
 												<td><?= $item->Nama_user?></td>
