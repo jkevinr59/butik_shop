@@ -39,6 +39,17 @@ class Toko_model extends CI_Model {
         return $dtrans->result();
     }
 
+    public function getTransactionSummaryMonth($id_toko,$month)
+    {
+        $htrans = $this->db->select('htrans.*,user.Nama_user,user.Email')
+        ->join('user','user.Id_user = dtrans.Id_user')
+        ->where('id_toko',$id_toko)
+        ->where('MONTH(htrans.tanggal)',$month);
+
+
+        $htrans = $htrans->get('htrans');
+        return $htrans->result();
+    }
     public function getTransactionSummary($id_toko)
     {
         $htrans = $this->db->select('SUM(htrans.total) as total,MONTH(htrans.tanggal) as bulan')

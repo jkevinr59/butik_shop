@@ -69,6 +69,7 @@ class Toko extends CI_Controller
 			$month = date('m');
 		}
 		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month);
+		$data['transaksi'] = $this->toko_model->getTransactionSummaryMonth($data['toko']->id_toko,$month);
 		$summary = $this->toko_model->getTransactionSummary($data['toko']->id_toko);
 		$bulan = $this->monthFormat();
 		$summary_array =[];

@@ -288,6 +288,30 @@
 	                			<h2>Laporan Bulanan</h2>
 	                		</div>
 	                		<div class="card-body">
+								<h3>Transaksi Bulan Ini</h3>
+									<table class="table table-bordered">
+										<thead>
+											<th>Tanggal</th>
+											<th>Status</th>
+											<th>Ongkos Kirim</th>
+											<th>Total</th>
+											<th>Pembeli</th>
+											<th>Email Pembeli</th>
+										</thead>
+										<tbody>
+											<?php foreach($transaksi as $item):?>
+											<tr>
+												<td><?= date('d m Y',strtotime($item->tanggal))?></td>
+												<td><?= ($item->Status_pembayran == 1)?"Lunas":"Belum Lunas"?></td>
+												<td><?= $item->ongkos_kirim?></td>
+												<td><?= $item->Total?></td>
+												<td><?= $item->Nama_user?></td>
+												<td><?= $item->Email?></td>
+											</tr>
+											<?php endforeach;?>
+										</tbody>
+										
+									</table>
 								<h3>Barang Terjual</h3>
 									<table class="table table-bordered">
 										<thead>
