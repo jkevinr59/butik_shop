@@ -79,17 +79,7 @@ class Toko extends CI_Controller
 		$data['summary'] = $summary_array;
 		// var_dump($data['jualan']);
 		// die;
-		if($data['toko']!=null){
-			if($data['toko']->nama_toko!=""){	
-				$this->load->view('tokojualan',$data);	
-			}
-			else{
-				redirect('Cont/ke_edit_toko');
-			}
-		}
-		else{
-			$this->load->view('laporan_toko',$data);
-		}
+		$this->load->view('tokolaporan',$data);
 	}
 }
 ?>
