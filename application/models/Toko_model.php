@@ -22,7 +22,7 @@ class Toko_model extends CI_Model {
     
     public function getTransaction($id_toko=null,$month = null){
         // $barang = $this->db->where('id_toko',$id_toko)->get('barang')->result()
-        $dtrans = $this->db->select('dtrans.*,barang.id_toko,barang.barang_nama,user.Nama_user,user.Email,htrans.Tanggal as tanggal_transaksi')
+        $dtrans = $this->db->select('dtrans.*,barang.id_toko,barang.barang_nama,user.Nama_user,user.Email,htrans.Tanggal as tanggal_transaksi,htrans.Status_pembayaran')
         ->join('barang','dtrans.Id_barang = barang.barang_id')
         ->join('user','user.Id_user = dtrans.Id_user')
         ->join('htrans','dtrans.Notajual = htrans.Notajual')
