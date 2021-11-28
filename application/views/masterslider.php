@@ -297,11 +297,11 @@ p {
 <div class="sidebar">
   <ul>
     <li id='master'><a href="<?php echo site_url('Admin/user'); ?>"><i class="fa fa-desktop"></i><span> Master User</span></a></li>
-    <li id='order'><a href="<?php echo site_url('Admin/slider'); ?>"><i class="fa fa-desktop"></i><span>Slider</span></a></li>
+    <!-- <li id='order'><a href="<?php echo site_url('Admin/slider'); ?>"><i class="fa fa-desktop"></i><span>Slider</span></a></li> -->
     <li id='master_admin'><a href="<?php echo site_url('Admin/masteradmin'); ?>"><i class="fa fa-desktop"></i><span>Master Admin</span></a></li>
     <li id='toko'><a href="<?php echo site_url('Admin/view_toko'); ?>"><i class="fa fa-truck"></i><span>Toko</span></a></li>
-    <li><a href="<?php echo site_url('Admin/halamanpromo'); ?>"><i class="fa fa-money"></i><span>Promo</span></a></li>
-    <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
+    <!-- <li><a href="<?php echo site_url('Admin/halamanpromo'); ?>"><i class="fa fa-money"></i><span>Promo</span></a></li> -->
+    <!-- <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Report</span></a></li> -->
     <li><a href="<?php echo site_url('Admin/ke_master_blog'); ?>"><i class="fa fa-bar-chart"></i><span>List Blog</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_buat_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Buat Blog</span></a></li>
   </ul>
