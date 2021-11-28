@@ -46,7 +46,6 @@ class Toko_model extends CI_Model {
         ->where('id_toko',$id_toko)
         ->where('MONTH(htrans.tanggal)',$month);
 
-
         $htrans = $htrans->get('htrans');
         return $htrans->result();
     }
