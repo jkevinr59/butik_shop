@@ -57,9 +57,9 @@ public function __construct()
 		$best_seller=array_merge($denganrating,$tanparating);
 		$data['best_seller']=[];
 		foreach ($best_seller as $key) {
-			$data = $this->Model->selectbarangbyid($key->Id_barang);
+			$barang = $this->Model->selectbarangbyid($key->Id_barang);
 			if($data){
-				array_push($data['best_seller'], $data);
+				array_push($data['best_seller'], $barang);
 
 			}
 		}
