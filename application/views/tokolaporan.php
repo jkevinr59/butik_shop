@@ -293,7 +293,7 @@
 										<select class="form-control" name="filter" id="filter">
 											<?php foreach($tahun as $key_tahun => $item_tahun):?>
 												<?php foreach($bulan as $key => $item):?>
-													<option value="<?=$item.$item_tahun?>" <?=($filter==$item.$item_tahun)?'selected':''?> > <?=$item?> <?=$item_tahun?></option>
+													<option value="<?=$item.$item_tahun?>" <?=($filter==$key.$key_tahun)?'selected':''?> > <?=$item?> <?=$item_tahun?></option>
 												<?php endforeach?>
 											<?php endforeach?>
 										</select>
