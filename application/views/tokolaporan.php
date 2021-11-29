@@ -288,9 +288,9 @@
 	                			<h2>Laporan Bulanan</h2>
 	                		</div>
 	                		<div class="card-body">
-								<form action="<?=base_url()?>Toko/laporan_toko" method="get">
+								<form action="<?=base_url()?>Toko/laporan_toko" method="get" id="filter_form">
 										<label for="name">Bulan</label>
-										<select class="form-control" name="filter" id="filter">
+										<select class="form-control" name="filter" id="filter" onchange="document.getElementById('filter_form').submit()">
 											<?php foreach($tahun as $key_tahun => $item_tahun):?>
 												<?php foreach($bulan as $key => $item):?>
 													<option value="<?=$key.$item_tahun?>" <?=($filter==$key.$item_tahun)?'selected':''?> > <?=$item?> <?=$item_tahun?></option>
