@@ -298,6 +298,7 @@ p {
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
+                <th>Toko</th>
                 <th>Barang</th>
                 <th>Jumlah</th>
                 <th>Total</th>
@@ -307,6 +308,7 @@ p {
               <tbody>
                   <?php foreach($transaksi as $item):?>
                   <tr>
+                    <td><?= $item->nama_toko?></td>
                     <td><?= $item->barang_nama?></td>
                     <td><?= $item->Jumlah?></td>
                     <td><?= $item->Subtotal?></td>
