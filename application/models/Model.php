@@ -766,7 +766,10 @@ public function __construct(){
 	}
 	
 	public function getLastIdBarang() {
-	  return $this->db->select('*')->from('barang')->order_by('barang_id','desc')->count_all_results();
+	//   return $this->db->select('*')->from('barang')->order_by('barang_id','desc')->count_all_results();
+		$result = $this->db->select('barang.barang_id,barang.barang_nama')->order_by('barang_id','desc')->limit(1)->get('barang')->row();
+		$number = substr($result->barang_id,-5);
+		return $number;
 	}
 
 	public function selectDetailFoto($id)
