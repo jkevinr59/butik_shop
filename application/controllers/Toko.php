@@ -85,7 +85,6 @@ class Toko extends CI_Controller
 			$month = substr($filter,0,2);
 		}
 		$year = substr($filter,-4);
-		var_dump($filter);
 		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month,$year);
 		$data['transaksi'] = $this->toko_model->getTransactionSummaryMonth($month,$year,$data['toko']->id_toko);
 		$summary = $this->toko_model->getTransactionSummary($data['toko']->id_toko);
