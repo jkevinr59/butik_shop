@@ -908,7 +908,7 @@ public function __construct(){
 	}
 	public function getBarangById($id)
 	{
-	   return $this->db->select('*')->from('barang')->where('id_barang',$id)->get()->result();	
+	   return $this->db->select('*')->from('barang')->where('barang_id',$id)->get()->result();	
 	}
 
 	public function JumlahKategori($id,$id_toko)
