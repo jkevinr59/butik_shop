@@ -59,7 +59,8 @@ public function __construct()
 		foreach ($best_seller as $key) {
 			array_push($data['best_seller'], $this->Model->selectbarangbyid($key->Id_barang));
 		}
-
+		var_dump($data['best_seller']);
+		die;
 		//AFTER SORTING
 		if($id==""){
 			if($this->session->userdata('login')!=null){
