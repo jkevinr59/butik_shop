@@ -70,6 +70,7 @@ public function __construct()
 		return $this->load->view('admin_toko_detail',compact('toko','transaksi','summary','summary_array',"bulan"));
 	}
 
+
 //BLOG SECTION
 
 	public function ke_master_blog()
@@ -330,8 +331,14 @@ public function __construct()
 
 	public function halamanreport()
 	{
-		$data['report'] = $this->Model->getReportPemasukanBulanan();
-		$this->load->view('report',$data);
+		$transaksi = $this->toko_model->getTransaction();
+		$summary = $this->toko_model->getTransactionSummary();
+		return $this->load->view('report',compact('transaksi'));
+
+
+
+		// $data['report'] = $this->Model->getReportPemasukanBulanan();
+		// $this->load->view('report',$data);
 	}
 
 	public function getdetailorder()

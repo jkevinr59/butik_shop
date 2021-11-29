@@ -294,36 +294,31 @@ p {
 <div class="main">
   <div class="hipsum">
     <div class="jumbotron">
-		   <center> <h2>Pemasukan Bulanan</h2></center>
-            <canvas id="myChart"></canvas>
-			<script>
-				  var ctx = document.getElementById('myChart').getContext('2d');
-				var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: [
-    <?php
-      foreach($report as $row)
-      {
-        echo "'".$row->bulan."',";
-      }
-    ?>
-    ],
-    datasets: [{
-      label: "Pemasukan",
-      data: [
-      <?php
-        foreach($report as $row)
-        {
-            echo $row->total.",";
-        }
-      ?>
-      ],
-      backgroundColor: "rgba(153,255,51,0.4)"
-    }]
-  }
-  });
-			</script>
+      <h3>Daftar Transaksi Barang</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+              <thead>
+                <th>Barang</th>
+                <th>Jumlah</th>
+                <th>Total</th>
+                <th>Pembeli</th>
+                <th>Email Pembeli</th>
+              </thead>
+              <tbody>
+                  <?php foreach($transaksi as $item):?>
+                  <tr>
+                    <td><?= $item->barang_nama?></td>
+                    <td><?= $item->Jumlah?></td>
+                    <td><?= $item->Subtotal?></td>
+                    <td><?= $item->Nama_user?></td>
+                    <td><?= $item->Email?></td>
+                  </tr>
+                  <?php endforeach;?>
+              </tbody>
+              
+        </table>
+
+      </div>
 	</div>
   </div>
 </div>
