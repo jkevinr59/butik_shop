@@ -855,6 +855,13 @@ public function __construct()
 		$tempid = $this->Model->getLastIdBarang();
 		$id = $tempid+1;
 		$kode = "B".str_pad($id, 5, "0",STR_PAD_LEFT);
+		$is_exist = $this->Model->getBarangById($kode);
+		while($is_exist){
+			$tempid = $id;
+			$id = $tempid+1;
+			$kode = "B".str_pad($id, 5, "0",STR_PAD_LEFT);
+			$is_exist = $this->Model->getBarangById($kode);
+		}
 		$config['upload_path'] = './resource/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 		$config['overwrite'] = TRUE;

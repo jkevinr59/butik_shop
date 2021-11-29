@@ -906,7 +906,11 @@ public function __construct(){
 	{
 	   return $this->db->select('*')->from('barang')->where('id_merk',$id)->not_like('id_toko',$id_toko)->get()->result();	
 	}
-	
+	public function getBarangById($id)
+	{
+	   return $this->db->select('*')->from('barang')->where('id_barang',$id)->get()->result();	
+	}
+
 	public function JumlahKategori($id,$id_toko)
 	{
 		$sql = $this->db->query("SELECT count(*) as jumlah from barang where id_kategori='$id' and id_toko not like '%$id_toko%' group by id_kategori");
