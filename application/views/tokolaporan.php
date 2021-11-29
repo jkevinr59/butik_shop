@@ -357,14 +357,13 @@
 									<th>Pendapatan</th>
 									</thead>
 									<tbody>
-										<?php foreach($tahun as $key_tahun => $item_tahun):?>
+										<?php $tahun = date('Y') ?>
 											<?php foreach($bulan as $key => $item):?>
 											<tr>
 											<td><?= $item?> <?= $item_tahun?></td>
-											<td>Rp. <?= isset($summary[$key][$key_tahun])?number_format([$key][$key_tahun]):0?></td>
+											<td>Rp. <?= isset($summary[$key][$tahun])?number_format([$key][$tahun]):0?></td>
 											</tr>
 											<?php endforeach;?>
-										<?php endforeach;?>
 									</tbody>
 									
 								</table>
