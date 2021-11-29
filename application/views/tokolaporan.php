@@ -353,14 +353,14 @@
 	                		<div class="card-body">
 								<table class="table table-bordered">
 									<thead>
-									<th>Bulan</th>
+									<th>Bulan & Tahun</th>
 									<th>Pendapatan</th>
 									</thead>
 									<tbody>
 										<?php $tahun = date('Y') ?>
 											<?php foreach($bulan as $key => $item):?>
 											<tr>
-											<td><?= $item?> <?= $item_tahun?></td>
+											<td><?= $item?> <?= $tahun?></td>
 											<td>Rp. <?= isset($summary[$key][$tahun])?number_format([$key][$tahun]):0?></td>
 											</tr>
 											<?php endforeach;?>
