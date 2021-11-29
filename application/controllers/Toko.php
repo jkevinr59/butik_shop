@@ -97,8 +97,8 @@ class Toko extends CI_Controller
 		$data['tahun'] = $tahun;
 		$data['summary'] = $summary_array;
 		$data['filter'] = $filter;
-		var_dump($data['filter']);
-		die;
+		// var_dump($data['filter']);
+		// die;
 		$this->load->view('tokolaporan',$data);
 	}
 }
