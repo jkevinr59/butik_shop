@@ -304,6 +304,7 @@ p {
                 <th>Total</th>
                 <th>Pembeli</th>
                 <th>Email Pembeli</th>
+                <th>Tanggal</th>
               </thead>
               <tbody>
                   <?php foreach($transaksi as $item):?>
@@ -314,6 +315,7 @@ p {
                     <td><?= $item->Subtotal?></td>
                     <td><?= $item->Nama_user?></td>
                     <td><?= $item->Email?></td>
+                    <td><?= date('d F Y',strtotime($item->tanggal_transaksi))?></td>
                   </tr>
                   <?php endforeach;?>
               </tbody>
