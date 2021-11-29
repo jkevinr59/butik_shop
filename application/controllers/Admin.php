@@ -332,7 +332,6 @@ public function __construct()
 	public function halamanreport()
 	{
 		$transaksi = $this->toko_model->getTransaction();
-		$summary = $this->toko_model->getTransactionSummary();
 		return $this->load->view('report',compact('transaksi'));
 
 
