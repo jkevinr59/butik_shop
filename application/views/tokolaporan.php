@@ -361,7 +361,7 @@
 											<?php foreach($bulan as $key => $item):?>
 											<tr>
 											<td><?= $item?> <?= $tahun?></td>
-											<td>Rp. <?= isset($summary[$key][$tahun])?number_format([$key][$tahun]):0?></td>
+											<td>Rp. <?= isset($summary[$key][$tahun])?number_format($summary[$key][$tahun]):0?></td>
 											</tr>
 											<?php endforeach;?>
 									</tbody>
