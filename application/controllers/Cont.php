@@ -57,10 +57,12 @@ public function __construct()
 		$best_seller=array_merge($denganrating,$tanparating);
 		$data['best_seller']=[];
 		foreach ($best_seller as $key) {
-			array_push($data['best_seller'], $this->Model->selectbarangbyid($key->Id_barang));
+			$data = $this->Model->selectbarangbyid($key->Id_barang);
+			if($data){
+				array_push($data['best_seller'], $data);
+
+			}
 		}
-		var_dump($data['best_seller']);
-		die;
 		//AFTER SORTING
 		if($id==""){
 			if($this->session->userdata('login')!=null){
