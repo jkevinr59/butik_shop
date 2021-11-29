@@ -76,14 +76,15 @@ class Toko extends CI_Controller
 		$data['kategori']=$this->Model->getKategori();
 		if(!$filter){
 			$filter = date('mY');
-			if(strlen($filter)==5){
-				$month = substr($filter,0,1);
-			}
-			else{
-				$month = substr($filter,0,2);
-			}
-			$year = substr($filter,-4);
+			
 		}
+		if(strlen($filter)==5){
+			$month = substr($filter,0,1);
+		}
+		else{
+			$month = substr($filter,0,2);
+		}
+		$year = substr($filter,-4);
 		var_dump($filter);
 		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month,$year);
 		$data['transaksi'] = $this->toko_model->getTransactionSummaryMonth($month,$year,$data['toko']->id_toko);
