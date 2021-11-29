@@ -288,6 +288,16 @@
 	                			<h2>Laporan Bulanan</h2>
 	                		</div>
 	                		<div class="card-body">
+								<form action="<?=base_url()?>Toko/laporan_toko" method="get">
+										<label for="name">Bulan</label>
+										<select class="form-control" name="filter" id="filter">
+											<?php foreach($tahun as $key_tahun => $item_tahun):?>
+												<?php foreach($bulan as $key => $item):?>
+													<option value="<?=$item.$item_tahun?>"> <?=$item?> <?=$item_tahun?></option>
+												<?php endforeach?>
+											<?php endforeach?>
+										</select>
+								</form>
 								<h3>Transaksi Bulan Ini</h3>
 									<table class="table table-bordered">
 										<thead>
@@ -347,11 +357,13 @@
 									<th>Pendapatan</th>
 									</thead>
 									<tbody>
-										<?php foreach($bulan as $key => $item):?>
-										<tr>
-										<td><?= $item?></td>
-										<td>Rp. <?= isset($summary[$key])?number_format($summary[$key]):0?></td>
-										</tr>
+										<?php foreach($tahun as $key_tahun => $item_tahun):?>
+											<?php foreach($bulan as $key => $item):?>
+											<tr>
+											<td><?= $item?> <?= $item_tahun?></td>
+											<td>Rp. <?= isset($summary[$key][$key_tahun])?number_format([$key][$key_tahun]):0?></td>
+											</tr>
+											<?php endforeach;?>
 										<?php endforeach;?>
 									</tbody>
 									

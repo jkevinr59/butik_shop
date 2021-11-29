@@ -59,24 +59,42 @@ class Toko extends CI_Controller
 		];
   
 	}
+	private function yearFormat(){
+		$current = date('Y');
+		$lower_limit = date('Y',strtotime('-3 years'));
+		$year = [];
+		for($i = $lower_limit;$i<=$current;$i++){
+			array_push($year,$i);
+		}
+		return $year;
+	}
 
 	public function laporan_toko()
 	{
-		$month = $this->input->get('month');
+		$filter = $this->input->get('filter');
 		$data['toko']= $this->Model->getToko($this->session->userdata('id_login'));
 		$data['kategori']=$this->Model->getKategori();
-		if(!$month){
-			$month = date('m');
+		if(!$filter){
+			$filter = date('mY');
+			if(strlen($filter)==5){
+				$month = substr($filter,0,1);
+			}
+			else{
+				$month = substr($filter,0,2);
+			}
+			$year = substr($filter,-4);
 		}
-		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month);
-		$data['transaksi'] = $this->toko_model->getTransactionSummaryMonth($data['toko']->id_toko,$month);
+		$data['jualan'] = $this->toko_model->getTransaction($data['toko']->id_toko,$month,$year);
+		$data['transaksi'] = $this->toko_model->getTransactionSummaryMonth($month,$year,$data['toko']->id_toko);
 		$summary = $this->toko_model->getTransactionSummary($data['toko']->id_toko);
 		$bulan = $this->monthFormat();
+		$tahun = $this->yearFormat();
 		$summary_array =[];
 		foreach($summary as $row){
-			$summary_array[$row->bulan] = $row->total;
+			$summary_array[$row->bulan][$row->tahun] = $row->total;
 		}
 		$data['bulan'] = $bulan;
+		$data['tahun'] = $tahun;
 		$data['summary'] = $summary_array;
 		// var_dump($data['jualan']);
 		// die;

@@ -357,12 +357,14 @@ p {
               <th>Pendapatan</th>
             </thead>
             <tbody>
-                <?php foreach($bulan as $key => $item):?>
-                <tr>
-                  <td><?= $item?></td>
-                  <td>Rp. <?= isset($summary_array[$key])?number_format($summary_array[$key]):0?></td>
-                </tr>
-                <?php endforeach;?>
+                    <?php foreach($tahun as $key_tahun => $item_tahun):?>
+                      <?php foreach($bulan as $key => $item):?>
+                      <tr>
+                      <td><?= $item?> <?= $item_tahun?></td>
+                      <td>Rp. <?= isset($summary[$key][$key_tahun])?number_format([$key][$key_tahun]):0?></td>
+                      </tr>
+                      <?php endforeach;?>
+                    <?php endforeach;?>
             </tbody>
             
         </table>

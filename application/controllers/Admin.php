@@ -16,6 +16,16 @@ public function __construct()
   }
 	 
 
+  private function yearFormat(){
+		$current = date('Y');
+		$lower_limit = date('Y',strtotime('-3 years'));
+		$year = [];
+		for($i = $lower_limit;$i<=$current;$i++){
+			array_push($year,$i);
+		}
+		return $year;
+	}
+
   private function monthFormat(){
 	  return [
 		"1"=>"Januari",
@@ -60,9 +70,10 @@ public function __construct()
 		$transaksi = $this->toko_model->getTransaction($id_toko);
 		$summary = $this->toko_model->getTransactionSummary($id_toko);
 		$bulan = $this->monthFormat();
+		$tahun = $this->yearFormat();
 		$summary_array =[];
 		foreach($summary as $row){
-			$summary_array[$row->bulan] = $row->total;
+			$summary_array[$row->bulan][$row->tahun] = $row->total;
 		}
 		// echo(json_encode($toko,JSON_PRETTY_PRINT));
 		// echo(json_encode($transaksi,JSON_PRETTY_PRINT));

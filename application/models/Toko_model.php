@@ -42,24 +42,28 @@ class Toko_model extends CI_Model {
         return $dtrans->result();
     }
 
-    public function getTransactionSummaryMonth($id_toko,$month)
+    public function getTransactionSummaryMonth($month=null,$year=null,$id_toko=null)
     {
         $htrans = $this->db->select('htrans.*,user.Nama_user,user.Email')
         ->join('user','user.Id_user = htrans.Id_user')
-        ->where('id_toko',$id_toko)
-        ->where('MONTH(htrans.tanggal)',$month);
-
+        ->where('MONTH(htrans.tanggal)',$month)
+        ->where('YEAR(htrans.tanggal)',$year);
+        if($id_toko){
+            $htrans = $htrans->where('id_toko',$id_toko);
+        }
         $htrans = $htrans->get('htrans');
         return $htrans->result();
     }
-    public function getTransactionSummary($id_toko)
+    public function getTransactionSummary($id_toko=null)
     {
-        $htrans = $this->db->select('SUM(htrans.total) as total,MONTH(htrans.tanggal) as bulan');
+        $htrans = $this->db->select('SUM(htrans.total) as total,MONTH(htrans.tanggal) as bulan,YEAR(htrans.tanggal) as tahun');
         if($id_toko){
             $htrans = $htrans->where('id_toko',$id_toko);
         }
         $htrans = $htrans->where('status_pembayaran','1')
-        ->group_by('MONTH(htrans.tanggal)');
+        ->group_by('YEAR(htrans.tanggal),MONTH(htrans.tanggal)')
+        ->order_by('tahun','desc')
+        ->order_by('bulan','desc');
 
         $htrans = $htrans->get('htrans');
         return $htrans->result();
