@@ -302,10 +302,10 @@ p {
                 <th>Toko</th>
                 <th>Barang</th>
                 <th>Jumlah</th>
-                <th>Total</th>
                 <th>Pembeli</th>
                 <th>Email Pembeli</th>
                 <th>Tanggal</th>
+                <th>Total</th>
               </thead>
               <tbody>
                   <?php $total = 0;?>
@@ -318,10 +318,10 @@ p {
                       <td><?= $item->nama_toko?></td>
                       <td><?= $item->barang_nama?></td>
                       <td><?= $item->Jumlah?></td>
-                      <td><?= $item->Subtotal?></td>
                       <td><?= $item->Nama_user?></td>
                       <td><?= $item->Email?></td>
                       <td><?= date('d F Y',strtotime($item->tanggal_transaksi))?></td>
+                      <td><?= $item->Subtotal?></td>
                     </tr>
                   <?php endforeach;?>
                   
