@@ -298,6 +298,7 @@ p {
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
+                <th>#</th>
                 <th>Toko</th>
                 <th>Barang</th>
                 <th>Jumlah</th>
@@ -308,9 +309,12 @@ p {
               </thead>
               <tbody>
                   <?php $total = 0;?>
+                  <?php $i = 0;?>
                   <?php foreach($transaksi as $item):?>
+                    <?php $i++;?>
                     <?php $total = $total + $item->Subtotal;?>
                     <tr>
+                      <td><?= $i?></td>
                       <td><?= $item->nama_toko?></td>
                       <td><?= $item->barang_nama?></td>
                       <td><?= $item->Jumlah?></td>
@@ -325,7 +329,7 @@ p {
               <tfoot>
                 <tr>
                   <th colspan="6">Total</th>
-                  <th><?=$total?></th>
+                  <th colspan="2"><?=$total?></th>
                 </tr>
               </tfoot>
               
