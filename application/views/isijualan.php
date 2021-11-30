@@ -281,6 +281,7 @@
                 		<li><a href="<?php echo base_url();?>Cont/ke_toko" style="border-style: solid;">Jualan</a></li>
                 		<li><a href="#" class="actived" style="border-style: solid;">Isi Toko</a></li>
                 		<li><a href="<?php echo base_url();?>Cont/ke_pembayaran_toko" style="border-style: solid;">List Pembayaran</a></li>
+						<li><a href="<?php echo base_url();?>Toko/laporan_toko" style="border-style: solid;">Laporan Toko</a></li>
                 	</ul>
                 	<div class="card">
                 		<div class="card-header">
