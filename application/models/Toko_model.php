@@ -42,6 +42,28 @@ class Toko_model extends CI_Model {
         return $dtrans->result();
     }
 
+    public function getTransactionReport($id_toko=null,$month = null,$year =null){
+        // $barang = $this->db->where('id_toko',$id_toko)->get('barang')->result()
+        $dtrans = $this->db->select('dtrans.*,barang.id_toko,barang.barang_nama,user.Nama_user,user.Email,htrans.Tanggal as tanggal_transaksi,htrans.Status_pembayaran,toko.nama_toko')
+        ->join('barang','dtrans.Id_barang = barang.barang_id')
+        ->join('user','user.Id_user = dtrans.Id_user')
+        ->join('htrans','dtrans.Notajual = htrans.Notajual')
+        ->join('toko','toko.id_toko=barang.id_toko')
+        ->having('htrans.Status_pembayaran',1);
+        if($id_toko){
+            $dtrans = $dtrans->having('barang.id_toko',$id_toko);
+        }
+        else{
+        }
+        if($month)
+        {
+            $dtrans = $dtrans->having('month(tanggal_transaksi) = '.$month);
+        }
+
+        $dtrans = $dtrans->order_by('tanggal_transaksi','desc')->limit(50)->get('dtrans');
+        return $dtrans->result();
+    }
+
     public function getTransactionSummaryMonth($month=null,$year=null,$id_toko=null)
     {
         $htrans = $this->db->select('htrans.*,user.Nama_user,user.Email')
