@@ -307,17 +307,23 @@ p {
                 <th>Tanggal</th>
               </thead>
               <tbody>
+                  <?php $total = 0;?>
                   <?php foreach($transaksi as $item):?>
-                  <tr>
-                    <td><?= $item->nama_toko?></td>
-                    <td><?= $item->barang_nama?></td>
-                    <td><?= $item->Jumlah?></td>
-                    <td><?= $item->Subtotal?></td>
-                    <td><?= $item->Nama_user?></td>
-                    <td><?= $item->Email?></td>
-                    <td><?= date('d F Y',strtotime($item->tanggal_transaksi))?></td>
-                  </tr>
+                    <?php $total = $total + $item->Subtotal;?>
+                    <tr>
+                      <td><?= $item->nama_toko?></td>
+                      <td><?= $item->barang_nama?></td>
+                      <td><?= $item->Jumlah?></td>
+                      <td><?= $item->Subtotal?></td>
+                      <td><?= $item->Nama_user?></td>
+                      <td><?= $item->Email?></td>
+                      <td><?= date('d F Y',strtotime($item->tanggal_transaksi))?></td>
+                    </tr>
                   <?php endforeach;?>
+                  <tr>
+                    <td colspan="6">Total</td>
+                    <td><?=$total?></td>
+                  </tr>
               </tbody>
               
         </table>
