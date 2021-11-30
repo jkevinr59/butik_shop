@@ -320,11 +320,14 @@ p {
                       <td><?= date('d F Y',strtotime($item->tanggal_transaksi))?></td>
                     </tr>
                   <?php endforeach;?>
-                  <tr>
-                    <td colspan="6">Total</td>
-                    <td><?=$total?></td>
-                  </tr>
+                  
               </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="6">Total</th>
+                  <th><?=$total?></th>
+                </tr>
+              </tfoot>
               
         </table>
 
