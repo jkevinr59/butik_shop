@@ -78,11 +78,11 @@
 </style>
 </head>
 
-<body>
+<!-- <body>
 <div class="preloader-full-height" id="preloading">
 	<img id="me" src="<?php echo base_url();?>images/logo-icon.png">
 	<h4>LOADING ...</h4>
-</div>
+</div> -->
 
 <div class="super_container">
 
