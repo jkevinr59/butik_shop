@@ -14,7 +14,7 @@ public function __construct()
 	$this->load->model('Model');
 	$this->load->model('toko_model');
   }
-	 
+	 //contoh perubahan
 
   private function yearFormat(){
 		$current = date('Y');
