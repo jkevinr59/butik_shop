@@ -99,6 +99,6 @@ class Toko_model extends CI_Model {
         if(!$dtrans->tanggal_kirim){
             $this->db->set('tanggal_kirim',date('Y-m-d'));
         }
-        $this->update('dtrans');
+        $this->db->update('dtrans');
     }
 }
