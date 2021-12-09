@@ -358,32 +358,69 @@
 										<h3>Transaksi Belum Selesai</h3>
 											<table class="table">
 												<thead>
-													<th>Tanggal</th>
-													<th>Total</th>
-													<th>Ongkos kirim</th>
+													<th>Nomor Transaksi</th>
+													<th>Barang</th>
+													<th>Jumlah</th>
 													<th>Status</th>
-													<th>Channel Pembayaran</th>
 													<th>Keterangan</th>
+													<th>Aksi</th>
 												</thead>
 												<tbody>
 
-													<?php foreach($payment as $row):?>
+													<?php foreach($transaksi_pending as $row):?>
 														<tr>
-															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
-															<td> <?=$row->Total?></td>
-															<td> <?=$row->ongkos_kirim?></td>
-															<td> <?=($row->Status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
-															<?php if(isset($midtrans_bca[$row->Notajual]->approved_at)):?>
-																<td>BCA</td>
-															<?php elseif(isset($midtrans_bni[$row->Notajual]->approved_at)):?>
-																<td>BNI</td>
-															<?php else:?>
-																<td></td>
-															<?php endif;?>
-															<?php if($row->Status_pembayaran==0):?>
-																<td>Pembayaran Melalui <br> VA BCA:<?=$midtrans_bca[$row->Notajual]->va?> <br> VA BNI:<?=$midtrans_bni[$row->Notajual]->va?></td>	
-															<?php else:?>
-															<?php endif;?>
+															<td> <?=$row->Notajual?></td>
+															<td> <?=$row->barang_nama?></td>
+															<td> <?=$row->Jumlah?></td>
+															<td>
+																<?php if($row->tanggal_kirim):?>
+																	<?php if($row->tanggal_terima):?>
+																		<?php if($row->tanggal_retur):?>
+																			Dikembalikan
+																		<?php else:?>
+																			Sudah diterima
+																		<?php endif;?>
+																	<?php else:?>
+																		Sedang dikirim
+																	<?php endif;?>
+																<?php else:?>
+																	Belum Terkirim
+																<?php endif;?>
+															</td>
+															<td>
+																<?php if($row->tanggal_kirim):?>
+																	<?php if($row->tanggal_terima):?>
+																		<?php if($row->tanggal_retur):?>
+																			Tanggal Retur = <?=$row->tanggal_retur?>
+																		<?php else:?>
+																			Tanggal Terima = <?=$row->tanggal_terima?>
+																		<?php endif;?>
+																	<?php else:?>
+																		Tanggal Kirim = <?=$row->tanggal_kirim?>
+																	<?php endif;?>
+																<?php else:?>
+																	Belum Terkirim
+																<?php endif;?>
+															</td>
+															<td>
+																<?php if($row->tanggal_kirim):?>
+																	<?php if($row->tanggal_terima):?>
+																		<?php if($row->tanggal_retur):?>
+
+																		<?php else:?>
+																			<form action="<?= base_url('Cart/userupdatetrans/retur/'.$row->id)?>" method="post">
+																			<input type="text" class="form-control" name="no_resi" id='<?=$row->id?>_resi' style="margin-bottom: 20px;" placeholder="Nomor Resi Pengiriman" >
+																			<input type='submit' class='btn button-danger' id='<?=$row->id?>_submit' value='retur Barang'>
+																		</form>
+																		<?php endif;?>
+																	<?php else:?>
+																		<form action="<?= base_url('Cart/userupdatetrans/sent/'.$row->id)?>" method="post">
+																			<input type='submit' class='btn button-primary' id='<?=$row->id?>_submit' value='Kirim Barang'>
+																		</form>
+																	<?php endif;?>
+																<?php else:?>
+																<?php endif;?>
+															</td>
 														</tr>
 													<?php  endforeach; ?>
 													

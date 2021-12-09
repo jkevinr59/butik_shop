@@ -93,7 +93,8 @@ class Toko_model extends CI_Model {
 
     public function sendBarang($trans_id,$no_resi)
     {
-        $dtrans = $this->db->where('id',$trans_id)->get('dtrans')->row();
+        $dtrans = $this->db->select('dtrans.*,barang.*')->where('id',$trans_id)->get('dtrans')->row();
+        $this->db->join('barang','dtrans.Id_barang = barang.barang_id');
         $this->db->where('id',$trans_id);
         $this->db->set('no_resi',$no_resi);
         if(!$dtrans->tanggal_kirim){

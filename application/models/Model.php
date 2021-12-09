@@ -1139,9 +1139,10 @@ public function __construct(){
 		{
 			$iduser=$row->Id_user;
 		}
-		return $this->db->select('*')->from("dtrans")->where('Id_User',$iduser)
-		->where('tanggal_kirim',null)
-		->where('tanggal_terima',null)
+		return $this->db->select('*')->from("dtrans")
+		->order_by('id',"desc")
+		->where('Id_User',$iduser)
+		->take(20)
 		->get()->result();
 	}
 	public function getpayment($nama)
