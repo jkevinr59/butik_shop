@@ -1216,7 +1216,7 @@ public function __construct(){
 		if($status == "sent"){
 			$this->db->set('tanggal_terima',date('Y-m-d H:i:s'));
 		}
-		else if($status =="cancel"){
+		else if($status =="retur"){
 			$this->db->set('tanggal_retur',date('Y-m-d H:i:s'));
 			$this->db->set('alasan_retur',$keterangan);
 		}
