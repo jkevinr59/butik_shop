@@ -173,6 +173,7 @@ class Cart extends CI_Controller
 			$keterangan = $this->input->post("alasan_retur");
 		}
 		$this->Model->updateTransactionStatus($dtrans_id,$status,$keterangan);
+		$this->view_payment();
 	}
 
 	public function checkoutpromo()
