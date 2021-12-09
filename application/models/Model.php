@@ -1191,7 +1191,7 @@ public function __construct(){
 
 	public function getorderperToko($toko)
 	{
-		$query = $this->db->query("SELECT barang.id_toko,user.Nama_user,barang.barang_id,REPLACE(barang.foto,' ','%20') as foto_barang,dtrans.Notajual,barang.barang_nama,dtrans.Status_order,dtrans.Jumlah,barang.harga_satuan,dtrans.Subtotal,sub_query.foto,sub_query.Status_pembayaran FROM user,barang,dtrans,(SELECT htrans.Notajual,htrans.Status_pembayaran,buktipembayaran.Foto FROM htrans LEFT JOIN buktipembayaran ON htrans.Notajual=buktipembayaran.Notajual) AS sub_query WHERE barang.barang_id=dtrans.Id_barang AND dtrans.Notajual=sub_query.Notajual AND user.Id_user=dtrans.Id_user AND barang.id_toko='".$toko."'");
+		$query = $this->db->query("SELECT barang.id_toko,user.Nama_user,barang.barang_id,REPLACE(barang.foto,' ','%20') as foto_barang,dtrans.Notajual,barang.barang_nama,dtrans.Status_order,dtrans.Jumlah,barang.harga_satuan,dtrans.Subtotal,sub_query.foto,sub_query.Status_pembayaran,barang.tanggal_kirim,barang.no_resi FROM user,barang,dtrans,(SELECT htrans.Notajual,htrans.Status_pembayaran,buktipembayaran.Foto FROM htrans LEFT JOIN buktipembayaran ON htrans.Notajual=buktipembayaran.Notajual) AS sub_query WHERE barang.barang_id=dtrans.Id_barang AND dtrans.Notajual=sub_query.Notajual AND user.Id_user=dtrans.Id_user AND barang.id_toko='".$toko."'");
 		return $query->result();
 	}
 
