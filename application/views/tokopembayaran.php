@@ -310,9 +310,9 @@
                     		if($key->Status_pembayaran==1){
 							?>
 								<td>
-									<form action="<?= base_url('Cont/kirimbarang/'.$key->Id_barang)?>" method="post">
-										<input type="text" name="no_resi" id='<?=$key->Id_barang?>_resi' placeholder="Nomor Resi Pengiriman" >
-										<input type='submit' class='button-login' id='<?=$key->Id_barang?>_submit' value='Kirim Barang'>
+									<form action="<?= base_url('Cont/kirimbarang/'.$key->dtrans_id)?>" method="post">
+										<input type="text" name="no_resi" id='<?=$key->dtrans_id?>_resi' placeholder="Nomor Resi Pengiriman" >
+										<input type='submit' class='button-login' id='<?=$key->dtrans_id?>_submit' value='Kirim Barang'>
 									</form>
 								</td>
 							<?php
