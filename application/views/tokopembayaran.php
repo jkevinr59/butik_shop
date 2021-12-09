@@ -290,6 +290,8 @@
                 					<th>Jumlah</th>
                 					<th>Harga Satuan</th>
                 					<th>Subtotal</th>
+                					<th>Alamat</th>
+									
                 					<th>Status Order</th>
                 					<th>Aksi</th>
                 				</tr>
@@ -299,6 +301,7 @@
                     		echo "<td>$key->Nama_user</td>";
                     		echo "<td><img src='".base_url('resource/').$key->foto_barang."' width='200px' height='200px'/> $key->barang_nama</td>";
                     		echo "<td>$key->Jumlah</td>";
+                    		echo "<td>$key->Alamat</td>";
                     		echo "<td>Rp.".number_format($key->harga_satuan,2,',','.')."</td>";
                     		echo "<td>Rp.".number_format($key->Subtotal,2,',','.')."</td>";
                     		if(!$key->tanggal_kirim){
