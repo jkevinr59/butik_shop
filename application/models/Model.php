@@ -1142,7 +1142,7 @@ public function __construct(){
 		return $this->db->select('*')->from("dtrans")
 		->order_by('id',"desc")
 		->where('Id_User',$iduser)
-		->take(20)
+		->limit(20)
 		->get()->result();
 	}
 	public function getpayment($nama)
