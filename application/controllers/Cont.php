@@ -152,7 +152,7 @@ public function __construct()
 		var_dump($nomorResi,$trans_id);
 		// die;
 		$this->toko_model->sendBarang($trans_id,$nomorResi);
-		$this->ke_pembayaran_toko;	
+		$this->ke_pembayaran_toko();	
 	}
 
 	public function ke_edit_toko()
