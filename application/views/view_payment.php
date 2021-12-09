@@ -397,13 +397,13 @@
 																<?php if($row->tanggal_kirim):?>
 																	<?php if($row->tanggal_terima):?>
 																		<?php if($row->tanggal_retur):?>
-																			Tanggal Retur = <?=$row->tanggal_retur?>
+																			Tanggal Retur = <?=date('d F Y',strtotime($row->tanggal_retur))?>
 
 																		<?php else:?>
-																			Tanggal Terima = <?=$row->tanggal_terima?>
+																			Tanggal Terima = <?=date('d F Y',strtotime($row->tanggal_terima))?>
 																		<?php endif;?>
 																	<?php else:?>
-																		Tanggal Kirim = <?=$row->tanggal_kirim?> 
+																		Tanggal Kirim = <?=date('d F Y',strtotime($row->tanggal_kirim))?>
 																		<br>
 																		No Resi = <?= $row->no_resi?>
 																	<?php endif;?>
