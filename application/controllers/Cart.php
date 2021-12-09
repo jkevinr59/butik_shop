@@ -254,6 +254,8 @@ class Cart extends CI_Controller
 			}
 		}
 		$data['transaksi_pending'] = $this->Model->getUserPendingTransaction($this->session->userdata('login'));
+		var_dump();
+		die;
 		$this->load->view('view_payment',$data);
 	}
 	public function do_upload()
