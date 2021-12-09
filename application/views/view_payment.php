@@ -398,14 +398,17 @@
 																	<?php if($row->tanggal_terima):?>
 																		<?php if($row->tanggal_retur):?>
 																			Tanggal Retur = <?=$row->tanggal_retur?>
+
 																		<?php else:?>
 																			Tanggal Terima = <?=$row->tanggal_terima?>
 																		<?php endif;?>
 																	<?php else:?>
-																		Tanggal Kirim = <?=$row->tanggal_kirim?>
+																		Tanggal Kirim = <?=$row->tanggal_kirim?> 
+																		<br>
+																		No Resi = <?= $row->no_resi?>
 																	<?php endif;?>
 																<?php else:?>
-																	Belum Terkirim
+																	<!-- Belum Terkirim -->
 																<?php endif;?>
 															</td>
 															<td>
@@ -416,12 +419,12 @@
 																		<?php else:?>
 																			<form action="<?= base_url('Cart/userupdatetrans/retur/'.$row->id)?>" method="post">
 																			<input type="text" class="form-control" name="no_resi" id='<?=$row->id?>_resi' style="margin-bottom: 20px;" placeholder="Nomor Resi Pengiriman" >
-																			<input type='submit' class='btn button-danger' id='<?=$row->id?>_submit' value='retur Barang'>
+																			<input type='submit' class='btn button-danger' id='<?=$row->id?>_submit' value='Retur Barang'>
 																		</form>
 																		<?php endif;?>
 																	<?php else:?>
 																		<form action="<?= base_url('Cart/userupdatetrans/sent/'.$row->id)?>" method="post">
-																			<input type='submit' class='btn button-primary' id='<?=$row->id?>_submit' value='Kirim Barang'>
+																			<input type='submit' class='btn button-primary' id='<?=$row->id?>_submit' value='Barang Sudah Diterima'>
 																		</form>
 																	<?php endif;?>
 																<?php else:?>
