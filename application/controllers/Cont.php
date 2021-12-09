@@ -150,7 +150,7 @@ public function __construct()
 	{
 		$nomorResi = $this->input->post('no_resi');
 		var_dump($nomorResi,$trans_id);
-		die;
+		// die;
 		$this->toko_model->sendBarang($trans_id,$nomorResi);
 		$this->ke_pembayaran_toko;	
 	}
