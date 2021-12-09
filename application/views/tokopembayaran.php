@@ -305,7 +305,7 @@
                     			echo "<td>Belum dikirim</td>";
                     		}
                     		else{
-                    			echo "<td>Sudah dikirim <br>(No Resi :". $key->no_resi.")</td>";
+                    			echo "<td>Sudah dikirim <br>(No Resi : ". $key->no_resi.")</td>";
                     		}
                     		if($key->Status_pembayaran==1 ){
 							?>

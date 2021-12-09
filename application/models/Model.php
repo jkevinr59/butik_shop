@@ -1131,6 +1131,16 @@ public function __construct(){
 		}
 		return $this->db->select('*')->from("htrans")->where('Id_User',$iduser)->get()->result();
 	}
+	public function getUserPendingTransaction($nama)
+	{
+		$temp = $this->Model->getIdUser($nama);
+		$iduser='';
+		foreach($temp as $row)
+		{
+			$iduser=$row->Id_user;
+		}
+		return $this->db->select('*')->from("dtrans")->where('Id_User',$iduser)->get()->result();
+	}
 	public function getpayment($nama)
 	{
 		$temp = $this->Model->getIdUser($nama);

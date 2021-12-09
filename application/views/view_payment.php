@@ -348,7 +348,6 @@
 															<?php if($row->Status_pembayaran==0):?>
 																<td>Pembayaran Melalui <br> VA BCA:<?=$midtrans_bca[$row->Notajual]->va?> <br> VA BNI:<?=$midtrans_bni[$row->Notajual]->va?></td>	
 															<?php else:?>
-																	<td></td>
 															<?php endif;?>
 														</tr>
 													<?php  endforeach; ?>
