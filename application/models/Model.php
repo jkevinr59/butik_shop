@@ -1043,7 +1043,7 @@ public function __construct(){
 		return $kode;
 	}
 
-	public function insertdtrans_htrans($id,$nota,$ongkir = "0") {
+	public function insertdtrans_htrans($id,$nota,$ongkir = "0",$alamat="") {
 		$select_cart = $this->db->where("Id_user",$id)->get("cart")->result();
 		$total = 0;
 		$toko_terlibat = null;
@@ -1078,6 +1078,7 @@ public function __construct(){
 		$data2['Tanggal'] = date("Y-m-d");
 		$data2['Id_user'] = $id;
 		$data2['id_toko'] = $toko_terlibat;
+		$data2['Alamat'] = $alamat;
 		$data2['Total'] = $total+$ongkir;
 		$data2['ongkos_kirim'] = $ongkir;
 		// $this->db->insert('htrans',$data2);
