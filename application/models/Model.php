@@ -1212,7 +1212,7 @@ public function __construct(){
 	}
 
 	public function updateTransactionStatus($dtrans_id,$status,$keterangan=""){
-		$this->db->where('id',$dtrans->id);
+		$this->db->where('id',$dtrans_id);
 		if($status == "sent"){
 			$this->db->set('tanggal_terima',date('Y-m-d H:i:s'));
 		}
