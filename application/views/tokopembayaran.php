@@ -307,14 +307,23 @@
                     		else{
                     			echo "<td>Sudah dikirim <br>(No Resi :". $key->no_resi.")</td>";
                     		}
-                    		if($key->Status_pembayaran==1){
+                    		if($key->Status_pembayaran==1 ){
 							?>
+								<?php if(!$key->tanggal_kirim):?>
 								<td>
 									<form action="<?= base_url('Cont/kirimbarang/'.$key->dtrans_id)?>" method="post">
 										<input type="text" class="form-control" name="no_resi" id='<?=$key->dtrans_id?>_resi' style="margin-bottom: 20px;" placeholder="Nomor Resi Pengiriman" >
 										<input type='submit' class='button-login' id='<?=$key->dtrans_id?>_submit' value='Kirim Barang'>
 									</form>
 								</td>
+								<?php else:?>
+								<td>
+									<form action="<?= base_url('Cont/kirimbarang/'.$key->dtrans_id)?>" method="post">
+										<input type="text" class="form-control" name="no_resi" id='<?=$key->dtrans_id?>_resi' style="margin-bottom: 20px;" placeholder="Nomor Resi Pengiriman" >
+										<input type='submit' class='button-login' id='<?=$key->dtrans_id?>_submit' value='Edit Resi'>
+									</form>
+								</td>
+								<?php endif;?>
 							<?php
                     		}
                     		else{
