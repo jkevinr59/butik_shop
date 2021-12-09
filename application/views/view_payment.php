@@ -320,8 +320,43 @@
 								<ul class="cart_extra_total_list">
 									
 									<li class="d-flex flex-row align-items-center justify-content-start">
+										<h3>Pembayaran</h3>
+											<table class="table">
+												<thead>
+													<th>Tanggal</th>
+													<th>Total</th>
+													<th>Ongkos kirim</th>
+													<th>Status</th>
+													<th>Channel Pembayaran</th>
+													<th>Keterangan</th>
+												</thead>
+												<tbody>
 
-											<table class="table ">
+													<?php foreach($payment as $row):?>
+														<tr>
+															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
+															<td> <?=$row->Total?></td>
+															<td> <?=$row->ongkos_kirim?></td>
+															<td> <?=($row->Status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
+															<?php if(isset($midtrans_bca[$row->Notajual]->approved_at)):?>
+																<td>BCA</td>
+															<?php elseif(isset($midtrans_bni[$row->Notajual]->approved_at)):?>
+																<td>BNI</td>
+															<?php else:?>
+																<td></td>
+															<?php endif;?>
+															<?php if($row->Status_pembayaran==0):?>
+																<td>Pembayaran Melalui <br> VA BCA:<?=$midtrans_bca[$row->Notajual]->va?> <br> VA BNI:<?=$midtrans_bni[$row->Notajual]->va?></td>	
+															<?php else:?>
+															<?php endif;?>
+														</tr>
+													<?php  endforeach; ?>
+													
+												</tbody>
+											</table>
+										
+										<h3>Transaksi Belum Selesai</h3>
+											<table class="table">
 												<thead>
 													<th>Tanggal</th>
 													<th>Total</th>
