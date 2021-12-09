@@ -1139,7 +1139,8 @@ public function __construct(){
 		{
 			$iduser=$row->Id_user;
 		}
-		return $this->db->select('*')->from("dtrans")
+		return $this->db->select('dtrans.*,barang.*')->from("dtrans")
+		->join('barang','dtrans.Id_barang = barang.barang_id')
 		->order_by('id',"desc")
 		->where('Id_User',$iduser)
 		->limit(20)
