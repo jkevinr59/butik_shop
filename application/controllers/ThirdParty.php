@@ -59,13 +59,7 @@ class ThirdParty extends CI_Controller
 	}
 	public function rajaongkir_cost($origin_id,$destination_id)
 	{
-		// echo("<pre>");
-		// var_dump($origin_id,$destination_id);
-		// var_dump($this->rajaongkir->cost($origin_id,$destination_id)) ;
 		$result = $this->rajaongkir->getCostList($origin_id,$destination_id);
-		// var_dump($result);
-		// echo("</pre>");
-
 		return $this->output
 					->set_content_type('application/json')
 					->set_status_header('200')
@@ -112,11 +106,9 @@ class ThirdParty extends CI_Controller
 			//code...
 			$input = json_decode($this->security->xss_clean($this->input->raw_input_stream));
 
-			// $input = $this->input->raw_input_stream();
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log','notification at '.date('Y-m-d H:i:s').PHP_EOL,FILE_APPEND);
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',json_encode($input).PHP_EOL,FILE_APPEND);
 			$transaction_id = $input->transaction_id;
-			// var_dump($input);
 			if(substr($input->status_code,0,1)=="2"&&$input->transaction_status == "settlement"){
 				$result = $this->midtrans_model->approving_transaction($transaction_id);
 				$user = $this->model->model->getIdUser($this->session->userdata('login'));
@@ -134,7 +126,6 @@ class ThirdParty extends CI_Controller
 					
 			}
 		} catch (\Throwable $th) {
-			//throw $th;
 			log_message('error',$th->getMessage());
 			file_put_contents('/home/logs/midtrans'.date('Ymd').'.log',"error:".json_encode($th).PHP_EOL,FILE_APPEND);
 		}

@@ -344,11 +344,6 @@ public function __construct()
 	{
 		$transaksi = $this->toko_model->getTransactionReport();
 		return $this->load->view('report',compact('transaksi'));
-
-
-
-		// $data['report'] = $this->Model->getReportPemasukanBulanan();
-		// $this->load->view('report',$data);
 	}
 
 	public function getdetailorder()
