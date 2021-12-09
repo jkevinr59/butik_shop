@@ -390,7 +390,7 @@
 											<option value="<?= $row['id'] ?>"> <?= $row['name'] ?> </option>
 										<?php }?>
 									</select>
-									<input type="text" class="form control" name="alamat" id="alamat_input" placeholder="Alamat lengkap...">
+									<input type="text" class="form-control mt-2" name="alamat" id="alamat_input" placeholder="Alamat lengkap...">
 									<ul class="pengiriman" id="pengiriman_option">
 										<!-- <li class="shipping_option d-flex flex-row align-items-center justify-content-start">
 											<label class="radio_container">
@@ -768,7 +768,7 @@
 			getCostList(this.value);
 		});
 		$('#alamat_input').change(function(event){
-			console.log($(this).val());
+			$("#alamat").val($(this).val());
 		});
 	});
 
