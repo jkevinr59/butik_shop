@@ -1211,6 +1211,17 @@ public function __construct(){
 		return $query->result();
 	}
 
+	public function updateTransactionStatus($dtrans_id,$status,$keterangan=""){
+		$this->db->where('id',$dtrans->id);
+		if($status == "sent"){
+			$this->db->set('tanggal_terima',date('Y-m-d H:i:s'));
+		}
+		else if($status =="cancel"){
+			$this->db->set('tanggal_retur',date('Y-m-d H:i:s'));
+			$this->db->set('alasan_retur',$keterangan);
+		}
+		$this->db->update('dtrans');
+	}
 	public function getdetailorder($iduser,$nota)
 	{
 		$query = $this->db->query("select d.notajual as nota,b.barang_nama as nama,d.jumlah as jumlah,bp.foto as foto,d.Status_order,b.harga_satuan,d.subtotal from barang b,dtrans d,buktipembayaran bp,user u where b.barang_id = d.id_barang and bp.notajual = d.notajual and u.id_user='".$iduser."' and d.notajual='".$nota."'");
