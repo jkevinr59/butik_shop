@@ -390,6 +390,7 @@
 											<option value="<?= $row['id'] ?>"> <?= $row['name'] ?> </option>
 										<?php }?>
 									</select>
+									<input type="text" class="form control" name="alamat" id="alamat_input" placeholder="Alamat lengkap...">
 									<ul class="pengiriman" id="pengiriman_option">
 										<!-- <li class="shipping_option d-flex flex-row align-items-center justify-content-start">
 											<label class="radio_container">
@@ -461,6 +462,7 @@
 								</ul>
 								<!-- <div class="checkout_button trans_200"><a href="<?php echo site_url('Cart/checkout');?>">proceed to checkout</a></div> -->
 								<form action="<?php echo site_url('Cart/checkout');?>" method="post">
+										<input type="hidden" name="alamat" id="alamat" value="0">
 										<input type="hidden" name="ongkos_kirim" id="ongkos_kirim" value="0">
 										<!-- <div class=""> -->
 											<input class="checkout_button trans_200" type="submit" value="Checkout">
@@ -764,6 +766,9 @@
 		$('#address_input').change(function(event){
 			console.log(this.value);
 			getCostList(this.value);
+		});
+		$('#alamat_input').change(function(event){
+			$("#alamat").val(this.val());
 		});
 	});
 
