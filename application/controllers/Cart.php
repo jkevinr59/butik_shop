@@ -165,6 +165,12 @@ class Cart extends CI_Controller
 		}
 	}
 
+	public function userupdatetrans($status,$dtrans_id)
+	{
+		var_dump($status,$dtrans_id);
+		die;
+	}
+
 	public function checkoutpromo()
 	{
 		$tmp = $this->Model->getIdUser($this->session->userdata('login'));
