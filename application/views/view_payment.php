@@ -318,9 +318,10 @@
 						<div class="cart_extra cart_extra_2">
 							<div class="cart_extra_content cart_extra_total">
 								<ul class="cart_extra_total_list">
-									
-									<li class="d-flex flex-row align-items-center justify-content-start">
+									<li class="d-flex flex-row align-items-center">	
 										<h3>Pembayaran</h3>
+									</li>
+									<li class="d-flex flex-row align-items-center justify-content-start">
 											<table class="table">
 												<thead>
 													<th>Tanggal</th>
@@ -355,7 +356,12 @@
 												</tbody>
 											</table>
 										
+										
+									</li>
+									<li class="d-flex flex-row align-items-center">
 										<h3>Transaksi Belum Selesai</h3>
+									</li>
+									<li class="d-flex flex-row align-items-center">
 											<table class="table">
 												<thead>
 													<th>Nomor Transaksi</th>
