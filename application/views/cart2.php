@@ -768,7 +768,7 @@
 			getCostList(this.value);
 		});
 		$('#alamat_input').change(function(event){
-			console.log(this.val());
+			console.log($(this).val());
 		});
 	});
 
