@@ -419,12 +419,12 @@
 																		<?php else:?>
 																			<form action="<?= base_url('Cart/userupdatetrans/retur/'.$row->id)?>" method="post">
 																			<input type="text" class="form-control" name="no_resi" id='<?=$row->id?>_resi' style="margin-bottom: 20px;" placeholder="Nomor Resi Pengiriman" >
-																			<input type='submit' class='btn button-danger' id='<?=$row->id?>_submit' value='Retur Barang'>
+																			<input type='submit' class='btn btn-danger' id='<?=$row->id?>_submit' value='Retur Barang'>
 																		</form>
 																		<?php endif;?>
 																	<?php else:?>
 																		<form action="<?= base_url('Cart/userupdatetrans/sent/'.$row->id)?>" method="post">
-																			<input type='submit' class='btn button-primary' id='<?=$row->id?>_submit' value='Barang Sudah Diterima'>
+																			<input type='submit' class='btn btn-primary' id='<?=$row->id?>_submit' value='Barang Sudah Diterima'>
 																		</form>
 																	<?php endif;?>
 																<?php else:?>
