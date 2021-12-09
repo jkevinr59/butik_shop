@@ -146,6 +146,15 @@ public function __construct()
 		$this->load->view('tokopembayaran', $data);
 	}
 
+	public function kirimbarang($trans_id)
+	{
+		$nomorResi = $this->input->post('no_resi');
+		var_dump($nomorResi,$trans_id);
+		die;
+		$this->toko_model->sendBarang($trans_id,$nomorResi);
+		$this->ke_pembayaran_toko;	
+	}
+
 	public function ke_edit_toko()
 	{
 		$data['toko']= $this->Model->getToko($this->session->userdata('id_login'));

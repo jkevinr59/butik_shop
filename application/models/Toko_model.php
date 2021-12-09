@@ -90,4 +90,15 @@ class Toko_model extends CI_Model {
         $htrans = $htrans->get('htrans');
         return $htrans->result();
     }
+
+    public function sendBarang($trans_id,$no_resi)
+    {
+        $dtrans = $this->db->where('id',$trans_id)->get('dtrans')->row();
+        $this->db->where('id',$trans_id);
+        $this->db->set('no_resi',$no_resi);
+        if(!$dtrans->tanggal_kirim){
+            $this->db->set('tanggal_kirim',date('Y-m-d'));
+        }
+        $this->update('dtrans');
+    }
 }
