@@ -291,7 +291,7 @@
                 					<th>Harga Satuan</th>
                 					<th>Subtotal</th>
                 					<th>Status Order</th>
-                					<th>Detail</th>
+                					<th>Aksi</th>
                 				</tr>
                     <?php
                     	foreach ($trans as $key) {
@@ -301,14 +301,21 @@
                     		echo "<td>$key->Jumlah</td>";
                     		echo "<td>Rp.".number_format($key->harga_satuan,2,',','.')."</td>";
                     		echo "<td>Rp.".number_format($key->Subtotal,2,',','.')."</td>";
-                    		if($key->Status_order==0){
+                    		if(!$key->tanggal_kirim){
                     			echo "<td>Belum dikirim</td>";
                     		}
                     		else{
-                    			echo "<td>Sudah dikirim</td>";
+                    			echo "<td>Sudah dikirim <br>(No Resi :". $key->no_resi.")</td>";
                     		}
                     		if($key->Status_pembayaran==1){
-                    			echo "<td><input type='button' class='button-login' id='$key->barang_id-$key->Notajual-$key->Foto' name='detail' value='Detail'></td>";
+							?>
+								<td>
+									<form action="<?= base_url('Cont/kirimbarang/'.$key->Id_barang)?>" method="post">
+										<input type="text" name="no_resi" id='<?=$key->Id_barang?>_resi' placeholder="Nomor Resi Pengiriman" >
+										<input type='submit' class='button-login' id='<?=$key->Id_barang?>_submit' value='Kirim Barang'>
+									</form>
+								</td>
+							<?php
                     		}
                     		else{
                     			echo "<td>Belum dibayar</td>";
