@@ -311,7 +311,7 @@
 							?>
 								<td>
 									<form action="<?= base_url('Cont/kirimbarang/'.$key->dtrans_id)?>" method="post">
-										<input type="text" name="no_resi" id='<?=$key->dtrans_id?>_resi' placeholder="Nomor Resi Pengiriman" >
+										<input type="text" class="form-control" name="no_resi" id='<?=$key->dtrans_id?>_resi' style="margin-bottom: 20px;" placeholder="Nomor Resi Pengiriman" >
 										<input type='submit' class='button-login' id='<?=$key->dtrans_id?>_submit' value='Kirim Barang'>
 									</form>
 								</td>
