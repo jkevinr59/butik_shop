@@ -325,7 +325,7 @@ p {
 
       <h3>Daftar Barang Per Kategori</h3>
       <?php foreach($barang['data'] as $kategori):?>
-        <h4>Kategori <?=$kategori->nama_kategori?></h4>
+        <h4>Kategori <?=$kategori['nama_kategori']?></h4>
         <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
@@ -337,7 +337,7 @@ p {
               </thead>
               <tbody>
                   <?php $i = 0;?>
-                  <?php foreach($transaksi['unpaid'] as $item):?>
+                  <?php foreach($kategori['data'] as $item):?>
                     <?php $i++;?>
                     <tr>
                       <td><?= $i?></td>
