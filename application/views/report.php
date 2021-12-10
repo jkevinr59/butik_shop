@@ -295,8 +295,8 @@ p {
 <div class="main">
   <div class="hipsum">
     <div class="jumbotron">
-     
-      <h3>Daftar Transaksi Barang</h3>
+    <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+      <h3 class="mt-3">Daftar Transaksi Barang</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
