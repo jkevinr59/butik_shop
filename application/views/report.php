@@ -294,6 +294,58 @@ p {
 <div class="main">
   <div class="hipsum">
     <div class="jumbotron">
+      <h3>Laporan Pengguna</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+              <thead>
+                <th>#</th>
+                <th>Jenis Pengguna</th>
+                <th>Jumlah</th>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Customer</td>
+                    <td><?=$user['user']-$user['pemilik_toko']?></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Pemilik Toko</td>
+                    <td><?=$user['pemilik_toko']?></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Semua Pengguna</td>
+                    <td><?=$user['user']?></td>
+                  </tr>
+                  
+              </tbody>
+        </table>
+
+      </div>
+      <h3>Laporan Kategori Barang</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+              <thead>
+                <th>#</th>
+                <th>Jenis Kategori</th>
+                <th>Jumlah</th>
+              </thead>
+              <tbody>
+                <?php $i = 0;?>
+                <?php foreach($barang as $row):?>
+                  <?php $i++;?>
+                  <tr>
+                    <td><?=$i?></td>
+                    <td><?=$row->nama_kategori?></td>
+                    <td><?=$row->jumlah?></td>
+                  </tr>
+                <?php endforeach;?>
+                  
+              </tbody>
+        </table>
+
+      </div>
       <h3>Daftar Transaksi Barang</h3>
       <div class="table-responsive">
         <table class="table table-bordered">

@@ -347,9 +347,8 @@ public function __construct()
 		$transaksi = $this->toko_model->getTransactionReport();
 		$user = $this->admin_model->getJumlahUser();
 		$barang = $this->admin_model->getBarangPerKategori();
-		var_dump($user,$barang);
 		die;
-		return $this->load->view('report',compact('transaksi'));
+		return $this->load->view('report',compact('transaksi','user','barang'));
 	}
 
 	public function getdetailorder()
