@@ -334,7 +334,7 @@ p {
               </thead>
               <tbody>
                   <?php $i = 0;?>
-                  <?php foreach($transaksi['returned'] as $item):?>
+                  <?php foreach($midtrans['data'] as $item):?>
                     <?php $i++;?>
                     <tr>
                       <td><?= $i?></td>
