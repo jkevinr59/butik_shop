@@ -146,11 +146,23 @@ public function __construct()
 		$this->load->view('tokopembayaran', $data);
 	}
 
-	public function kirimbarang($trans_id)
+	public function kirimbarangbackup($trans_id)
 	{
 		$nomorResi = $this->input->post('no_resi');
 		var_dump($nomorResi,$trans_id);
 		// die;
+		$this->toko_model->sendBarang($trans_id,$nomorResi);
+		$this->ke_pembayaran_toko();	
+	}
+
+	public function kirimbarang($trans_id)
+	{
+		$day = date('d');
+		$month = date('m');
+		$year = date('Y');
+		$no_urut = rand(1,1000);
+		$no_urut = str_pad($no_urut,4,"0",STR_PAD_LEFT);
+		$nomorResi = "jne/reg/".$year."/".$month."/".$day."/".$no_urut;
 		$this->toko_model->sendBarang($trans_id,$nomorResi);
 		$this->ke_pembayaran_toko();	
 	}
