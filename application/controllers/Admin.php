@@ -390,12 +390,13 @@ public function __construct()
 		return $this->load->view('admin_midtrans',compact('midtrans'));
 	}
 
-	public function unverified_user()
+	public function verified_user()
 	{
-		$user = $this->admin_model->getUnverifiedUser();
-		return $this->load->view('report',compact('transaksi','user','barang'));
+		$user = $this->admin_model->getVerifiedUser();
+		$status = "verified";
+		return $this->load->view('admin_reportuser',compact('user'));
 	}
-
+	
 	public function getdetailorder()
 	{
 		$nota = $this->input->post('nota');

@@ -43,15 +43,17 @@ class Admin_model extends CI_Model {
         return compact('summary','data');
     }
     public function getVerifiedUser(){
-        $summary = $this->db->where('Status_verify',1)->get("user")->num_rows();
-        $data = $this->db->where('Status_verify',1)->get("user")->result();
+        $summary = $this->db->select('count(*) as total,user.Status_verify')
+        ->group_by('user.Status_verify')
+        ->get("user")->result();
+        $data_verified = $this->db->where('Status_verify','1')
+        ->get("user")->result();
+        $data_unverified = $this->db->where('Status_verify','0')
+        ->get("user")->result();
+        $data=[$data_unverified,$data_verified];
         return compact('summary','data');
     }
-    public function getUnverifiedUser(){
-        $summary = $this->db->where('Status_verify',0)->get("user")->num_rows();
-        $data = $this->db->where('Status_verify',0)->get("user")->result();
-        return compact('summary','data');
-    }
+    
 
     public function getPendingTransaction(){
         $unpaid = $this->db
