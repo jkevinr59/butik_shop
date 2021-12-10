@@ -375,11 +375,21 @@ public function __construct()
 		$barang = $this->admin_model->getBarangPerKategori();
 		return $this->load->view('report',compact('transaksi','user','barang'));
 	}
-	public function halamanreportkategoribarang()
+	public function kategoribarang()
 	{
 		$barang = $this->admin_model->getBarangPerKategori();
-		return $this->load->view('reportkategoribarang',compact('barang'));
+		var_dump($barang);
+		die;
+		return $this->load->view('admin_kategoribarang',compact('barang'));
 	}
+	public function midtrans_transaction()
+	{
+		$midtrans = $this->admin_model->getMidtransReport();
+		var_dump($midtrans);
+		die;
+		return $this->load->view('admin_midtrans',compact('barang'));
+	}
+
 	public function halamanreportregistrasi()
 	{
 		$transaksi = $this->toko_model->getTransactionReport();

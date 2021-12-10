@@ -32,6 +32,19 @@ class Admin_model extends CI_Model {
         return compact("summary","data");
     }
 
+    public function getMidtransReport(){
+        $user = $this->db->join('htrans','htrans.Notajual = midtrans_transaction.Notajual')->get("midtrans_transactions")->result();
+        return $user;
+    }
+    public function getVerifiedUser(){
+        $user = $this->db->where('Status_verify',0)->get("user")->result();
+        return $user;
+    }
+    public function getUnverifiedUser(){
+        $user = $this->db->where('Status_verify',0)->get("user")->result();
+        return $user;
+    }
+
     public function getPendingTransaction(){
         $unpaid = $this->db
         ->join('barang','barang.barang_id = dtrans.Id_barang')
