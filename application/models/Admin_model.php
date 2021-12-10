@@ -58,12 +58,12 @@ class Admin_model extends CI_Model {
     {
         $this->db->where('id',$dtrans_id);
         $this->db->set('tanggal_bayar_admin',date('Y-m-d H:i:s'));
-        $this->update('dtrans');
+        $this->db->update('dtrans');
     }
     public function verifyReturnTransaction($dtrans_id)
     {
         $this->db->where('id',$dtrans_id);
         $this->db->set('tanggal_terima_retur',date('Y-m-d H:i:s'));
-        $this->update('dtrans');
+        $this->db->update('dtrans');
     }
 }
