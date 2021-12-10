@@ -328,6 +328,13 @@ public function __construct()
 		redirect('Admin/gantistatus');
 	}
 
+	public function get_pending_transaction()
+	{
+		$transaksi = $this->admin_model->getPendingTransaction();
+		$this->session->set_userdata('iduserstatus',$id);
+		redirect('Admin/gantistatus');
+	}
+
 	public function gantistatus() {
 	  $id = $this->session->userdata("iduserstatus");
 	  $this->Model->gantiVerify($id);
@@ -343,6 +350,28 @@ public function __construct()
 	}
 
 	public function halamanreport()
+	{
+		$transaksi = $this->toko_model->getTransactionReport();
+		return $this->load->view('report',compact('transaksi'));
+	}
+	public function transaksipending()
+	{
+		$transaksi = $this->admin_model->getPendingTransaction();
+		return $this->load->view('admin_transaksipending',compact('transaksi'));
+	}
+	public function halamanreportumkm()
+	{
+		$transaksi = $this->toko_model->getTransactionReport();
+		$user = $this->admin_model->getJumlahUser();
+		$barang = $this->admin_model->getBarangPerKategori();
+		return $this->load->view('report',compact('transaksi','user','barang'));
+	}
+	public function halamanreportkategoribarang()
+	{
+		$barang = $this->admin_model->getBarangPerKategori();
+		return $this->load->view('reportkategoribarang',compact('barang'));
+	}
+	public function halamanreportregistrasi()
 	{
 		$transaksi = $this->toko_model->getTransactionReport();
 		$user = $this->admin_model->getJumlahUser();
