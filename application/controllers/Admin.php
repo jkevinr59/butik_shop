@@ -390,11 +390,9 @@ public function __construct()
 		return $this->load->view('admin_midtrans',compact('midtrans'));
 	}
 
-	public function halamanreportregistrasi()
+	public function unverified_user()
 	{
-		$transaksi = $this->toko_model->getTransactionReport();
-		$user = $this->admin_model->getJumlahUser();
-		$barang = $this->admin_model->getBarangPerKategori();
+		$user = $this->admin_model->getUnverifiedUser();
 		return $this->load->view('report',compact('transaksi','user','barang'));
 	}
 
