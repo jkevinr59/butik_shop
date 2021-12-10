@@ -22,7 +22,9 @@ class Admin_model extends CI_Model {
         $data = [];
         $kategori = $this->db->get('kategori')->result();
         foreach($kategori as $row){
-            $rowdata = $this->db->where('id_kategori',$row->id_kategori)->get('barang')->result();
+            $rowdata = $this->db->where('id_kategori',$row->id_kategori)
+            ->join('toko',"barang.id_toko = toko.id_toko")
+            ->get('barang')->result();
             array_push($data,[
                 "id_kategori" => $row->id_kategori,
                 "nama_kategori" => $row->nama_kategori,

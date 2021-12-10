@@ -378,16 +378,16 @@ public function __construct()
 	public function kategoribarang()
 	{
 		$barang = $this->admin_model->getBarangPerKategori();
-		var_dump($barang);
-		die;
+		// var_dump($barang);
+		// die;
 		return $this->load->view('admin_kategoribarang',compact('barang'));
 	}
 	public function midtrans_transaction()
 	{
 		$midtrans = $this->admin_model->getMidtransReport();
-		var_dump($midtrans);
-		die;
-		return $this->load->view('admin_midtrans',compact('barang'));
+		// var_dump($midtrans);
+		// die;
+		return $this->load->view('admin_midtrans',compact('midtrans'));
 	}
 
 	public function halamanreportregistrasi()
