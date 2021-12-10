@@ -13,6 +13,7 @@ public function __construct()
 	$this->load->library('pagination');
 	$this->load->model('Model');
 	$this->load->model('toko_model');
+	$this->load->model('admin_model');
   }
 	 //contoh perubahan
 
@@ -337,12 +338,17 @@ public function __construct()
 	public function halamanpromo()
 	{
 		$data['promo'] = $this->Model->showpromo();
+
 		$this->load->view('promo',$data);
 	}
 
 	public function halamanreport()
 	{
 		$transaksi = $this->toko_model->getTransactionReport();
+		$user = $this->admin_model->getJumlahUser();
+		$barang = $this->admin_model->getBarangPerKategori();
+		var_dump($user,$barang);
+		die;
 		return $this->load->view('report',compact('transaksi'));
 	}
 
