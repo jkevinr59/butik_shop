@@ -9,8 +9,8 @@ class Admin_model extends CI_Model {
     }
 
     public function getJumlahUser(){
-        $user = $this->db->get('user')->count_all_results();
-        $pemilik_toko = $this->db->get('toko')->count_all_results();
+        $user = $this->db->get('user')->num_rows();
+        $pemilik_toko = $this->db->get('toko')->num_rows();
         return compact('user','pemilik_toko');
     }
     public function getBarangPerKategori(){
