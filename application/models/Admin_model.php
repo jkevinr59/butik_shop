@@ -35,9 +35,11 @@ class Admin_model extends CI_Model {
     }
 
     public function getMidtransReport(){
-        $user = $this->db->join('htrans','htrans.Notajual = midtrans_transactions.trans_id')
+        $summary = $this->db->select('sum(Total) as total,midtrans_transactions.channel')->join('htrans','htrans.Notajual = midtrans_transactions.trans_id')
         ->where('canceled_at is NULL')->get("midtrans_transactions")->result();
-        return $user;
+        $data = $this->db->join('htrans','htrans.Notajual = midtrans_transactions.trans_id')
+        ->where('canceled_at is NULL')->get("midtrans_transactions")->result();
+        return compact('summary','data');
     }
     public function getVerifiedUser(){
         $user = $this->db->where('Status_verify',0)->get("user")->result();

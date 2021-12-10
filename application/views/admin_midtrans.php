@@ -295,31 +295,23 @@ p {
 <div class="main">
   <div class="hipsum">
     <div class="jumbotron">
-     
-      <h3>Daftar Transaksi Belum Dibayar ke Penjual</h3>
+      <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+      <h3>Summary Pembayaran Midtrans</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
                 <th>#</th>
-                <th>Toko</th>
-                <th>Barang</th>
-                <th>Nominal</th>
-                <th>Tanggal Terima Barang</th>
-                <th>Aksi</th>
+                <th>Channel Pembayaran</th>
+                <th>Total</th>
               </thead>
               <tbody>
                   <?php $i = 0;?>
-                  <?php foreach($transaksi['unpaid'] as $item):?>
+                  <?php foreach($midtrans['summary'] as $item):?>
                     <?php $i++;?>
                     <tr>
                       <td><?= $i?></td>
-                      <td><?= $item->nama_toko?></td>
-                      <td><?= $item->barang_nama?></td>
-                      <td><?= $item->Subtotal?></td>
-                      <td><?= date('d F Y',strtotime($item->tanggal_terima))?></td>
-                      <td>
-                          <a class="btn btn-primary" href="<?=base_url("Admin/paidtransaction/".$item->id)?>">Bayar</a>
-                      </td>
+                      <td><?= $item->channel?></td>
+                      <td><?= $item->total?></td>
                     </tr>
                   <?php endforeach;?>
                   
@@ -329,19 +321,16 @@ p {
 
       </div>
 
-      <h3>Daftar Transaksi Dikembalikan Pembeli</h3>
+      <h3>Daftar Transaksi Midtrans</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
                 <th>#</th>
-                <th>Toko</th>
-                <th>Barang</th>
-                <th>Nominal</th>
-                <th>Pembeli</th>
-                <th>Email Pembeli</th>
-                <th>Tanggal Retur Barang</th>
-                <th>Alasan</th>
-                <th>Aksi</th>
+                <th>Channel</th>
+                <th>No Transaksi</th>
+                <th>Dibayar Pada</th>
+                <th>Jumlah</th>
+                <th>Order Id</th>
               </thead>
               <tbody>
                   <?php $i = 0;?>
@@ -349,16 +338,11 @@ p {
                     <?php $i++;?>
                     <tr>
                       <td><?= $i?></td>
-                      <td><?= $item->nama_toko?></td>
-                      <td><?= $item->barang_nama?></td>
-                      <td><?= $item->Subtotal?></td>
-                      <td><?= $item->Nama_user?></td>
-                      <td><?= $item->Email?></td>
-                      <td><?= date('d F Y',strtotime($item->tanggal_retur))?></td>
-                      <td><?= $item->alasan_retur?></td>
-                      <td>
-                          <a class="btn btn-primary" href="<?=base_url("Admin/verifyreturn/".$item->id)?>">Setujui Pengembalian</a>
-                      </td>
+                      <td><?= $item->channel?></td>
+                      <td><?= $item->trans_id?></td>
+                      <td><?= date('d M Y',strtotime($item->approved_at))?></td>
+                      <td><?= $item->Total?></td>
+                      <td><?= $item->order_id?></td>
                     </tr>
                   <?php endforeach;?>
                   
