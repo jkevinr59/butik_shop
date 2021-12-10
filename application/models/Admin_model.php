@@ -34,12 +34,16 @@ class Admin_model extends CI_Model {
 
     public function getPendingTransaction(){
         $unpaid = $this->db
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
         ->where('tanggal_kirim is NOT NULL')
         ->where('tanggal_terima is NOT NULL')
         ->where('tanggal_bayar_admin is NULL')
         ->where('tanggal_retur is NULL')
         ->order_by('tanggal_terima','asc')->get('dtrans')->result();
         $returned = $this->db
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
         ->where('tanggal_kirim is NOT NULL')
         ->where('tanggal_terima is NOT NULL')
         ->where('tanggal_retur is NOT NULL')
