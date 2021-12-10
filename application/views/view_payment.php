@@ -421,7 +421,7 @@
 																			<input type='submit' class='btn btn-danger' id='<?=$row->id?>_submit' value='Retur Barang'>
 																		</form>
 																		<form action="<?= base_url('Cart/userupdatetrans/sent/'.$row->id)?>" method="post">
-																			<input type='submit' class='btn btn-primary mt-5' id='<?=$row->id?>_submit' value='Barang Sudah Diterima'>
+																			<input type='submit' class='btn btn-primary mt-2' id='<?=$row->id?>_submit' value='Barang Sudah Diterima'>
 																		</form>
 																		
 																	<?php endif;?>
