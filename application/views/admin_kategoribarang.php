@@ -344,7 +344,7 @@ p {
                       <td><?= $item->barang_id?></td>
                       <td><?= $item->nama_toko?></td>
                       <td><?= $item->barang_nama?></td>
-                      <td><?= $item->stok?></td>
+                      <td><?= $item->barang_stok?></td>
                     </tr>
                   <?php endforeach;?>
               </tbody>
