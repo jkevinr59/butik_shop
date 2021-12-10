@@ -56,8 +56,13 @@ class Admin_model extends CI_Model {
    
     public function updatePaidTransaction($dtrans_id)
     {
+        $komisi = 5000;
+        $dtrans  = $this->db->where('id',$dtrans_id)->get('dtrans')->row();
+        
         $this->db->where('id',$dtrans_id);
         $this->db->set('tanggal_bayar_admin',date('Y-m-d H:i:s'));
+        $this->db->set('nominal_bayar_admin',($dtrans->Subtotal-$komisi));
+        
         $this->db->update('dtrans');
     }
     public function verifyReturnTransaction($dtrans_id)
