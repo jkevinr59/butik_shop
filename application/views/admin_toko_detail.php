@@ -314,16 +314,6 @@ p {
     <li id='toko'><a href="<?php echo site_url('Admin/view_toko'); ?>"><i class="fa fa-truck"></i><span>Toko</span></a></li>
     <!-- <li><a href="<?php echo site_url('Admin/halamanpromo'); ?>"><i class="fa fa-money"></i><span>Promo</span></a></li> -->
     <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
-    <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
     <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_master_blog'); ?>"><i class="fa fa-bar-chart"></i><span>List Blog</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_buat_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Buat Blog</span></a></li>
