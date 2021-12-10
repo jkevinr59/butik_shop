@@ -393,7 +393,6 @@ public function __construct()
 	public function verified_user()
 	{
 		$user = $this->admin_model->getVerifiedUser();
-		$status = "verified";
 		return $this->load->view('admin_reportuser',compact('user'));
 	}
 	
