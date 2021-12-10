@@ -36,6 +36,7 @@ class Admin_model extends CI_Model {
 
     public function getMidtransReport(){
         $summary = $this->db->select('sum(Total) as total,midtrans_transactions.channel')->join('htrans','htrans.Notajual = midtrans_transactions.trans_id')
+        ->group_by('midtrans_transactions.channel')
         ->where('canceled_at is NULL')->get("midtrans_transactions")->result();
         $data = $this->db->join('htrans','htrans.Notajual = midtrans_transactions.trans_id')
         ->where('canceled_at is NULL')->get("midtrans_transactions")->result();
