@@ -33,7 +33,7 @@ class Admin_model extends CI_Model {
     }
 
     public function getMidtransReport(){
-        $user = $this->db->join('htrans','htrans.Notajual = midtrans_transaction.Notajual')->get("midtrans_transactions")->result();
+        $user = $this->db->join('htrans','htrans.Notajual = midtrans_transaction.trans_id')->get("midtrans_transactions")->result();
         return $user;
     }
     public function getVerifiedUser(){
