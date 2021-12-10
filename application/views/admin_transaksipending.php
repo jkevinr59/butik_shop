@@ -336,6 +336,8 @@ p {
                 <th>Toko</th>
                 <th>Barang</th>
                 <th>Nominal</th>
+                <th>Pembeli</th>
+                <th>Email Pembeli</th>
                 <th>Tanggal Retur Barang</th>
                 <th>Alasan</th>
                 <th>Aksi</th>
@@ -349,6 +351,8 @@ p {
                       <td><?= $item->nama_toko?></td>
                       <td><?= $item->barang_nama?></td>
                       <td><?= $item->Subtotal?></td>
+                      <td><?= $item->Nama_user?></td>
+                      <td><?= $item->Email?></td>
                       <td><?= date('d F Y',strtotime($item->tanggal_retur))?></td>
                       <td><?= $item->alasan_retur?></td>
                       <td>

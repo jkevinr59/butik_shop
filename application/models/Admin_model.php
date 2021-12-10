@@ -44,6 +44,7 @@ class Admin_model extends CI_Model {
         $returned = $this->db
         ->join('barang','barang.barang_id = dtrans.Id_barang')
         ->join('toko','barang.id_toko = toko.id_toko')
+        ->join('user','dtrans.Id_user = user.Id_user')
         ->where('tanggal_kirim is NOT NULL')
         ->where('tanggal_terima is NOT NULL')
         ->where('tanggal_retur is NOT NULL')
