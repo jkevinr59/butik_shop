@@ -359,6 +359,15 @@ public function __construct()
 		$transaksi = $this->admin_model->getPendingTransaction();
 		return $this->load->view('admin_transaksipending',compact('transaksi'));
 	}
+
+	public function paidtransaction($dtrans_id){
+		$this->admin_model->updatePaidTransaction($dtrans_id);
+		$this->transaksipending();
+	}
+	public function verifyreturn($dtrans_id){
+		$this->admin_model->verifyReturnTransaction($dtrans_id);
+		$this->transaksipending();
+	}
 	public function halamanreportumkm()
 	{
 		$transaksi = $this->toko_model->getTransactionReport();

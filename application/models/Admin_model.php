@@ -46,7 +46,7 @@ class Admin_model extends CI_Model {
         ->join('toko','barang.id_toko = toko.id_toko')
         ->join('user','dtrans.Id_user = user.Id_user')
         ->where('tanggal_kirim is NOT NULL')
-        ->where('tanggal_terima is NOT NULL')
+        ->where('tanggal_terima is NULL')
         ->where('tanggal_retur is NOT NULL')
         ->where('tanggal_terima_retur is NULL')
         ->order_by('tanggal_terima','asc')->get('dtrans')->result();
@@ -54,4 +54,16 @@ class Admin_model extends CI_Model {
         
     }
    
+    public function updatePaidTransaction($dtrans_id)
+    {
+        $this->db->where('id',$dtrans_id);
+        $this->db->set('tanggal_bayar_admin',date('Y-m-d H:i:s'));
+        $this->update('dtrans');
+    }
+    public function verifyReturnTransaction($dtrans_id)
+    {
+        $this->db->where('id',$dtrans_id);
+        $this->db->set('tanggal_terima_retur',date('Y-m-d H:i:s'));
+        $this->update('dtrans');
+    }
 }
