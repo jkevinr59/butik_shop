@@ -285,6 +285,7 @@ p {
     <li><a href="<?php echo site_url('Admin/midtrans_transaction'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Midtrans</span></a></li>
     <li><a href="<?php echo site_url('Admin/report_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Blog</span></a></li>
     <li><a href="<?php echo site_url('Admin/verified_user'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan User</span></a></li>
+    <li><a href="<?php echo site_url('Admin/report_toko'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan UMKM</span></a></li>
     <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_master_blog'); ?>"><i class="fa fa-bar-chart"></i><span>List Blog</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_buat_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Buat Blog</span></a></li>
