@@ -319,7 +319,7 @@ p {
                 </tr>
               <?php endforeach;?>
             <tfoot>
-              <th colspan="2">Total jumlah blog</th>
+              <th colspan="6">Total jumlah blog</th>
               <th><?=count($toko)?></th>
             </tfoot>
       </table>
