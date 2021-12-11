@@ -395,6 +395,11 @@ public function __construct()
 		$user = $this->admin_model->getVerifiedUser();
 		return $this->load->view('admin_reportuser',compact('user'));
 	}
+	public function report_blog()
+	{
+		$data['barang']=$this->Model->selectBlog();
+		$this->load->view('admin_reportblog', $data);
+	}
 	
 	public function getdetailorder()
 	{
