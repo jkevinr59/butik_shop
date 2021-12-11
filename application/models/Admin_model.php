@@ -53,6 +53,13 @@ class Admin_model extends CI_Model {
         $data=[$data_unverified,$data_verified];
         return compact('summary','data');
     }
+
+    public function getToko(){
+        $toko = $this->db
+        ->join('user','toko.id_pemilik = user.Id_user')
+        ->get('toko')->result();
+        return $toko;
+    }
     
 
     public function getPendingTransaction(){

@@ -400,6 +400,12 @@ public function __construct()
 		$data['barang']=$this->Model->selectBlog();
 		$this->load->view('admin_reportblog', $data);
 	}
+
+	public function report_toko()
+	{
+		$data['toko'] = $this->admin_model->getToko();
+		$this->load->view('admin_reporttoko',$data);
+	}
 	
 	public function getdetailorder()
 	{
