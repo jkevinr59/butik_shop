@@ -309,8 +309,8 @@ p {
                 </tr>
               <?php endforeach;?>
             <tfoot>
-              <td colspan="2">Total jumlah blog</td>
-              <td><?=count($barang)?></td>
+              <th colspan="2">Total jumlah blog</th>
+              <th><?=count($barang)?></th>
             </tfoot>
       </table>
     </div>
