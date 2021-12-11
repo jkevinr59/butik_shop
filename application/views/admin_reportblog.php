@@ -291,6 +291,8 @@ p {
 <div class="main">
   <div class="hipsum">
     <div class="jumbotron">
+      <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+      <h3>Laporan Blog</h3>
       <br>
       <table class="table table-bordered">
             <tr>
@@ -306,7 +308,10 @@ p {
                   <td><?=$row->isi?></td>
                 </tr>
               <?php endforeach;?>
-            
+            <tfoot>
+              <td colspan="2">Total jumlah blog</td>
+              <td><?=count($barang)?></td>
+            </tfoot>
       </table>
     </div>
   </div>
