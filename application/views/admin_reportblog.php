@@ -110,6 +110,7 @@ p {
 }
 .sidebar {
   position: fixed;
+  overflow: scroll;
   z-index: 10;
   left: 0;
   top: 50px;

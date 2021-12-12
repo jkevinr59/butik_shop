@@ -116,6 +116,7 @@ p {
 }
 .sidebar {
   position: fixed;
+  overflow: scroll;
   z-index: 10;
   left: 0;
   top: 50px;
@@ -130,7 +131,7 @@ p {
 .sidebar:hover,
 .sidebar.active,
 .sidebar.hovered {
-  width: 250px;
+  width: 300px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
