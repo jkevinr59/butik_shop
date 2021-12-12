@@ -76,7 +76,7 @@ class Admin_model extends CI_Model {
         ->group_by('barang.id_toko')
         ->where('tanggal_bayar_admin is not NULL')
         ->get('dtrans')->result();
-        compact('summary','data');
+        return compact('summary','data');
     }
     
 
