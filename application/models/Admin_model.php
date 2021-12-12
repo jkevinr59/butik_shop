@@ -78,6 +78,24 @@ class Admin_model extends CI_Model {
         ->get('dtrans')->result();
         return compact('summary','data');
     }
+
+    public function getTransaksiRetur()
+    {
+        $data = $this->db
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
+        ->where('tanggal_terima_retur is not NULL')
+        ->order_by('tanggal_terima_retur','desc')
+        ->get('dtrans')->result();
+
+        $summary = $this->db->select('toko.id_toko,toko.nama_toko,count(*) as total_transaksi')
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
+        ->group_by('barang.id_toko')
+        ->where('tanggal_terima_retur is not NULL')
+        ->get('dtrans')->result();
+        return compact('summary','data');
+    }
     
 
     public function getPendingTransaction(){

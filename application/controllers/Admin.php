@@ -411,6 +411,11 @@ public function __construct()
 		$data['transaksi'] = $this->admin_model->getTransaksiTerbayar();
 		$this->load->view('admin_reportpembayaran',$data);
 	}
+	public function report_retur()
+	{
+		$data['transaksi'] = $this->admin_model->getTransaksiRetur();
+		$this->load->view('admin_reportretur',$data);
+	}
 	
 	public function getdetailorder()
 	{
