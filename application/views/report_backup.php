@@ -287,6 +287,8 @@ p {
     <li id='toko'><a href="<?php echo site_url('Admin/view_toko'); ?>"><i class="fa fa-truck"></i><span>Toko</span></a></li>
     <li><a href="<?php echo site_url('Admin/halamanpromo'); ?>"><i class="fa fa-money"></i><span>Promo</span></a></li>
     <li><a href="<?php echo site_url('Admin/transaksipending'); ?>"><i class="fa fa-bar-chart"></i><span>Transaksi Pending</span></a></li>
+    <li><a href="<?php echo site_url('Admin/report_pembayaran'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Transaksi Terbayar</span></a></li>
+    <li><a href="<?php echo site_url('Admin/report_retur'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Transaksi Retur</span></a></li>
     <li><a href="<?php echo site_url('Admin/kategoribarang'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Kategori Barang</span></a></li>
     <li><a href="<?php echo site_url('Admin/midtrans_transaction'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Midtrans</span></a></li>
     <li><a href="<?php echo site_url('Admin/report_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Blog</span></a></li>
