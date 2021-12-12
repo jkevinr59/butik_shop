@@ -421,6 +421,11 @@ public function __construct()
 		$data['transaksi'] = $this->admin_model->getTransaksiRajaongkir();
 		$this->load->view('admin_reportrajaongkir',$data);
 	}
+	public function report_keaktifan()
+	{
+		$data['transaksi'] = $this->admin_model->getKeaktifanUser();
+		$this->load->view('admin_reportaktifuser',$data);
+	}
 	
 	public function getdetailorder()
 	{

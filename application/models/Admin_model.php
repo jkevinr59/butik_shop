@@ -99,19 +99,19 @@ class Admin_model extends CI_Model {
 
     public function getTransaksiRajaongkir()
     {
-        $data = $this->db->get('htrans')->result();
+        $data = $this->db->where('ongkos_kirim > 0')->get('htrans')->result();
 
-        $summary = $this->db->select('htrans.Tanggal,sum(htrans.ongkos_kirim) as total_ongkir')
+        $summary = $this->db->where('ongkos_kirim > 0')->select('htrans.Tanggal,sum(htrans.ongkos_kirim) as total_ongkir,count(*) as total_transaksi')
         ->group_by('htrans.Tanggal')
         ->get('dtrans')->result();
         return compact('summary','data');
     }
 
-    public function keaktifanUser()
+    public function getKeaktifanUser()
     {
         
         $summary = $this->db
-        ->select('user.Id_user,user.Nama_user,sum(Subtotal) as total_nominal,count(*) as total_transaksi')
+        ->select('user.Id_user,user.Nama_user,sum(Subtotal) as total_nominal,count(*) as total_transaksi,user.Email')
         ->join('user','user.Id_user = dtrans.Id_user')
         ->where('tanggal_terima is not NULL')
         ->order_by('tanggal_terima','desc')
