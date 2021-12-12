@@ -70,9 +70,10 @@ class Admin_model extends CI_Model {
         ->order_by('tanggal_bayar_admin','desc')
         ->get('dtrans')->result();
 
-        $summary = $this->db->select('toko.Id_toko,toko.nama_toko,sum(barang.nominal_bayar_admin) as total_bayar')
+        $summary = $this->db->select('toko.id_toko,toko.nama_toko,sum(dtrans.nominal_bayar_admin) as total_bayar')
         ->join('barang','barang.barang_id = dtrans.Id_barang')
         ->join('toko','barang.id_toko = toko.id_toko')
+        ->group_by('barang.id_toko')
         ->where('tanggal_bayar_admin is not NULL')
         ->order_by('tanggal_bayar_admin','desc')
         ->get('dtrans')->result();
