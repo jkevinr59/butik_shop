@@ -158,7 +158,7 @@ p {
 .sidebar:hover,
 .sidebar.active,
 .sidebar.hovered {
-  width: 250px;
+  width: 300px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
