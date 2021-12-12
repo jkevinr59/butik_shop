@@ -96,6 +96,34 @@ class Admin_model extends CI_Model {
         ->get('dtrans')->result();
         return compact('summary','data');
     }
+
+    public function getTransaksiRajaongkir()
+    {
+        $data = $this->db->get('htrans')->result();
+
+        $summary = $this->db->select('htrans.Tanggal,sum(htrans.ongkos_kirim) as total_ongkir')
+        ->group_by('htrans.Tanggal')
+        ->get('dtrans')->result();
+        return compact('summary','data');
+    }
+
+    public function keaktifanUser()
+    {
+        
+        $summary = $this->db
+        ->select('user.Id_user,user.Nama_user,sum(Subtotal) as total_nominal,count(*) as total_transaksi')
+        ->join('user','user.Id_user = dtrans.Id_user')
+        ->where('tanggal_terima is not NULL')
+        ->order_by('tanggal_terima','desc')
+        ->get('dtrans')->result();
+        $data = $this->db
+        ->join('user','user.Id_user = dtrans.Id_user')
+        ->where('tanggal_terima is not NULL')
+        ->order_by('tanggal_terima','desc')
+        ->get('dtrans')->result();
+        return compact('summary','data');
+    }
+    
     
 
     public function getPendingTransaction(){
