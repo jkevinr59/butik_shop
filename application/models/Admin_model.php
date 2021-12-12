@@ -103,7 +103,7 @@ class Admin_model extends CI_Model {
 
         $summary = $this->db->where('ongkos_kirim > 0')->select('htrans.Tanggal,sum(htrans.ongkos_kirim) as total_ongkir,count(*) as total_transaksi')
         ->group_by('htrans.Tanggal')
-        ->get('dtrans')->result();
+        ->get('htrans')->result();
         return compact('summary','data');
     }
 
