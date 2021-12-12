@@ -75,7 +75,6 @@ class Admin_model extends CI_Model {
         ->join('toko','barang.id_toko = toko.id_toko')
         ->group_by('barang.id_toko')
         ->where('tanggal_bayar_admin is not NULL')
-        ->order_by('tanggal_bayar_admin','desc')
         ->get('dtrans')->result();
         compact('summary','data');
     }
