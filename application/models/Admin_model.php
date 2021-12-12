@@ -115,7 +115,6 @@ class Admin_model extends CI_Model {
         ->join('user','user.Id_user = dtrans.Id_user')
         ->where('tanggal_terima is not NULL')
         ->group_by('dtrans.Id_user')
-        ->order_by('tanggal_terima','desc')
         ->get('dtrans')->result();
         $data = $this->db
         ->join('user','user.Id_user = dtrans.Id_user')
