@@ -319,6 +319,7 @@ p {
                 <?php $i++;?>
                 <tr>
                   <td><?=$i?></td>
+                  <td><?= date('d M Y',strtotime($item->Tanggal))?></td>
                   <td><?= $item->total_ongkir?></td>
                   <td><?= $item->total_transaksi?></td>
                 </tr>
@@ -329,7 +330,7 @@ p {
 
       </div>
 
-      <h3>Daftar Retur</h3>
+      <h3>Daftar Ongkos Kirim transaksi</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
