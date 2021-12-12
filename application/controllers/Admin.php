@@ -406,6 +406,11 @@ public function __construct()
 		$data['toko'] = $this->admin_model->getToko();
 		$this->load->view('admin_reporttoko',$data);
 	}
+	public function report_pembayaran()
+	{
+		$data['transaksi'] = $this->admin_model->getTransaksiTerbayar();
+		$this->load->view('admin_reportpembayaran',$data);
+	}
 	
 	public function getdetailorder()
 	{

@@ -60,6 +60,24 @@ class Admin_model extends CI_Model {
         ->get('toko')->result();
         return $toko;
     }
+
+    public function getTransaksiTerbayar()
+    {
+        $data = $this->db
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
+        ->where('tanggal_bayar_admin is not NULL')
+        ->order_by('tanggal_bayar_admin','desc')
+        ->get('dtrans')->result();
+
+        $summary = $this->db->select('toko.Id_toko,toko.nama_toko,sum(barang.nominal_bayar_admin) as total_bayar')
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
+        ->where('tanggal_bayar_admin is not NULL')
+        ->order_by('tanggal_bayar_admin','desc')
+        ->get('dtrans')->result();
+        compact('summary','data');
+    }
     
 
     public function getPendingTransaction(){
