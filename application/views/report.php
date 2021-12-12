@@ -121,7 +121,7 @@ p {
   left: 0;
   top: 50px;
   height: 100%;
-  width: 60px;
+  width: 70px;
   background: #fff;
   border-right: 1px solid #ddd;
   text-align: center;
