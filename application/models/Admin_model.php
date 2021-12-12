@@ -114,6 +114,7 @@ class Admin_model extends CI_Model {
         ->select('user.Id_user,user.Nama_user,sum(Subtotal) as total_nominal,count(*) as total_transaksi,user.Email')
         ->join('user','user.Id_user = dtrans.Id_user')
         ->where('tanggal_terima is not NULL')
+        ->group_by('dtrans.Id_user')
         ->order_by('tanggal_terima','desc')
         ->get('dtrans')->result();
         $data = $this->db
