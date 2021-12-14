@@ -360,6 +360,16 @@ public function __construct()
 		return $this->load->view('admin_transaksipending',compact('transaksi'));
 	}
 
+	public function updatetrans($status,$dtrans_id)
+	{
+		$keterangan = null;
+		if($status == "cancel")
+		{
+			$keterangan = $this->input->post("alasan_retur");
+		}
+		$this->Model->updateTransactionStatus($dtrans_id,$status,$keterangan);
+		$this->transaksipending();
+	}
 	public function paidtransaction($dtrans_id){
 		$this->admin_model->updatePaidTransaction($dtrans_id);
 		$this->transaksipending();
