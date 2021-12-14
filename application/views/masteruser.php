@@ -325,6 +325,7 @@ p {
     <li><a href="<?php echo site_url('Admin/report_rajaongkir'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Rajaongkir</span></a></li>
     <li><a href="<?php echo site_url('Admin/report_keaktifan'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Keaktifan User</span></a></li>
     <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Transaksi User</span></a></li>
+    <li><a href="<?php echo site_url('Admin/reportstok'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Stok Transaksi</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_master_blog'); ?>"><i class="fa fa-bar-chart"></i><span>List Blog</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_buat_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Buat Blog</span></a></li>
   </ul>

@@ -298,7 +298,6 @@ p {
     <li><a href="<?php echo site_url('Admin/report_rajaongkir'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Rajaongkir</span></a></li>
     <li><a href="<?php echo site_url('Admin/report_keaktifan'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Keaktifan User</span></a></li>
     <li><a href="<?php echo site_url('Admin/halamanreport'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Transaksi User</span></a></li>
-    <li><a href="<?php echo site_url('Admin/reportstok'); ?>"><i class="fa fa-bar-chart"></i><span>Laporan Stok Transaksi</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_master_blog'); ?>"><i class="fa fa-bar-chart"></i><span>List Blog</span></a></li>
     <li><a href="<?php echo site_url('Admin/ke_buat_blog'); ?>"><i class="fa fa-bar-chart"></i><span>Buat Blog</span></a></li>
   </ul>
@@ -307,22 +306,24 @@ p {
   <div class="hipsum">
     <div class="jumbotron">
       <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
-      <h3>Summary User</h3>
+      <h3>Summary Pembayaran</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
                 <th>#</th>
-                <th>Jenis Laporan</th>
-                <th>Total</th>
+                <th>Nama Toko</th>
+                <th>Jumlah Stok Keluar</th>
+                <th>Total Transaksi</th>
               </thead>
               <tbody>
                 <?php $i=0;?>
-                <?php foreach($user['summary'] as $item):?>
+                <?php foreach($transaksi['summary'] as $item):?>
                 <?php $i++;?>
                 <tr>
                   <td><?=$i?></td>
-                  <td><?= ($item->Status_verify==0)?"User Belum Terverifikasi":"User Terverifikasi"?></td>
-                  <td><?= $item->total?></td>
+                  <td><?= $item->nama_toko?></td>
+                  <td><?= $item->stok_keluar?></td>
+                  <td><?= $item->jumlah_transaksi?></td>
                 </tr>
                 <?php endforeach;?>
               </tbody>
@@ -331,22 +332,26 @@ p {
 
       </div>
 
-      <h3>Daftar User Belum Verifikasi</h3>
+      <h3>Daftar Retur</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
-                <th>#</th>
-                <th>Email</th>
-                <th>Nama</th>
+              <th>#</th>
+                <th>Nota</th>
+                <th>Barang</th>
+                <th>Stok</th>
+                <th>Tanggal Kirim</th>
               </thead>
               <tbody>
                   <?php $i = 0;?>
-                  <?php foreach($user['data'][0] as $item):?>
+                  <?php foreach($transaksi['data'] as $item):?>
                     <?php $i++;?>
                     <tr>
                       <td><?= $i?></td>
-                      <td><?= $item->Email?></td>
-                      <td><?= $item->Nama_user?></td>
+                      <td><?= $item->Notajual?></td>
+                      <td><?= $item->barang_nama?></td>
+                      <td><?= $item->Jumlah?></td>
+                      <td><?= date('d M Y',strtotime($item->tanggal_kirim))?></td>
                     </tr>
                   <?php endforeach;?>
                   
@@ -355,29 +360,6 @@ p {
         </table>
 
       </div>
-
-      <h3>Daftar User Sudah Verifikasi</h3>
-      <div class="table-responsive">
-        <table class="table table-bordered">
-              <thead>
-                <th>#</th>
-                <th>Email</th>
-                <th>Nama</th>
-              </thead>
-              <tbody>
-                  <?php $i = 0;?>
-                  <?php foreach($user['data'][1] as $item):?>
-                    <?php $i++;?>
-                    <tr>
-                      <td><?= $i?></td>
-                      <td><?= $item->Email?></td>
-                      <td><?= $item->Nama_user?></td>
-                    </tr>
-                  <?php endforeach;?>
-                  
-              </tbody>
-              
-        </table>
 
       </div>
 	</div>

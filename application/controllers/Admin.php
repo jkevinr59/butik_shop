@@ -359,6 +359,11 @@ public function __construct()
 		$transaksi = $this->admin_model->getPendingTransaction();
 		return $this->load->view('admin_transaksipending',compact('transaksi'));
 	}
+	public function reportstok()
+	{
+		$transaksi = $this->admin_model->getReportStok();
+		return $this->load->view('admin_stok',compact('transaksi'));
+	}
 
 	public function updatetrans($status,$dtrans_id)
 	{

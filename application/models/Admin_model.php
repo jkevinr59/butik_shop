@@ -123,6 +123,21 @@ class Admin_model extends CI_Model {
         ->get('dtrans')->result();
         return compact('summary','data');
     }
+
+    public function getReportStok()
+    {
+        $data = $this->db->where('tanggal_kirim is not NULL')
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
+        ->order_by('tanggal_kirim','asc')->get('dtrans')->result();
+        $summary = $this->db->select('toko.nama_toko,toko.id_toko,sum(dtrans.Jumlah) as stok_keluar,count(*) as jumlah_transaksi')
+        ->where('tanggal_kirim is not NULL')
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko')
+        ->group_by('toko.id_toko')
+        ->order_by('tanggal_kirim','asc')->get('dtrans')->result();
+        return compact('summary','data');
+    }
     
     
 
