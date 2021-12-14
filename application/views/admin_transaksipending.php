@@ -368,6 +368,9 @@ p {
                       <td><?= $item->alasan_retur?></td>
                       <td>
                           <a class="btn btn-primary" href="<?=base_url("Admin/verifyreturn/".$item->id)?>">Setujui Pengembalian</a>
+                          <form action="<?= base_url('Cart/userupdatetrans/cancel_retur/'.$row->id)?>" method="post">
+                              <input type='submit' class='btn btn-primary mt-2' id='<?=$row->id?>_submit' value='Tolak Pengajuan'>
+                            </form>
                       </td>
                     </tr>
                   <?php endforeach;?>

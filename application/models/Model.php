@@ -1220,6 +1220,11 @@ public function __construct(){
 			$this->db->set('tanggal_retur',date('Y-m-d H:i:s'));
 			$this->db->set('alasan_retur',$keterangan);
 		}
+		else if($status == "cancel_retur"){
+			$this->db->set('tanggal_terima',date('Y-m-d H:i:s'));
+			$this->db->set('tanggal_retur',null);
+
+		}
 		$this->db->update('dtrans');
 	}
 	public function getdetailorder($iduser,$nota)
