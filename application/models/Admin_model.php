@@ -135,7 +135,7 @@ class Admin_model extends CI_Model {
         ->join('barang','barang.barang_id = dtrans.Id_barang')
         ->join('toko','barang.id_toko = toko.id_toko')
         ->group_by('toko.id_toko')
-        ->order_by('tanggal_kirim','asc')->get('dtrans')->result();
+        ->get('dtrans')->result();
         return compact('summary','data');
     }
     
