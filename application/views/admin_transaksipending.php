@@ -382,7 +382,7 @@ p {
 
       </div>
 
-      <h3>Daftar Transaksi Belum Dibayar ke Penjual</h3>
+      <h3>Daftar Transaksi Belum Diterima Pembeli</h3>
       <div class="table-responsive">
         <table class="table table-bordered">
               <thead>
