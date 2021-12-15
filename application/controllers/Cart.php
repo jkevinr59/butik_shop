@@ -168,7 +168,7 @@ class Cart extends CI_Controller
 	public function userupdatetrans($status,$dtrans_id)
 	{
 		$keterangan = null;
-		if($status == "cancel")
+		if($status == "retur")
 		{
 			$keterangan = $this->input->post("alasan_retur");
 		}
