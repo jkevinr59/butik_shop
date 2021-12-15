@@ -1227,6 +1227,8 @@ public function __construct(){
 		}
 		else if($status == "onsent")
 		{
+			var_dump($dtrans_id,$status,$keterangan);
+			die;
 			$this->db->set('Status_order',$keterangan);
 		}
 		$this->db->update('dtrans');
