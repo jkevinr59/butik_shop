@@ -303,13 +303,28 @@
                     		echo "<td>$key->Jumlah</td>";
                     		echo "<td>$key->Alamat</td>";
                     		echo "<td>Rp.".number_format($key->harga_satuan,2,',','.')."</td>";
-                    		echo "<td>Rp.".number_format($key->Subtotal,2,',','.')."</td>";
-                    		if(!$key->tanggal_kirim){
-                    			echo "<td>Belum dikirim</td>";
-                    		}
-                    		else{
-                    			echo "<td>Sudah dikirim <br>(No Resi : ". $key->no_resi.")</td>";
-                    		}
+                    		echo "<td>Rp.".number_format($key->Subtotal,2,',','.')."</td>";?>
+                    		<?php if(!$key->tanggal_kirim):?>
+                    			<td>Belum dikirim</td>
+                    		
+                    		<?php else:?>
+								
+                    			<td>
+									<?php if($key->Status_order == 0):?>
+										Barang sedang dikirim
+									<?php elseif($key->Status_order == 1):?>	
+										Barang pada pihak ekspedisi
+									<?php elseif($key->Status_order == 2):?>	
+										Barang tiba pada gudang
+									<?php elseif($key->Status_order == 3):?>	
+										Barang diantar kurir
+									<?php elseif($key->Status_order == 4):?>
+										Barang sampai pada pelanggan	
+									<?php endif;?>	
+									<br>(No Resi : <?=$key->no_resi?>)
+								</td>
+                    		<?php endif;?>
+							<?php
                     		if($key->Status_pembayaran==1 ){
 							?>
 								<?php if(!$key->tanggal_kirim):?>
