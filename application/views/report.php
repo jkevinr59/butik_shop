@@ -334,7 +334,7 @@ p {
                       <td><?= $item->Nama_user?></td>
                       <td><?= $item->Email?></td>
                       <td><?= date('d F Y',strtotime($item->tanggal_transaksi))?></td>
-                      <td><?= $item->Subtotal?></td>
+                      <td>Rp. <?= number_format($item->Subtotal)?></td>
                     </tr>
                   <?php endforeach;?>
                   
