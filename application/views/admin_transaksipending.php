@@ -405,7 +405,7 @@ p {
                       <td>Rp <?= number_format($item->Subtotal)?></td>
                       <td><?= date('d F Y',strtotime($item->tanggal_kirim))?></td>
                       <td>
-                            <form action="<?=base_url("Admin/updatetrans/onsent/".$item->id)?>" method="get" id="update_status_form_<?=$item->id?>">
+                            <form action="<?=base_url("Admin/updatetrans/onsent/".$item->id)?>" method="post" id="update_status_form_<?=$item->id?>">
                               <select name="Status_order">
                                 <option value="0" <?=($item->Status_order==0)?"selected":""?> >Barang sedang dikirim</option>
                                 <option value="1" <?=($item->Status_order==1)?"selected":""?> >Barang pada pihak ekspedisi</option>
