@@ -1219,7 +1219,6 @@ public function __construct(){
 		else if($status =="retur"){
 			$this->db->set('tanggal_retur',date('Y-m-d H:i:s'));
 			$this->db->set('alasan_retur',$keterangan);
-			var_dump($keterangan);
 			die;
 		}
 		else if($status == "cancel_retur"){
