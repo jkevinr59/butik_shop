@@ -372,6 +372,10 @@ public function __construct()
 		{
 			$keterangan = $this->input->post("alasan_retur");
 		}
+		if($status = "onsent")
+		{
+			$keterangan = $this->input->post('Status_order');
+		}
 		$this->Model->updateTransactionStatus($dtrans_id,$status,$keterangan);
 		$this->transaksipending();
 	}

@@ -159,7 +159,12 @@ class Admin_model extends CI_Model {
         ->where('tanggal_retur is NOT NULL')
         ->where('tanggal_terima_retur is NULL')
         ->order_by('tanggal_terima','asc')->get('dtrans')->result();
-        return compact('unpaid','returned');
+        $onsent = $this->db
+        ->where('tanggal_kirim is not NULL')
+        ->where('tanggal_terima is NULL')
+        ->join('barang','barang.barang_id = dtrans.Id_barang')
+        ->join('toko','barang.id_toko = toko.id_toko');
+        return compact('unpaid','returned','onsent');
         
     }
    

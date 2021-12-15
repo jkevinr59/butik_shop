@@ -322,7 +322,7 @@ p {
                 <tr>
                   <td><?=$i?></td>
                   <td><?= $item->nama_toko?></td>
-                  <td><?= $item->total_bayar?></td>
+                  <td>Rp. <?= number_format($item->total_bayar)?></td>
                 </tr>
                 <?php endforeach;?>
               </tbody>
@@ -348,7 +348,7 @@ p {
                     <tr>
                       <td><?= $i?></td>
                       <td><?= $item->nama_toko?></td>
-                      <td><?= $item->nominal_bayar_admin?></td>
+                      <td>Rp. <?= number_format($item->nominal_bayar_admin)?></td>
                       <td><?= date('d M Y',strtotime($item->tanggal_bayar_admin))?></td>
                       <td><?= $item->Notajual?></td>
                     </tr>

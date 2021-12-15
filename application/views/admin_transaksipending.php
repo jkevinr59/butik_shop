@@ -326,7 +326,7 @@ p {
                       <td><?= $i?></td>
                       <td><?= $item->nama_toko?></td>
                       <td><?= $item->barang_nama?></td>
-                      <td><?= $item->Subtotal?></td>
+                      <td>Rp. <?= number_format($item->Subtotal)?></td>
                       <td><?= date('d F Y',strtotime($item->tanggal_terima))?></td>
                       <td>
                           <a class="btn btn-primary" href="<?=base_url("Admin/paidtransaction/".$item->id)?>">Bayar</a>
@@ -362,7 +362,7 @@ p {
                       <td><?= $i?></td>
                       <td><?= $item->nama_toko?></td>
                       <td><?= $item->barang_nama?></td>
-                      <td><?= $item->Subtotal?></td>
+                      <td>Rp. <?= number_format($item->Subtotal)?></td>
                       <td><?= $item->Nama_user?></td>
                       <td><?= $item->Email?></td>
                       <td><?= date('d F Y',strtotime($item->tanggal_retur))?></td>
@@ -372,6 +372,51 @@ p {
                           <form action="<?= base_url('Admin/updatetrans/cancel_retur/'.$item->id)?>" method="post">
                               <input type='submit' class='btn btn-primary mt-2' id='<?=$item->id?>_submit' value='Tolak Pengajuan'>
                             </form>
+                      </td>
+                    </tr>
+                  <?php endforeach;?>
+                  
+              </tbody>
+              
+        </table>
+
+      </div>
+
+      <h3>Daftar Transaksi Belum Dibayar ke Penjual</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+              <thead>
+                <th>#</th>
+                <th>Toko</th>
+                <th>Barang</th>
+                <th>Nominal</th>
+                <th>Tanggal Kirim</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </thead>
+              <tbody>
+                  <?php $i = 0;?>
+                  <?php foreach($transaksi['onsent'] as $item):?>
+                    <?php $i++;?>
+                    <tr>
+                      <td><?= $i?></td>
+                      <td><?= $item->nama_toko?></td>
+                      <td><?= $item->barang_nama?></td>
+                      <td>Rp <?= number_format($item->Subtotal)?></td>
+                      <td><?= date('d F Y',strtotime($item->tanggal_kirim))?></td>
+                      <td>
+                            <form action="<?=base_url("Admin/updatetrans/onsent/".$item->id)?>" method="get" id="update_status_form_<?=$item->id?>">
+                              <select name="Status_order">
+                                <option value="0" <?=($item->Status_order==0)?"selected":""?> >Barang sedang dikirim</option>
+                                <option value="1" <?=($item->Status_order==1)?"selected":""?> >Barang pada pihak ekspedisi</option>
+                                <option value="2" <?=($item->Status_order==2)?"selected":""?> >Barang tiba pada gudang</option>
+                                <option value="3" <?=($item->Status_order==3)?"selected":""?> >Barang diantar kurir</option>
+                                <option value="4" <?=($item->Status_order==4)?"selected":""?> >Barang sampai pada pelanggan</option>
+                              </select>
+                            </form>
+                      </td> 
+                      <td>
+                          <button type="button" class="btn btn-primary" onclick="document.getElementById('update_status_form_<?$item->id?>').submit()" >Update Status</button>
                       </td>
                     </tr>
                   <?php endforeach;?>

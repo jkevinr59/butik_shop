@@ -323,7 +323,7 @@ p {
                 <tr>
                   <td><?=$i?></td>
                   <td><?= date('d M Y',strtotime($item->Tanggal))?></td>
-                  <td><?= $item->total_ongkir?></td>
+                  <td>Rp. <?= number_format($item->total_ongkir)?></td>
                   <td><?= $item->total_transaksi?></td>
                 </tr>
                 <?php endforeach;?>
@@ -349,7 +349,7 @@ p {
                     <tr>
                       <td><?= $i?></td>
                       <td><?= date('d M Y',strtotime($item->Tanggal))?></td>
-                      <td><?= $item->ongkos_kirim?></td>
+                      <td>Rp. <?= number_format($item->ongkos_kirim)?></td>
                       <td><?= $item->Notajual?></td>
                     </tr>
                   <?php endforeach;?>

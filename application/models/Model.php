@@ -1225,6 +1225,10 @@ public function __construct(){
 			$this->db->set('tanggal_retur',null);
 
 		}
+		else if($status == "onsent")
+		{
+			$this->db->set('Status_order',$keterangan);
+		}
 		$this->db->update('dtrans');
 	}
 	public function getdetailorder($iduser,$nota)

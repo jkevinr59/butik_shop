@@ -422,7 +422,7 @@ p {
                   <tr>
                     <td><?= $item->barang_nama?></td>
                     <td><?= $item->Jumlah?></td>
-                    <td><?= $item->Subtotal?></td>
+                    <td>Rp. <?= number_format($item->Subtotal)?></td>
                     <td><?= $item->Nama_user?></td>
                     <td><?= $item->Email?></td>
                   </tr>

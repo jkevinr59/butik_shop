@@ -336,8 +336,8 @@
 													<?php foreach($payment as $row):?>
 														<tr>
 															<td><?= date('d M Y',strtotime($row->Tanggal))?></td>
-															<td> <?=$row->Total?></td>
-															<td> <?=$row->ongkos_kirim?></td>
+															<td> Rp. <?= number_format($row->Total)?></td>
+															<td> Rp. <?= number_format($row->ongkos_kirim)?></td>
 															<td> <?=($row->Status_pembayaran==1?"Lunas":"Belum Lunas")?></td>
 															<?php if(isset($midtrans_bca[$row->Notajual]->approved_at)):?>
 																<td>BCA</td>
@@ -387,7 +387,17 @@
 																			Sudah diterima
 																		<?php endif;?>
 																	<?php else:?>
-																		Sedang dikirim
+																		<?php if($row->Status_order == 0):?>
+																			Barang sedang dikirim
+																		<?php elseif($row->Status_order == 1):?>	
+																			Barang pada pihak ekspedisi
+																		<?php elseif($row->Status_order == 2):?>	
+																			Barang tiba pada gudang
+																		<?php elseif($row->Status_order == 3):?>	
+																			Barang diantar kurir
+																		<?php elseif($row->Status_order == 4):?>
+																			Barang sampai pada pelanggan	
+																		<?php endif;?>	
 																	<?php endif;?>
 																<?php else:?>
 																	Belum Terkirim
